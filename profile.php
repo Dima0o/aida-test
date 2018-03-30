@@ -31,7 +31,7 @@ function theme($tmp){
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Каталог товаров</title>
+  <title><?=theme(1)?></title>
   <link rel="apple-touch-icon" href="../../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
   <!-- Stylesheets -->
@@ -384,7 +384,7 @@ function theme($tmp){
         <input type="text" class="form-control" placeholder="Search the knowledge base...">
       </div>
     </div>
-    <?require_once('app/catalog.php');?>
+    <?require_once('app/profile.php');?>
   </div>
 </div>
 
@@ -446,88 +446,83 @@ function theme($tmp){
 
 </script>
 <script type="text/javascript">
- //корзина
-/* $("#result").on("click",".tag",function() {
-    console.log($(this).text());
-  });*/
+  //корзина
+  /* $("#result").on("click",".tag",function() {
+      console.log($(this).text());
+    });*/
 
- $("#result").on("click",".add",function() {
+  $("#result").on("click",".add",function() {
 //  $('.add').click(function() {
-      var caunts=Number($('#cadr_number').html());
-      caunts=caunts+1;
-      var conut= $('[data-role="container"]').css("height");
-      conut=Number(conut.substr( 0,conut.length - 2));
-      if (conut+80 > 270 ) {
-        conut=230;
+    var caunts=Number($('#cadr_number').html());
+    caunts=caunts+1;
+    var conut= $('[data-role="container"]').css("height");
+    conut=Number(conut.substr( 0,conut.length - 2));
+    if (conut+80 > 270 ) {
+      conut=230;
+    }
+    else {
+      conut=conut+80;
+    };
+    $('#cadr_number').html(caunts);
+    //var blok= $(this).closest(".panel");
+    //console.log();
+    $('[data-role="container"]').css({'height': ''+conut+'px'});
+    $('#card').append('<a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">\n' +
+      '                      <div class="media">\n' +
+      '                        <div class="media-left p-r-10">\n' +
+      '                         <img class="card-img-top" src="'+$(this).attr('src')+'">\n' +
+      '                        </div>\n' +
+      '                        <div class="media-body">\n' +
+      '                          <h6 class="media-heading">'+$(this).attr('data-name')+'</h6>\n' +
+      '                          <time class="media-meta" datetime="2017-06-12T20:50:48+08:00">'+$(this).attr('data-price')+'</time>\n' +
+      '                        </div>\n' +
+      '                      </div>\n' +
+      '                    </a>');
+    //console.log(conut);
+  });
+
+  //каталог
+
+  //работа с получение категорий
+
+  function showMessage(e,uid) {
+
+    console.log($(this).attr('data-name'));
+    var data= '<div class="page vertical-align text-xs-center layout-full" data-animsition-in="fade-in" data-animsition-out="fade-out">\n' +
+      '  <div class="page-content vertical-align-middle">\n' +
+      '    <i class="icon wb-settings icon-spin page-maintenance-icon" aria-hidden="true" style="font-size: 64px;"></i>\n' +
+      '  </div>\n' +
+      '</div>\n';
+    $('#result').html(data);
+    $.ajax({
+      type: "POST",
+      data: "primer=" + uid,
+      url: 'lol.php',
+      success: function(data) {
+        $(".active").text(e);
+        $('#result').html(data);
       }
-      else {
-        conut=conut+80;
-      };
-      $('#cadr_number').html(caunts);
-      //var blok= $(this).closest(".panel");
-      //console.log();
-      $('[data-role="container"]').css({'height': ''+conut+'px'});
-      $('#card').append('<a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">\n' +
-        '                      <div class="media">\n' +
-        '                        <div class="media-left p-r-10">\n' +
-        '                         <img class="card-img-top" src="'+$(this).attr('src')+'">\n' +
-        '                        </div>\n' +
-        '                        <div class="media-body">\n' +
-        '                          <h6 class="media-heading">'+$(this).attr('data-name')+'</h6>\n' +
-        '                          <time class="media-meta" datetime="2017-06-12T20:50:48+08:00">'+$(this).attr('data-price')+'</time>\n' +
-        '                        </div>\n' +
-        '                      </div>\n' +
-        '                    </a>');
-      //console.log(conut);
     });
+  };
+  function PageCatalog(uid) {
 
-   //каталог
-
-//работа с получение категорий
-
- function showMessage(e,uid) {
-
-     console.log($(this).attr('data-name'));
-     var data= '<div class="page vertical-align text-xs-center layout-full" data-animsition-in="fade-in" data-animsition-out="fade-out">\n' +
-       '  <div class="page-content vertical-align-middle">\n' +
-       '    <i class="icon wb-settings icon-spin page-maintenance-icon" aria-hidden="true" style="font-size: 64px;"></i>\n' +
-       '  </div>\n' +
-       '</div>\n';
-     $('#result').html(data);
-     $.ajax({
-       type: "POST",
-       data: "primer=" + uid,
-       url: 'lol.php',
-       success: function(data) {
-         $(".active").text(e);
-         $('#result').html(data);
-       }
- });
- };
- function PageCatalog(uid) {
-
-   console.log($(this).attr('data-name'));
-   var data= '<div class="page vertical-align text-xs-center layout-full" data-animsition-in="fade-in" data-animsition-out="fade-out">\n' +
-     '  <div class="page-content vertical-align-middle">\n' +
-     '    <i class="icon wb-settings icon-spin page-maintenance-icon" aria-hidden="true" style="font-size: 64px;"></i>\n' +
-     '  </div>\n' +
-     '</div>\n';
-   $('#result').html(data);
-   $.ajax({
-     type: "POST",
-     data: "primer=" + uid,
-     url: 'app/profile.php',
-     success: function(data) {
-       $(".active").text('Продукты такие');
-       $('#result').html(data);
-       var arr = ["Яблоко", "Апельсин", "Груша"];
-
-       arr.forEach(function(item, i, arr) {
-         alert( i + ": " + item + " (массив:" + arr + ")" );
-       });
-     }
-   });
- };
+    console.log($(this).attr('data-name'));
+    var data= '<div class="page vertical-align text-xs-center layout-full" data-animsition-in="fade-in" data-animsition-out="fade-out">\n' +
+      '  <div class="page-content vertical-align-middle">\n' +
+      '    <i class="icon wb-settings icon-spin page-maintenance-icon" aria-hidden="true" style="font-size: 64px;"></i>\n' +
+      '  </div>\n' +
+      '</div>\n';
+    $('#result').html(data);
+    $.ajax({
+      type: "POST",
+      data: "primer=" + uid,
+      url: 'app/profile.php',
+      success: function(data) {
+        $(".active").text('Продукты такие');
+        $('#result').html(data);
+      }
+    });
+  };
 </script>
 <!-- Page -->
 <script src="../../../assets/js/Site.js"></script>

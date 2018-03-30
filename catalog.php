@@ -5,6 +5,7 @@
  * Date: 22.03.2018
  * Time: 11:50
  */
+session_start();
 require_once ('app/home.php');
 require_once ('core.php');
 if(!R::testConnection()){

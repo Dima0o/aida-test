@@ -1,22 +1,19 @@
 <div class="documents-wrap article" id>
-  <div class="col-xxl-2 col-lg-6 col-xs-12">
+  <div class="col-md-12 col-lg-2">
     <!-- Example Heading With Desc -->
     <div class="panel">
 
       <div class="panel-body">
         <ul class="list-group nav list-group-dividered list-group-full" id="category">
           <?php
+          //$i=1;
+
           foreach ($load_categori as $value){
 
-
-            if ($i == 155) {
-              break;
-            }
-            $i++;
             ?>
-            <li class="list-group-item  catalog">
-              <?=$value->name?>
-            </li>
+            <a class="dropdown-item" href="javascript:showMessage('<?=$value->name?>','<?=$value->uid?>')" role="menuitem"><?=$value->name?><span class="badge badge-pill badge-success float-right"></span></a>
+
+
           <?}?>
         </ul>
       </div>
@@ -26,15 +23,21 @@
 
 
 
-  <div class="col-lg-10">
-    <div class="projects-wrap">
-      <div class="row" id="result">
+  <div class="col-md-12  col-lg-10">
+    <div class="panel">
+
+      <div class="panel-body">
+        <div class="row" id="result">
         <?
         $i=15;
+        function random_html_color()
+        {
+          return sprintf( '%02X%02X%02X', rand(0, 255), rand(0, 255), rand(0, 255) );
+        }
         foreach ($load_prod as $value){
+          $img=random_html_color();
 
-
-          if ($i == 155) {
+          if ($i == 17) {
             break;
           }
           $i++;
@@ -46,7 +49,7 @@
                 <h3 class="panel-title" data-name="<?= substr($value->name, 0, 22);
                 if (strlen($value->title) > 22) {
                     echo "...";
-                } ?>"><a href="http://node.automated-workflow.ru/catalog.php?id=<?=$value->uid?>"><?= substr($value->name, 0, 22);
+                } ?>"><a href="javascript:PageCatalog('<?=$value->uid?>')"><?= substr($value->name, 0, 22);
                     if (strlen($value->title) > 22) {
                       echo "...";
                     } ?>
@@ -57,8 +60,8 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img class="card-img-top" src="<?//=$value->image?>https://cdn.retailrocket.net/api/1.0/partner/54f030e51e99470d74ea0931/item/137759/picture/?format=png&width=250&height=250&scale=both">
-
+                <!--<img class="card-img-top" src="<?//=$value->image?>https://cdn.retailrocket.net/api/1.0/partner/54f030e51e99470d74ea0931/item/137759/picture/?format=png&width=250&height=250&scale=both">-->
+                <img  class="card-img-top" src="http://dummyimage.com/250x250/<?=$img?>" />
                 <h6><?= substr($value->about, 0, 52);
                   if (strlen($value->body) > 52) {
                     echo "...";
@@ -71,7 +74,7 @@
                       <button data-price="<?=rand(12,3552).' Рублей';?>" data-name="<?= substr($value->name, 0, 22);
                       if (strlen($value->title) > 22) {
                           echo "...";
-                      } ?>"   src="<?//=$value->image?>https://cdn.retailrocket.net/api/1.0/partner/54f030e51e99470d74ea0931/item/137759/picture/?format=png&width=50&height=50&scale=both" data-action="<?=$value->uid?>" class="add btn btn-outline-success btn-sm btn-block">В корзину</button>
+                      } ?>"   src="http://dummyimage.com/50x50/<?=$img?>" data-action="<?=$value->uid?>" class="add btn btn-outline-success btn-sm btn-block">В корзину</button>
                     </div> <!-- form-group// -->
                   </div>
                   <div class="col-md-6 text-right">
@@ -92,6 +95,7 @@
         <?} ?>
 
 
+      </div>
       </div>
     </div>
   </div>
