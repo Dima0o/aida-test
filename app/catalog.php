@@ -11,7 +11,7 @@
           foreach ($load_categori as $value){
 
             ?>
-            <a class="dropdown-item" href="javascript:showMessage('<?=$value->name?>','<?=$value->uid?>')" role="menuitem"><?=$value->name?><span class="badge badge-pill badge-success float-right"></span></a>
+            <a class="dropdown-item" href="javascript:CategoreShow('<?=$value->name?>','<?=$value->uid?>')" role="menuitem"><?=$value->name?><span class="badge badge-pill badge-success float-right"></span></a>
 
 
           <?}?>
