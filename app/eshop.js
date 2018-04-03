@@ -216,3 +216,74 @@ function PageProfiles(dat,id) {
         '</div>';
     $(id).html(blok);
 }
+  $('#foo').click(function(){
+      //console.log(this);
+      // $(this).remove();
+      $.getJSON( "https://jsonplaceholder.typicode.com/users", function( data ) {
+          Bild_Blok(data,"#result");
+
+      });
+
+  });
+
+  //работа с категриями
+  function BilWd_Blok(data,id) {
+      //alert(typeof data);
+      var items = [];
+      $.each(data, function(key, val){
+          items.push('<div class="single-product">\n' +
+              '                        <figure>\n' +
+              '                          <img src="img/content/post-img-1.jpg" alt="">\n' +
+              '\n' +
+              '                          <div class="rating">\n' +
+              '\n' +
+              '                            <ul class="list-inline">\n' +
+              '                              <li><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+              '                              <li><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+              '                              <li><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+              '                              <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>\n' +
+              '                              <li><a href="#"><i class="fa fa-star-o"></i></a></li>\n' +
+              '                            </ul>\n' +
+              '\n' +
+              '                            <p>Featured</p>\n' +
+              '\n' +
+              '                          </div> <!-- end .rating -->\n' +
+              '\n' +
+              '                          <figcaption>\n' +
+              '                            <div class="bookmark">\n' +
+              '                              <a href="#"><i class="fa fa-bookmark-o"></i> Bookmark</a>\n' +
+              '                            </div>\n' +
+              '\n' +
+              '                            <div class="read-more">\n' +
+              '                              <a href="#"><i class="fa fa-angle-right"></i> Read More</a>\n' +
+              '                            </div>\n' +
+              '\n' +
+              '                          </figcaption>\n' +
+              '                        </figure>\n' +
+              '\n' +
+              '                        <h4><a  href="javascript:CategoreShow()" role="menuitem">'+val.name+'\'s</a></h4>\n' +
+              '\n' +
+              '                        <h5><a href="#">Category</a>, <a href="#">Another Category</a></h5>\n' +
+              '\n' +
+              '                        <p>'+val.name+'.</p>\n' +
+              '\n' +
+              '                        <a class="read-more" href="#"><i class="fa fa-angle-right"></i>Read More</a>\n' +
+              '\n' +
+              '                      </div>');
+      });
+      $(id).html(items);
+
+  }
+
+  //конец работы с категориями
+  $('[data-toggle = categori]').click(function() {
+      console.log(this);
+      alert( "Handler for .click() called." );
+      log()
+  });
+  $(document).ready(function() {
+      $.getJSON( "https://jsonplaceholder.typicode.com/users", function( data ) {
+          Bild_Blok(data,"#result");
+          alert( "Handler for .click() called." );
+      });
+  });
