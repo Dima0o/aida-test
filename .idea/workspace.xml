@@ -23,11 +23,116 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eshop.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="eshop.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/eshop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="229" column="15" selection-start-line="229" selection-start-column="15" selection-end-line="229" selection-end-column="15" />
+            <state relative-caret-position="394">
+              <caret line="212" column="11" selection-end-line="289" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h6#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#h6#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#8530#11038#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="true" current-in-tab="true">
+        <entry file="remoteDeploymentFS://&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="517" lean-forward="true" selection-start-line="517" selection-end-line="517" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#html#0;n#!!top" />
+                <element signature="e#6029#6320#0#HTML" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="e#24095#25481#0#HTML" />
+                <element signature="e#25569#25886#0#HTML" />
+                <element signature="e#25919#26760#0#HTML" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#26792#27014#0#HTML" />
+                <element signature="e#27043#27316#0#HTML" />
+                <element signature="e#29658#32176#0#HTML" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h6#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#h6#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#32210#34849#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eshop.js" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/app/eshop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="136" column="30" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/app/catalog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/core.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="97" column="13" selection-end-line="462" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="03,04.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03,04.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#footer#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#3;n#div#0;n#footer#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#5845#7231#0#HTML" />
+                <element signature="e#7319#7636#0#HTML" />
+                <element signature="e#7669#8510#0#HTML" />
+                <element signature="e#8542#8764#0#HTML" />
+                <element signature="e#8793#9066#0#HTML" />
+                <element signature="e#11406#13924#0#HTML" />
+                <element signature="e#13958#16597#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,15 +155,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eshop.js" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/eshop.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="69" column="2" selection-start-line="40" selection-end-line="69" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -70,12 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$obj[$value]</find>
-      <find>&lt;?</find>
-      <find>nav-item dropdown</find>
-      <find>All notifications</find>
-      <find>func</find>
-      <find>dropdown-menu-header</find>
       <find>card</find>
       <find>maintenance</find>
       <find>col-xxl-2 col-lg-6 col-xs-12</find>
@@ -93,13 +183,19 @@
       <find>Globo</find>
       <find>href</find>
       <find>href=&quot;</find>
-      <find>result</find>
       <find>all-categories</find>
       <find>globo</find>
       <find>glob</find>
       <find>cate</find>
       <find>CategoreShow</find>
+      <find>&lt;!-- Example Heading With Desc --&gt;</find>
+      <find>errors</find>
+      <find>category</find>
+      <find>result</find>
+      <find>PageProfiles</find>
       <find>page-content</find>
+      <find>( &quot;#slider-range&quot;</find>
+      <find>PRICE</find>
     </findStrings>
     <replaceStrings>
       <replace>$value</replace>
@@ -144,6 +240,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/index.html" />
         <option value="$PROJECT_DIR$/app/eshop.js" />
+        <option value="&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/core.php" />
+        <option value="$PROJECT_DIR$/03,04.php" />
+        <option value="&lt;51ae3c6a-ed47-4bce-bd77-32699be28fa1&gt;/index.php" />
       </list>
     </option>
   </component>
@@ -197,6 +296,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -229,12 +329,12 @@
       <workItem from="1522478094148" duration="12397000" />
       <workItem from="1522500339399" duration="1544000" />
       <workItem from="1522643946002" duration="4783000" />
-      <workItem from="1522655520344" duration="9077000" />
+      <workItem from="1522655520344" duration="33280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103831000" />
+    <option name="totallyTimeSpent" value="128034000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -256,8 +356,8 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
       <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.63398695" />
-      <window_info anchor="right" id="Remote Host" order="3" visible="true" weight="0.21428572" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" anchor="right" id="Remote Host" order="3" visible="true" weight="0.21428572" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25266525" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -276,29 +376,29 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="4" />
-      <window_info active="true" anchor="right" id="Remote Host" order="3" visible="true" weight="0.21428572" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" visible="true" weight="0.21428572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32897604" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32928178" />
-      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="1" weight="0.32928178" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.63398695" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="1" weight="0.32928178" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info id="Grunt " order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,10 +468,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="97" column="13" selection-end-line="462" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/eshop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="229" column="15" selection-start-line="229" selection-start-column="15" selection-end-line="229" selection-end-column="15" />
+        <state relative-caret-position="394">
+          <caret line="212" column="11" selection-end-line="289" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#h6#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#8530#11038#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03,04.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#footer#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#footer#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#5845#7231#0#HTML" />
+            <element signature="e#7319#7636#0#HTML" />
+            <element signature="e#7669#8510#0#HTML" />
+            <element signature="e#8542#8764#0#HTML" />
+            <element signature="e#8793#9066#0#HTML" />
+            <element signature="e#11406#13924#0#HTML" />
+            <element signature="e#13958#16597#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
