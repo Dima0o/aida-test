@@ -1,0 +1,6 @@
+[user]
+	name = Diman0o
+[core]
+	autocrlf = true
+	safecrlf = false
+	eol = native
