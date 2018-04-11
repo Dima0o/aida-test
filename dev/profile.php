@@ -17,8 +17,7 @@ class Prod
 
             if ($i == mysql_num_rows($qr_result)) {
                 $row.='{
-                        "id":'.$data['id'].',
-                        "name":"'.str_replace('"', '11', $data['name']).'",
+                        "name":"'.str_replace('"', '`', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
@@ -29,8 +28,7 @@ class Prod
             } else {
 
                 $row.='{
-                        "id":'.$data['id'].',
-                        "name":"'.str_replace('"', '11', $data['name']).'",
+                        "name":"'.str_replace('"', '`', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
@@ -40,7 +38,7 @@ class Prod
             }
 
         };
-return $row;
+        return $row;
     }
 
     function categori_id()
@@ -53,8 +51,7 @@ return $row;
 
             if ($i == mysql_num_rows($qr_result)) {
                 $row.='{
-                        "id":'.$data['id'].',
-                        "name":"'.str_replace('"', '11', $data['name']).'",
+                        "name":"'.str_replace('"', '`', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
@@ -65,8 +62,7 @@ return $row;
             } else {
 
                 $row.='{
-                        "id":'.$data['id'].',
-                        "name":"'.str_replace('"', '11', $data['name']).'",
+                        "name":"'.str_replace('"', '`', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
