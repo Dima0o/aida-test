@@ -7,7 +7,7 @@ class Prod
     function all()
     {
         mb_internal_encoding("UTF-8");
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0, 50") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0, 10000") or die(mysql_error());
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
@@ -36,7 +36,7 @@ class Prod
     function categori_id()
     {
         mb_internal_encoding("UTF-8");
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` WHERE `prod`.`prod`=".$_GET['id']."LIMIT 0, 50") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` WHERE `prod`.`prod`=".$_GET['id']."LIMIT 0, 10000") or die(mysql_error());
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {

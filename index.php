@@ -363,80 +363,17 @@
                         <div class="product_grid row" id="result">
                             <div class="product_grid_border"></div>
                             <!--samo-->
-                            <div class="product_item is_new col-md-3">
-                                <div class="product_border"></div>
-                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
-                                <div class="product_content">
-                                    <div class="product_price">$225</div>
-                                    <div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>
-                                </div>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                <ul class="product_marks">
-                                    <li class="product_mark product_discount">-25%</li>
-                                    <li class="product_mark product_new">new</li>
-                                </ul>
-                            </div>
-                            <div class="product_item is_new">
-                                <div class="product_border"></div>
-                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
-                                <div class="product_content">
-                                    <div class="product_price">$225</div>
-                                    <div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>
-                                </div>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                <ul class="product_marks">
-                                    <li class="product_mark product_discount">-25%</li>
-                                    <li class="product_mark product_new">new</li>
-                                </ul>
-                            </div>
-                            <div class="product_item is_new">
-                                <div class="product_border"></div>
-                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
-                                <div class="product_content">
-                                    <div class="product_price">$225</div>
-                                    <div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>
-                                </div>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                <ul class="product_marks">
-                                    <li class="product_mark product_discount">-25%</li>
-                                    <li class="product_mark product_new">new</li>
-                                </ul>
-                            </div>
-                            <div class="product_item is_new">
-                                <div class="product_border"></div>
-                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
-                                <div class="product_content">
-                                    <div class="product_price">$225</div>
-                                    <div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>
-                                </div>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                <ul class="product_marks">
-                                    <li class="product_mark product_discount">-25%</li>
-                                    <li class="product_mark product_new">new</li>
-                                </ul>
-                            </div>
-                            <div class="product_item is_new">
-                                <div class="product_border"></div>
-                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
-                                <div class="product_content">
-                                    <div class="product_price">$225</div>
-                                    <div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>
-                                </div>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                <ul class="product_marks">
-                                    <li class="product_mark product_discount">-25%</li>
-                                    <li class="product_mark product_new">new</li>
-                                </ul>
-                            </div>
+
 
                         </div>
-
-                        <!-- Shop Page Navigation -->
-
-
-
+                        <!--Navigation -->
+                        <div class="pagination">
+                            <ul>
+                                <li><a href="#"  id="nextValue" class="prevnext">« Previous</a></li>
+                                <li><a href="#" id="PreeValue" class="prevnext">Next »</a></li>
+                            </ul>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -462,7 +399,7 @@
 
                         <div class="owl-carousel owl-theme viewed_slider">
 
-                            <!-- Недавно просмотренные Item -->
+                            <!-- Недавно просмотренфные Item -->
                             <div class="owl-item">
                                 <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                     <div class="viewed_image"><img src="images/view_1.jpg" alt=""></div>
@@ -790,7 +727,7 @@
         $.each(data, function (key, val) {
             //   val random=random.m
             items.push('<!-- Product Item -->\n' +
-                '\t\t\t\t\t\t\t<div class="product_item discount col-md-3">\n' +
+                '\t\t\t\t\t\t\t<div class="product_item discount col-md-2">\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
@@ -969,6 +906,78 @@
     }).blur(function () {
         $(this).animate({width: "250px"}, 500);
     });
+
+    //работа с пагинацией
+
+    //получение json каталогов
+
+    //конец работы с пагинацией
+   /* var max_size=b.length;
+    var sta = 0;
+    var elements_per_page = 4;
+    var limit = elements_per_page;
+    goFun(sta,limit);
+    function goFun(sta,limit) {
+        for (var i =sta ; i < limit; i++) {
+
+            var $nr = $('<tr><td>A-' + b[i]['play_id'] + '</td><td>B-' + b[i]['question1']  + '</td></tr>');
+            table.append($nr);
+        }
+    }
+    $('#nextValue').click(function(){
+
+        var next = limit;
+        if(max_size>=next) {
+            limit = limit+elements_per_page;
+            table.empty();
+            goFun(next,limit);
+        }
+    });
+    $('#PreeValue').click(function(){
+        var pre = limit-(2*elements_per_page);
+        if(pre>=0) {
+            limit = limit-elements_per_page;
+            table.empty();
+            goFun(pre,limit);
+        }
+    });
+
+    $(document).ready(function(){
+        var table =  $('#myTable');
+        var b =
+
+        var max_size=b.length;
+        var sta = 0;
+        var elements_per_page = 4;
+        var limit = elements_per_page;
+        goFun(sta,limit);
+        function goFun(sta,limit) {
+            for (var i =sta ; i < limit; i++) {
+
+                var $nr = $('<tr><td>A-' + b[i]['play_id'] + '</td><td>B-' + b[i]['question1']  + '</td></tr>');
+                table.append($nr);
+            }
+        }
+        $('#nextValue').click(function(){
+
+            var next = limit;
+            if(max_size>=next) {
+                limit = limit+elements_per_page;
+                table.empty();
+                goFun(next,limit);
+            }
+        });
+        $('#PreeValue').click(function(){
+            var pre = limit-(2*elements_per_page);
+            if(pre>=0) {
+                limit = limit-elements_per_page;
+                table.empty();
+                goFun(pre,limit);
+            }
+        });
+
+    });*/
+
 
 </script>
 
