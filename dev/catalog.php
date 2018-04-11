@@ -1,9 +1,6 @@
 <?
-
 session_start();
 include_once('core.php');
-
-
 class Prod
 {
     //public static $row='';
@@ -14,22 +11,17 @@ class Prod
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
-
             if ($i == mysql_num_rows($qr_result)) {
                 $row.='{
-                        "id":'.$data['id'].',
                         "name":"'.str_replace('"', '11', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
                         "tipe":"'.rand(0,2).'"                
                         }';
-
                 $i++;
             } else {
-
                 $row.='{
-                        "id":'.$data['id'].',
                         "name":"'.str_replace('"', '11', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
@@ -38,11 +30,9 @@ class Prod
                         },';
                 $i++;
             }
-
         };
-return $row;
+        return $row;
     }
-
     function categori_id()
     {
         mb_internal_encoding("UTF-8");
@@ -50,22 +40,17 @@ return $row;
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
-
             if ($i == mysql_num_rows($qr_result)) {
                 $row.='{
-                        "id":'.$data['id'].',
                         "name":"'.str_replace('"', '11', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
                         "price":"'.rand(0,222122).'",
                         "tipe":"'.rand(0,2).'"                
                         }';
-
                 $i++;
             } else {
-
                 $row.='{
-                        "id":'.$data['id'].',
                         "name":"'.str_replace('"', '11', $data['name']).'",
                         "uid":"'.$data['uid'].'",
                         "categori":"'.$data['prod'].'",
@@ -74,12 +59,10 @@ return $row;
                         },';
                 $i++;
             }
-
         };
         return $row;
     }
 }
-
 $Prod = new Prod;
 ?>
 
@@ -90,10 +73,6 @@ $Prod = new Prod;
 if (isset($_GET['id'])) {
     //echo 'adasdad';
     echo $Prod->categori_id();
-
 }else {
     echo $Prod->all();} ?>]
 }
-
-
-
