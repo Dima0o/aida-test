@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="51ae3c6a-ed47-4bce-bd77-32699be28fa1" name="new aida" url="http://aida.k99969kp.beget.tech">
+        <fileTransfer host="k99969kp.beget.tech" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" accurateTimestamps="NEVER" showHiddenFiles="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="c1960365-e8d3-4515-9952-55fad8d08282" name="terminall" url="http://aida.k99969kp.beget.tech">
+        <fileTransfer host="k99969kp.beget.tech" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
