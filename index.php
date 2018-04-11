@@ -86,7 +86,7 @@
                                     <form action="#" class="header_search_form clearfix">
                                         <input type="search" required="required" id="search" class="header_search_input" placeholder="Поиск...">
 
-                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                        <button id="search_button" type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                         <div class="cart_count"><span></span></div>
                                     </div>
                                     <div class="cart_content">
-                                        <div class="cart_text"><a href="#">Кашелка</a></div>
+                                        <div class="cart_text"><a href="dev/routing.php/adsadSA@#DADA#ADAD##DADAdAD$#D asd aDww@">Кашелка</a></div>
                                         <div class="cart_price"></div>
                                     </div>
                                 </div>
@@ -364,15 +364,10 @@
                             <div class="product_grid_border"></div>
                             <!--samo-->
 
-
+                            <a href="#" onclick="return setAttr('sort','name')">Сортировка по Имени</a>
                         </div>
                         <!--Navigation -->
-                        <div class="pagination">
-                            <ul>
-                                <li><a href="#"  id="nextValue" class="prevnext">« Previous</a></li>
-                                <li><a href="#" id="PreeValue" class="prevnext">Next »</a></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -544,6 +539,7 @@
                         </div>
                         <div class="footer_social">
                             <ul>
+
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -812,7 +808,7 @@
             dataType: 'json',
             success: function(data){
                 //console.log();
-                Bild_Blok(data['data'], "#result");
+            //    Bild_Blok(data['data'], "#result");
             },
             error: function () {
                 alert('Выполненно с ошибками');
@@ -825,12 +821,13 @@
             type: 'GET',
             dataType: 'json',
             success: function(data){
-                console.log(data);
+               // console.log(data);
                 var items = [];
                 $.each(data, function (key, val) {
                     //val random=random.m;
                     var url=val.name;
-                    items.push('<li><a class="target" href="javascript:setLocation('+val.id+')" data-url="'+val.uid+'">'+val.name+'</a></li>');
+                  //  items.push('<li><a class="target" href="javascript:setLocation('+val.id+')" data-url="'+val.uid+'">'+val.name+'</a></li>');
+                    items.push('<li><a class="target" href="#" onclick="return setAttr('sort','name') data-url="'+val.uid+'">'+val.name+'</a></li>');
                 });
                 // alert(items);
                 $("#sidebar_categories").html(items);
@@ -866,6 +863,19 @@
             });
         });
     }
+    $("#search_button").click(function () {
+        setLocation_all_page($("#search").val());
+    });
+    function setLocation_all_page(url){
+            //location.href ='/#/'+val.uid;
+            //location.hash = '/#/'+val.uid;
+            alert("href:"+location.href +"--hash:"+location.hash );
+            location.hash = '#/'+url;
+            $("#result").text( location.hash = '/'+url);
+                   // getIssues_id(val.uid);
+
+    }
+
     function getIssues_id(id) {
         return $.ajax({
             url: 'http://aida.k99969kp.beget.tech/dev/catalog.php?id="'+id+'"',
@@ -883,7 +893,24 @@
         });
     }
 
-
+    function setAttr(prmName,val){
+        var res = '';
+        var d = location.href.split("#")[0].split("?");
+        var base = d[0];
+        var query = d[1];
+        if(query) {
+            var params = query.split("&");
+            for(var i = 0; i < params.length; i++) {
+                var keyval = params[i].split("=");
+                if(keyval[0] != prmName) {
+                    res += params[i] + '&';
+                }
+            }
+        }
+        res += prmName + '=' + val;
+        window.location.href = base + '?' + res;
+        return false;
+    }
     ///поисковая  лозейка для глобального поиска внутри категории
     /* $(function(){
          $("#search").keyup(function(){
