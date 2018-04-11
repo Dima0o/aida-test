@@ -364,7 +364,7 @@
                             <div class="product_grid_border"></div>
                             <!--samo-->
 
-                            <a href="#" onclick="return setAttr('sort','name')">Сортировка по Имени</a>
+
                         </div>
                         <!--Navigation -->
 
@@ -539,7 +539,6 @@
                         </div>
                         <div class="footer_social">
                             <ul>
-
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -808,7 +807,7 @@
             dataType: 'json',
             success: function(data){
                 //console.log();
-            //    Bild_Blok(data['data'], "#result");
+                Bild_Blok(data['data'], "#result");
             },
             error: function () {
                 alert('Выполненно с ошибками');
@@ -826,8 +825,7 @@
                 $.each(data, function (key, val) {
                     //val random=random.m;
                     var url=val.name;
-                  //  items.push('<li><a class="target" href="javascript:setLocation('+val.id+')" data-url="'+val.uid+'">'+val.name+'</a></li>');
-                    items.push('<li><a class="target" href="#" onclick="return setAttr('sort','name') data-url="'+val.uid+'">'+val.name+'</a></li>');
+                    items.push('<li><a class="target" href="javascript:setLocation('+val.id+')" data-url="'+val.uid+'">'+val.name+'</a></li>');
                 });
                 // alert(items);
                 $("#sidebar_categories").html(items);
@@ -893,24 +891,7 @@
         });
     }
 
-    function setAttr(prmName,val){
-        var res = '';
-        var d = location.href.split("#")[0].split("?");
-        var base = d[0];
-        var query = d[1];
-        if(query) {
-            var params = query.split("&");
-            for(var i = 0; i < params.length; i++) {
-                var keyval = params[i].split("=");
-                if(keyval[0] != prmName) {
-                    res += params[i] + '&';
-                }
-            }
-        }
-        res += prmName + '=' + val;
-        window.location.href = base + '?' + res;
-        return false;
-    }
+
     ///поисковая  лозейка для глобального поиска внутри категории
     /* $(function(){
          $("#search").keyup(function(){
