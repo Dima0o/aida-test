@@ -45,3 +45,8 @@ git add .
 git commit -m "работа с адресной строкой"
 git add .
 git commit -m "работа с возврашение нормальной катологизации"
+git add .
+git commit -m "Новый рабочий день Четвер"
+git push -u origin master
+git add .
+git commit -m "что сделал непонятно но надо api generi"
