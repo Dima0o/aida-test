@@ -1,9 +1,9 @@
 <?php
 #Подключение к БД и начало сессии
-include("config.php");
+include("core.php");
 session_start();
 # Проверка существования SESSION
-if(isset($_SESSION["auth"])){
+/*if(isset($_SESSION["auth"])){
     #Переменные сессии
     $global_id = $_SESSION["auth"];
     $global_pr = $_SESSION["prava"];
@@ -42,5 +42,31 @@ if(isset($_SESSION["auth"])){
 }else{
     header("Location: app/login/login.php");
     exit();
-}
+}*/
+//WHERE `prod`.`prod`='".$_GET['catalog_id']."'
+$qr_result = mysql_query("select * from `k99969kp_1c`.`prod` ") or die(mysql_error());
+$i = 1;
+$row='';
+while ($data = mysql_fetch_array($qr_result)) {
+    if ($i == mysql_num_rows($qr_result)) {
+        $row.='{
+                         "name":"'.str_replace('"', '11', $data['name']).'",
+                         "uid":"'.$data['uid'].'",
+                         "categori":"'.$data['prod'].'",
+                         "price":"'.rand(0,222122).'",
+                         "tipe":"'.rand(0,2).'"
+                         }';
+        $i++;
+    } else {
+        $row.='{
+                         "name":"'.str_replace('"', '11', $data['name']).'",
+                         "uid":"'.$data['uid'].'",
+                         "categori":"'.$data['prod'].'",
+                         "price":"'.rand(0,222122).'",
+                         "tipe":"'.rand(0,2).'"
+                         },';
+        $i++;
+    }
+};
+echo  '['.$row.']';
 ?>

@@ -313,7 +313,7 @@
     <!-- Home -->
 
     <div class="home">
-        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b" data-image-src="http://aidaset.ru/wp-content/themes/Aida%20Template%20Mark%201/images/aidaset_logo.svg"></div>
+        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b" data-image-src="..."></div>
         <div class="home_overlay"></div>
         <div class="home_content d-flex flex-column align-items-center justify-content-center">
             <h2 class="home_title"><? var_dump($_GET); ?></h2>
@@ -380,128 +380,6 @@
     </div>
 
     <!-- Недавно просмотренные -->
-
-    <div class="viewed">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="viewed_title_container">
-                        <h3 class="viewed_title">Недавно просмотренные</h3>
-                        <div class="viewed_nav_container">
-                            <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
-                            <div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="viewed_slider_container">
-
-                        <!-- Недавно просмотренные Slider -->
-
-                        <div class="owl-carousel owl-theme viewed_slider">
-
-                            <!-- Недавно просмотренфные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_1.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225<span>$300</span></div>
-                                        <div class="viewed_name"><a href="#">Beoplay H7</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Недавно просмотренные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_2.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$379</div>
-                                        <div class="viewed_name"><a href="#">LUNA Smartphone</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Недавно просмотренные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_3.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225</div>
-                                        <div class="viewed_name"><a href="#">Samsung J730F...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Недавно просмотренные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_4.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$379</div>
-                                        <div class="viewed_name"><a href="#">Huawei MediaPad...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Недавно просмотренные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_5.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$225<span>$300</span></div>
-                                        <div class="viewed_name"><a href="#">Sony PS4 Slim</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Недавно просмотренные Item -->
-                            <div class="owl-item">
-                                <div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-                                    <div class="viewed_image"><img src="../images/view_6.jpg" alt=""></div>
-                                    <div class="viewed_content text-center">
-                                        <div class="viewed_price">$375</div>
-                                        <div class="viewed_name"><a href="#">Speedlink...</a></div>
-                                    </div>
-                                    <ul class="item_marks">
-                                        <li class="item_mark item_discount">-25%</li>
-                                        <li class="item_mark item_new">new</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Brands -->
-
-
-
-    <!-- Newsletter -->
-
     <div class="newsletter">
         <div class="container">
             <div class="row">
@@ -780,7 +658,7 @@
 
     $(document).ready(function() {
         /*  $.ajax({
-              url: 'http://aida.k99969kp.beget.tech/dev/catalog.php',
+              url: 'http://aida.k99969kp.beget.tech/dev/catalog_new.php',
               // url: 'https://jsonplaceholder.typicode.com/users/',
               dataType: 'json',
               type:"POST",
@@ -795,7 +673,7 @@
 
         getIssues();
         filter_bild();
-        /*$.getJSON("dev/catalog.php", function (data) {
+        /*$.getJSON("dev/catalog_new.php", function (data) {
 
 		//
         });*/
@@ -808,7 +686,7 @@
 
     function getIssues() {
         return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/catalog.php',
+            url: 'http://aida.k99969kp.beget.tech/dev/catalog_new.php',
             type: 'GET',
             dataType: 'json',
             success: function(data){
@@ -862,13 +740,13 @@
                     //location.href ='/#/'+val.uid;
                     //location.hash = '/#/'+val.uid;
                     $("#result").html();
-                    getIssues_id(val.uid);
+                    getIssues_id(id);
 
                     try {
-                        history.replaceState(null,null,'?id='+ id);
+                        history.replaceState(null,null,'?categori='+ id);
                     }
                     catch(e) {
-                        location.hash = '#id_'+id;
+                        location.hash = '#categori_'+id;
                     }
                 }
                 //работа с категорией товаров для прорисовки
@@ -890,13 +768,13 @@
 
     function getIssues_id(id) {
         return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/catalog.php?id="'+id+'"',
+            url: 'http://aida.k99969kp.beget.tech/dev/index.php?catalog_id="'+id+'"',
             type: 'GET',
             //data:id,
             dataType: 'json',
             success: function(data){
-                Bild_Blok(data['data'], "#result");
-                $('[data-size="products_found"]').text(data['data'].length);
+                Bild_Blok(data, "#result");
+                $('[data-size="products_found"]').text(data.length);
                 $('[data-titel="categori"]').text(data.titel);
             },
             error: function () {
@@ -926,10 +804,10 @@
     function changeHash(id) {
 
         try {
-            history.replaceState(null,null,'?id='+ id);
+            history.replaceState(null,null,'?categori='+ id);
         }
         catch(e) {
-            location.hash = '#id_'+id;
+            location.hash = '#categori_'+id;
         }
 
     }
