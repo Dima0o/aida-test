@@ -16,3 +16,32 @@ git push -u origin master
 git pull origin
 git commit -m "add comite"
 git push -u origin master
+git commit -m "работа с прфоилем чеерез  скрытие блоков"
+git add .
+git commit -m "работа с прфоилем чеерез  скрытие блоков"
+git config --global user.name "Diman0o"
+git config --global user.email "tudok124@gmail.com"
+git commit -m "работа с прфоилем чеерез  скрытие блоков"
+git commit -m "dad"
+git push -u origin master
+git commit -m "dad"
+git add *
+git commit -m "dad"
+git commit -m "dad"
+git commit -a "dad"
+git commit -m "dad"
+git add *
+git add .
+git commit -m "dad"
+git commit -m "работа с изменением отображения"
+git add .
+git commit -m "работа с изменением отображения"
+git add .
+git commit -m "работа продолжаетсмя  пока безуспешно пробуем работаем с категориями"
+git add .
+git commit -m "Постраничная НавигацияЙЙ"
+git commit -m "работа с адресной строкой"
+git add .
+git commit -m "работа с адресной строкой"
+git add .
+git commit -m "работа с возврашение нормальной катологизации"
