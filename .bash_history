@@ -50,3 +50,7 @@ git commit -m "Новый рабочий день Четвер"
 git push -u origin master
 git add .
 git commit -m "что сделал непонятно но надо api generi"
+git commit -m "что сделал непонятно но надо api generi"
+git add .
+git commit -m "что сделал непонятно но надо api generi"
+git push -u origin master
