@@ -1,0 +1,29 @@
+[
+
+      {
+        "status": true,
+        "name": "Boone Acevedo",
+        "type": true
+      },
+      {
+        "status": true,
+        "name": "Antonia Patrick",
+        "type": true
+      },
+      {
+        "status": true,
+        "name": "Valentine Stout",
+        "type": false
+      },
+      {
+        "status": false,
+        "name": "Lynnette Haynes",
+        "type": true
+      },
+      {
+        "status": false,
+        "name": "Todd Bryan",
+        "type": false
+      }
+    ]
+

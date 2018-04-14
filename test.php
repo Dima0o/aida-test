@@ -1,8 +1,8 @@
 <? session_start();
-  /*  foreach ($_GET as $key=>$value){
-        $_SESSION[$key]=$value;
-    };*/
-  ?>
+/*  foreach ($_GET as $key=>$value){
+      $_SESSION[$key]=$value;
+  };*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +12,32 @@
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
-    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="../plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="../plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="../styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/shop_responsive.css">
-
+    <style>
+        /* работа с чекбоксами*/
+        @keyframes check {0% {height: 0;width: 0;}
+            25% {height: 0;width: 10px;}
+            50% {height: 20px;width: 10px;}
+        }
+        .checkbox{background-color:#fff;display:inline-block;height:28px;margin:0 .25em;width:28px;border-radius:4px;border:1px solid #ccc;float:right}
+        .checkbox span{display:block;height:28px;position:relative;width:28px;padding:0}
+        .checkbox span:after{-moz-transform:scaleX(-1) rotate(135deg);-ms-transform:scaleX(-1) rotate(135deg);-webkit-transform:scaleX(-1) rotate(135deg);transform:scaleX(-1) rotate(135deg);-moz-transform-origin:left top;-ms-transform-origin:left top;-webkit-transform-origin:left top;transform-origin:left top;border-right:4px solid #fff;border-top:4px solid #fff;content:'';display:block;height:20px;left:3px;position:absolute;top:15px;width:10px}
+        .checkbox span:hover:after{border-color:#999}
+        .checkbox input{display:none}
+        .checkbox input:checked + span:after{-webkit-animation:check .8s;-moz-animation:check .8s;-o-animation:check .8s;animation:check .8s;border-color:#555}
+        .checkbox input:checked + .default:after{border-color:#444}
+        .checkbox input:checked + .primary:after{border-color:#2196F3}
+        .checkbox input:checked + .success:after{border-color:#8bc34a}
+        .checkbox input:checked + .info:after{border-color:#3de0f5}
+        .checkbox input:checked + .warning:after{border-color:#FFC107}
+        .checkbox input:checked + .danger:after{border-color:#f44336}
+    </style>
 </head>
 
 <body>
@@ -36,8 +54,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="../images/phone.png" alt=""></div>8(8634)68 30 26</div>
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="../images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="../images/phone.png" alt=""></div>
+                            8(8634)68 30 26
+                        </div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="../images/mail.png" alt=""></div>
+                            <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
 
@@ -72,9 +95,11 @@
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" required="required" id="search" class="header_search_input" placeholder="Поиск...">
+                                        <input type="search" required="required" id="search" class="header_search_input"
+                                               placeholder="Поиск...">
 
-                                        <button id="search_button" type="submit" class="header_search_button trans_300" value="Submit"><img src="../images/search.png" alt=""></button>
+                                        <button id="search_button" type="submit" class="header_search_button trans_300"
+                                                value="Submit"><img src="../images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -100,7 +125,7 @@
                                         <div class="cart_count"><span></span></div>
                                     </div>
                                     <div class="cart_content">
-                                        <div class="cart_text"><a href="dev/routing.php/adsadSA@#DADA#ADAD##DADAdAD$#D asd aDww@">Кашелка</a></div>
+                                        <div class="cart_text"><a href="?dev=cart">Корзина</a></div>
                                         <div class="cart_price"></div>
                                     </div>
                                 </div>
@@ -135,56 +160,7 @@
                             <!-- Main Nav Menu -->
 
                             <div class="main_nav_menu ml-auto">
-                                <ul class="standard_dropdown main_nav_dropdown">
-                                    <!-- работа с меню для всех страниц отработка стилей и содержимое остальное переносить смело не затирая середину
-                                    <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
-                                    <li class="hassubs">
-                                        <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-                                        <ul>
-                                            <li>
-                                                <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="hassubs">
-                                        <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
-                                        <ul>
-                                            <li>
-                                                <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="hassubs">
-                                        <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-                                    -->
+                                <ul class="standard_dropdown main_nav_dropdown" id="nav_heder">
                                 </ul>
                             </div>
 
@@ -194,7 +170,8 @@
                                 <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
                                     <div class="menu_burger">
                                         <div class="menu_trigger_text">menu</div>
-                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+                                        <div class="cat_burger menu_burger_inner">
+                                            <span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +193,8 @@
 
                             <div class="page_menu_search">
                                 <form action="#">
-                                    <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                                    <input type="search" required="required" class="page_menu_search_input"
+                                           placeholder="Search for products...">
                                 </form>
                             </div>
                             <ul class="page_menu_nav">
@@ -277,13 +255,20 @@
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
-                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
-                                <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
+                                </li>
+                                <li class="page_menu_item"><a href="contact.html">contact<i
+                                                class="fa fa-angle-down"></i></a></li>
                             </ul>
 
                             <div class="menu_contact">
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="../images/phone_white.png" alt=""></div>8(8634)68 30 26</div>
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="../images/mail_white.png" alt=""></div><a href="mailto:shop@aidaset.ru">shop@aidaset.ru</a></div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="../images/phone_white.png" alt=""></div>
+                                    8(8634)68 30 26
+                                </div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="../images/mail_white.png" alt=""></div>
+                                    <a href="mailto:shop@aidaset.ru">shop@aidaset.ru</a></div>
                             </div>
                         </div>
                     </div>
@@ -296,7 +281,8 @@
     <!-- Home -->
 
     <div class="home">
-        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b" data-image-src="..."></div>
+        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b"
+             data-image-src="..."></div>
         <div class="home_overlay"></div>
         <div class="home_content d-flex flex-column align-items-center justify-content-center">
             <h2 class="home_title"><? var_dump($_GET); ?></h2>
@@ -318,9 +304,14 @@
 
                             </ul>
                         </div>
-                        <div class="sidebar_section filter_by_section">
 
+                        <div class="sidebar_section">
+                            <div class="sidebar_subtitle brands_subtitle">Brands</div>
+                            <ul class="brands_list" id="filter">
+
+                            </ul>
                         </div>
+
 
                     </div>
 
@@ -332,16 +323,24 @@
 
                     <div class="shop_content">
                         <div class="shop_bar clearfix">
-                            <div class="shop_product_count"><span data-size="products_found">186</span> найденные товары</div>
+                            <div class="shop_product_count"><span data-size="products_found">186</span> найденные товары
+                            </div>
                             <div class="shop_sorting">
                                 <span>Сотрировка по:</span>
                                 <ul>
                                     <li>
-                                        <span class="sorting_text">По популярности<i class="fas fa-chevron-down"></span></i>
+                                        <span class="sorting_text">По популярности<i
+                                                    class="fas fa-chevron-down"></span></i>
                                         <ul>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>По рейтингу</li>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>По алфаиту</li>
-                                            <li class="shop_sorting_button"data-isotope-option='{ "sortBy": "price" }'>По цене</li>
+                                            <li class="shop_sorting_button"
+                                                data-isotope-option='{ "sortBy": "original-order" }'>По рейтингу
+                                            </li>
+                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>
+                                                По алфаиту
+                                            </li>
+                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }'>
+                                                По цене
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -375,7 +374,8 @@
                         </div>
                         <div class="newsletter_content clearfix">
                             <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required" placeholder="Введите ваш адрес электронной почты">
+                                <input type="email" class="newsletter_input" required="required"
+                                       placeholder="Введите ваш адрес электронной почты">
                                 <button class="newsletter_button">Подписатся</button>
                             </form>
                             <div class="newsletter_unsubscribe_link"><a href="#">Отписатся</a></div>
@@ -472,8 +472,12 @@
                 <div class="col">
 
                     <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <div class="copyright_content">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="fa fa-heart"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="logos ml-sm-auto">
@@ -593,8 +597,8 @@
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../images/featured_1.png" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price">$'+val.price+'<span>$'+val.price+'</span></div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">'+val.name+'</a></div></div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_price">$' + val.price + '<span>$' + val.price + '</span></div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">' + val.name + '</a></div></div>\n' +
                 '\t\t\t\t\t\t\t\t</div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
                 '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
@@ -607,13 +611,14 @@
         $('[data-size="products_found"]').text(data.length);
         $('[data-titel="categori"]').text(data.titel);
     }
+
     function getRandomData(bellFactor) {
         var bellFactor = 100;
 
         //http://stackoverflow.com/questions/1295584/most-efficient-way-to-create-a-zero-filled-javascript-array
 
 
-        return Math.floor((Math.random()*1000000)+1);
+        return Math.floor((Math.random() * 1000000) + 1);
     }
 
     //конец работы с категориями
@@ -628,34 +633,25 @@
     function errors(error, id) {
         $(id).html('<a class="btn btn-primary btn-round btn-xs" href="../index.html">Обновить ошибку</a>\n' + 'ошибка ' + error);
     }
+
     function menu_cat(data, id) {
         // var li='<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>';
         var items = [];
         $.each(data, function (key, val) {
             //   val random=random.m
-            items.push('<li><a href="'+setLocation('#book/' + val.uid)+'">'+val.name+'</a></li>');
+            items.push('<li><a href="' + setLocation('#book/' + val.uid) + '">' + val.name + '</a></li>');
         });
         // alert(items);
         $(id).html(items);
     }
 
-    $(document).ready(function() {
-        /*  $.ajax({
-              url: 'http://aida.k99969kp.beget.tech/dev/catalog_new.php',
-              // url: 'https://jsonplaceholder.typicode.com/users/',
-              dataType: 'json',
-              type:"POST",
-             // data: data,
-              success: function(data){
-                  console.log(data);
-              },
-              error: function (data) {
-                  console.log(data);
-              } //
-          });*/
+    //подгрузка главная при загрузке страницы
+    $(document).ready(function () {
 
-        getIssues();
+
+       // getIssues();
         filter_bild();
+        runPage(location.hash);
         /*$.getJSON("dev/catalog_new.php", function (data) {
 
 		//
@@ -672,53 +668,56 @@
             url: 'http://aida.k99969kp.beget.tech/dev/catalog_new.php',
             type: 'GET',
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 //console.log();
                 Bild_Blok(data['data'], "#result");
             },
             error: function () {
-                alert('Выполненно с ошибками');
+                alert('Выполненно с ошибками getIssues');
             }
         });
     }
+
     function filter_bild() {
         return $.ajax({
             url: 'http://aida.k99969kp.beget.tech/dev/theme.php',
             type: 'GET',
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 // console.log(data);
                 var items = [];
                 $.each(data, function (key, val) {
                     //val random=random.m;
-                    var url=val.name;
-                    items.push('<li><a class="target" href="javascript:setLocation('+val.id+')" data-url="'+val.uid+'">'+val.name+'</a></li>');
+                    var url = val.name;
+                    items.push('<li><a class="target" href="javascript:setLocation(' + val.id + ')" data-url="' + val.uid + '">' + val.name + '</a></li>');
                     //  items.push('<li><a class="target" href="#" onclick="return setAttr('sort','name') data-url="'+val.uid+'">'+val.name+'</a></li>');
                 });
                 // alert(items);
                 $("#sidebar_categories").html(items);
             },
             error: function () {
-                alert('Выполненно с ошибками');
+                alert('Выполненно с ошибками filter_bild');
             }
         });
     }
+
     function filter_date(id) {
 
         return $.ajax({
             url: 'http://aida.k99969kp.beget.tech/dev/theme.php',
             type: 'GET',
             dataType: 'json',
-            success:function(data){
+            success: function (data) {
                 return data;
             }
         });
     }
-    function setLocation(id){
+
+    function setLocation(id) {
         $.getJSON("http://aida.k99969kp.beget.tech/dev/theme.php", function (data) {
             $.each(data, function (key, val) {
                 //alert(val.uid+ "  "+ id);
-                if(val.id==id){
+                if (val.id == id) {
                     // alert(val.id+ "  "+ id);
                     //location.href ='/#/'+val.uid;
                     //location.hash = '/#/'+val.uid;
@@ -726,56 +725,58 @@
                     getIssues_id(id);
 
                     try {
-                        history.replaceState(null,null,'?categori='+ id);
+                        history.replaceState(null, null, '?categori=' + id);
                     }
-                    catch(e) {
-                        location.hash = '#categori_'+id;
+                    catch (e) {
+                        location.hash = '#categori_' + id;
                     }
                 }
                 //работа с категорией товаров для прорисовки
             });
         });
     }
+
     $("#search_button").click(function () {
         setLocation_all_page($("#search").val());
     });
-    function setLocation_all_page(url){
+
+    function setLocation_all_page(url) {
         //location.href ='/#/'+val.uid;
         //location.hash = '/#/'+val.uid;
-        alert("href:"+location.href +"--hash:"+location.hash );
-        location.hash = '#/'+url;
-        $("#result").text( location.hash = '/'+url);
+        alert("href:" + location.href + "--hash:" + location.hash);
+        location.hash = '#/' + url;
+        $("#result").text(location.hash = '/' + url);
         // getIssues_id(val.uid);
 
     }
 
     function getIssues_id(id) {
         return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/index.php?catalog_id="'+id+'"',
+            url: 'http://aida.k99969kp.beget.tech/dev/index.php?catalog_id="' + id + '"',
             type: 'GET',
             //data:id,
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 Bild_Blok(data, "#result");
                 $('[data-size="products_found"]').text(data.length);
                 $('[data-titel="categori"]').text(data.titel);
             },
             error: function () {
-                alert('Выполненно с ошибками или категория пустая');
+                alert('Выполненно с ошибками или категория пустая getIssues_id');
             }
         });
     }
 
-    function setAttr(prmName,val){
+    function setAttr(prmName, val) {
         var res = '';
         var d = location.href.split("#")[0].split("?");
         var base = d[0];
         var query = d[1];
-        if(query) {
+        if (query) {
             var params = query.split("&");
-            for(var i = 0; i < params.length; i++) {
+            for (var i = 0; i < params.length; i++) {
                 var keyval = params[i].split("=");
-                if(keyval[0] != prmName) {
+                if (keyval[0] != prmName) {
                     res += params[i] + '&';
                 }
             }
@@ -784,17 +785,182 @@
         window.location.href = base + '?' + res;
         return false;
     }
+
     function changeHash(id) {
 
         try {
-            history.replaceState(null,null,'?categori='+ id);
+            history.replaceState(null, null, '?categori=' + id);
         }
-        catch(e) {
-            location.hash = '#categori_'+id;
+        catch (e) {
+            location.hash = '#categori_' + id;
         }
 
     }
 
+
+    //отрисовка шаблона получене  json
+    function runPage() {
+        /*$.ajax({
+            url: 'http://aida.k99969kp.beget.tech/dev/index_test.php',
+            // url: 'https://jsonplaceholder.typicode.com/users/',
+            data: url,
+            dataType: 'html',
+            type:"POST",
+            success: function(data){
+                console.log(data);
+                $('#result').html(data);
+            },
+            error: function (data) {
+                //console.log(data);
+                var url = "http://aida.k99969kp.beget.tech/error/404.php";
+                $(location).attr('href',url);
+            } //
+        });*/
+        $.post("../dev/index_test.php", {
+                hash: location.search,
+                href: location.href,
+            },
+            function (data) {
+                Bild_Shop(data);
+            }, "html");
+    }
+
+    //отрисовка параметров
+    function Bild_Shop(data) {
+        $('#result').html(data);
+    }
+
+    //  menu=['Акции и скидки','Магазины','Помощь','О нас'];
+
+    function CoffeeMachine(power) {
+        this.titel = 'Главаная';
+        this.user = false;
+        this.cart_shop = function () {
+            this.cart = {count: '', total: '', item: [{name: '', price: '', col: ''}]};
+        };
+        this.Recently_Viewed = [{name: '', avatar: '', price: [''], item_discount: '', item_new: 1}];
+        this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
+        this.waterAmount = [];
+
+        // физическая константа - удельная теплоёмкость воды для getBoilTime
+        var WATER_HEAT_CAPACITY = 40;
+
+        // расчёт времени для кипячения
+        function getBoilTime() {
+            return this.waterAmount * WATER_HEAT_CAPACITY * 80 / power; // ошибка!
+        }
+
+        // что делать по окончании процесса
+        function onReady(data) {
+            //alert(waterAmount );
+
+            var items = [];
+            $.each(data, function (key, val) {
+                //   val random=random.m
+                items.push('<li><a href="#">' + val + '<i class="fas fa-chevron-down"></i></a></li>');
+                //    alert(val);
+            });
+            //$(id).html(items);
+            $('#nav_heder').html(items);
+
+        }
+
+        this.run = function () {
+            setTimeout(onReady(this.waterAmount), getBoilTime());
+        };
+
+    }
+
+
+    var coffeeMachine = new CoffeeMachine(100);
+    coffeeMachine.waterAmount = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
+    //onReady(coffeeMachine.waterAmount);
+    coffeeMachine.run();
+
+
+    //функция запроса параметров страницы
+    function Page_load() {
+        //https://jsonplaceholder.typicode.com/posts/1
+        return $.ajax({
+            url: 'http://aida.k99969kp.beget.tech/dev/shop.json',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                var items = [];
+                $.each(data, function (key, val) {
+                    //   val random=random.m
+                //    items.push('<li><label><input type="checkbox" name="check" ' + status(val.status) + '> <span class="label-text">' + val.name + '</span></label></li>');
+                    items.push('<li class="list-group-item">' + val.name + '<label class="checkbox"><input type="checkbox"  ' + status(val.status) +'/><span class="warning"></span></label></li>');
+                    //alert(val +'Page_load');
+                });
+                //$(id).html(items);
+                $('#filter').html(items);
+            },
+            error: function () {
+                alert('Не строится');
+            }
+        });
+    }
+
+    function status(t) {
+        if (t == true) {
+            return 'checked'
+        }
+    }
+
+    //контструктор блока фильтра
+    function Filtr(data){
+        var select ='<div class="sidebar_section">\n' +
+            '\t\t\t\t\t\t\t<div class="sidebar_subtitle brands_subtitle">Brands</div>\n' +
+            '<ul class="list-group list-group-flush">\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Default\n' +
+            '                                <label class="checkbox">\n' +
+            '                                        <input type="checkbox" />\n' +
+            '                                        <span class="default"></span>\n' +
+            '                                    </label>\n' +
+            '                    </li>\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Primary\n' +
+            '                                                                <label class="checkbox">\n' +
+            '                                        <input type="checkbox" />\n' +
+            '                                        <span class="primary"></span>\n' +
+            '                                    </label>\n' +
+            '                    </li>\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Success\n' +
+            '                                                                <label class="checkbox">\n' +
+            '                                        <input type="checkbox" />\n' +
+            '                                        <span class="success"></span>\n' +
+            '                                    </label>\n' +
+            '                    </li>\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Info\n' +
+            '                                                               <label class="checkbox">\n' +
+            '                                        <input type="checkbox" />\n' +
+            '                                        <span class="info"></span>\n' +
+            '                                    </label>\n' +
+            '                    </li>\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Warning\n' +
+            '<label class="checkbox"><input type="checkbox" /><span class="warning"></span></label></li>\n' +
+            '                    <li class="list-group-item">\n' +
+            '                        Bootstrap Checkbox Danger\n' +
+            '                                                              <label class="checkbox">\n' +
+            '                                        <input type="checkbox" />\n' +
+            '                                        <span class="danger"></span>\n' +
+            '                                    </label>\n' +
+            '                    </li>\n' +
+            '                </ul>'+
+            '\t\t\t\t\t\t</div>';
+        var chek='';
+
+    }
+
+
+
+    Page_load();
 </script>
 
 <script src="../styles/bootstrap4/popper.js"></script>
@@ -809,7 +975,6 @@
 <script src="../plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="../../plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="../plugins/parallax-js-master/parallax.min.js"></script>
-
 
 
 </body>
