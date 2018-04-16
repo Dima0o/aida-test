@@ -54,3 +54,10 @@ git commit -m "что сделал непонятно но надо api generi"
 git add .
 git commit -m "что сделал непонятно но надо api generi"
 git push -u origin master
+git add .
+git commit -m "Субора работа с рендерингом страницы для  работы с товарами"
+git push -u origin master
+git push -u origin master
+node -v
+git add .
+git commit -m "Субора работа фильтром в принцие готова надо домать над общим json файлом возврата всех элементов быстрому вызову отрисовки и системе api для запаса и выгрузки удобной "

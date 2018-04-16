@@ -16,12 +16,12 @@
         "type": false
       },
       {
-        "status": false,
+        "status": true,
         "name": "Lynnette Haynes",
         "type": true
       },
       {
-        "status": false,
+        "status": true,
         "name": "Todd Bryan",
         "type": false
       }

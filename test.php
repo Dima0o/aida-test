@@ -11,33 +11,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
-    <link href="../plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="../plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="../styles/shop_styles.css">
-    <link rel="stylesheet" type="text/css" href="../styles/shop_responsive.css">
-    <style>
-        /* работа с чекбоксами*/
-        @keyframes check {0% {height: 0;width: 0;}
-            25% {height: 0;width: 10px;}
-            50% {height: 20px;width: 10px;}
-        }
-        .checkbox{background-color:#fff;display:inline-block;height:28px;margin:0 .25em;width:28px;border-radius:4px;border:1px solid #ccc;float:right}
-        .checkbox span{display:block;height:28px;position:relative;width:28px;padding:0}
-        .checkbox span:after{-moz-transform:scaleX(-1) rotate(135deg);-ms-transform:scaleX(-1) rotate(135deg);-webkit-transform:scaleX(-1) rotate(135deg);transform:scaleX(-1) rotate(135deg);-moz-transform-origin:left top;-ms-transform-origin:left top;-webkit-transform-origin:left top;transform-origin:left top;border-right:4px solid #fff;border-top:4px solid #fff;content:'';display:block;height:20px;left:3px;position:absolute;top:15px;width:10px}
-        .checkbox span:hover:after{border-color:#999}
-        .checkbox input{display:none}
-        .checkbox input:checked + span:after{-webkit-animation:check .8s;-moz-animation:check .8s;-o-animation:check .8s;animation:check .8s;border-color:#555}
-        .checkbox input:checked + .default:after{border-color:#444}
-        .checkbox input:checked + .primary:after{border-color:#2196F3}
-        .checkbox input:checked + .success:after{border-color:#8bc34a}
-        .checkbox input:checked + .info:after{border-color:#3de0f5}
-        .checkbox input:checked + .warning:after{border-color:#FFC107}
-        .checkbox input:checked + .danger:after{border-color:#f44336}
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+
 </head>
 
 <body>
@@ -55,18 +37,18 @@
                 <div class="row">
                     <div class="col d-flex flex-row">
                         <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="../images/phone.png" alt=""></div>
+                            <div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
                             8(8634)68 30 26
                         </div>
                         <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="../images/mail.png" alt=""></div>
+                            <div class="top_bar_icon"><img src="images/mail.png" alt=""></div>
                             <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
 
                             </div>
                             <div class="top_bar_user">
-                                <div class="user_icon"><img src="../images/user.svg" alt=""></div>
+                                <div class="user_icon"><img src="images/user.svg" alt=""></div>
                                 <div><a href="#">Регистрация</a></div>
                                 <div><a href="#">Войти</a></div>
                             </div>
@@ -99,7 +81,7 @@
                                                placeholder="Поиск...">
 
                                         <button id="search_button" type="submit" class="header_search_button trans_300"
-                                                value="Submit"><img src="../images/search.png" alt=""></button>
+                                                value="Submit"><img src="images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -110,7 +92,7 @@
                     <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                         <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                             <!--<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                                <div class="wishlist_icon"><img src="../images/heart.png" alt=""></div>
+                                <div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
                                 <div class="wishlist_content">
                                     <div class="wishlist_text"><a href="#">Избранные</a></div>
                                     <div class="wishlist_count">115</div>
@@ -121,7 +103,7 @@
                             <div class="cart">
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                     <div class="cart_icon">
-                                        <img src="../images/cart.png" alt="">
+                                        <img src="images/cart.png" alt="">
                                         <div class="cart_count"><span></span></div>
                                     </div>
                                     <div class="cart_content">
@@ -263,11 +245,11 @@
 
                             <div class="menu_contact">
                                 <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="../images/phone_white.png" alt=""></div>
+                                    <div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
                                     8(8634)68 30 26
                                 </div>
                                 <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="../images/mail_white.png" alt=""></div>
+                                    <div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div>
                                     <a href="mailto:shop@aidaset.ru">shop@aidaset.ru</a></div>
                             </div>
                         </div>
@@ -305,11 +287,15 @@
                             </ul>
                         </div>
 
-                        <div class="sidebar_section">
+                        <div class="sidebar_section" id="filter">
                             <div class="sidebar_subtitle brands_subtitle">Brands</div>
-                            <ul class="brands_list" id="filter">
+                            <div class="radio radio-primary">
+                                <input type="radio" name="radio1" id="radio1" value="option1">
+                                <label for="radio1">
+                                    Small
+                                </label>
+                            </div>
 
-                            </ul>
                         </div>
 
 
@@ -368,7 +354,7 @@
                 <div class="col">
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                         <div class="newsletter_title_container">
-                            <div class="newsletter_icon"><img src="../images/send.png" alt=""></div>
+                            <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
                             <div class="newsletter_title">Подписаться на рассылку</div>
                             <div class="newsletter_text"><p>... и получите купон% 20 для первой покупки.</p></div>
                         </div>
@@ -482,10 +468,10 @@
                         </div>
                         <div class="logos ml-sm-auto">
                             <ul class="logos_list">
-                                <li><a href="#"><img src="../images/logos_1.png" alt=""></a></li>
-                                <li><a href="#"><img src="../images/logos_2.png" alt=""></a></li>
-                                <li><a href="#"><img src="../images/logos_3.png" alt=""></a></li>
-                                <li><a href="#"><img src="../images/logos_4.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -495,344 +481,26 @@
     </div>
 </div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 
 <script>
-    $("#result").on("click", ".add", function () {
-        var caunts = Number($('#cadr_number').html());
-        caunts = caunts + 1;
-        var conut = $('[data-role="container"]').css("height");
-        conut = Number(conut.substr(0, conut.length - 2));
-        if (conut + 80 > 270) {
-            conut = 230;
-        }
-        else {
-            conut = conut + 80;
-        }
-        ;
-        $('#cadr_number').html(caunts);
-        //var blok= $(this).closest(".panel");
-        //console.log();
-        $('[data-role="container"]').css({'height': '' + conut + 'px'});
-        $('#card').append('<a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">\n' +
-            '                      <div class="media">\n' +
-            '                        <div class="media-left p-r-10">\n' +
-            '                         <img class="card-img-top" src="../' + $(this).attr('src') + '">\n' +
-            '                        </div>\n' +
-            '                        <div class="media-body">\n' +
-            '                          <h6 class="media-heading">' + $(this).attr('data-name') + '</h6>\n' +
-            '                          <time class="media-meta" datetime="2017-06-12T20:50:48+08:00">' + $(this).attr('data-price') + '</time>\n' +
-            '                        </div>\n' +
-            '                      </div>\n' +
-            '                    </a>');
-        //console.log(conut);
-    });
-
-    //каталог
-
-    //работа с получение категорий
-
-    function CategoreShow(e, uid) {
-        Animation('#result');
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: "cat=" + uid,
-            // url: 'lol.php',
-            url: 'dev/caterori.php',
-            success: function (data) {
-                Bild_Blok(data, '#cat_muenu');
-            }
-        });
-    };
-
-    function PageCatalog1(uid) {
-        PagePorfile(uid);
-        // console.log($(this).attr('data-name'));
-        var data = '<div class="page vertical-align text-xs-center layout-full" data-animsition-in="fade-in" data-animsition-out="fade-out">\n' +
-            '  <div class="page-content vertical-align-middle">\n' +
-            '    <i class="icon wb-tadpole icon-spin page-maintenance-icon" aria-hidden="true" style="font-size: 64px;"></i>\n' +
-            '  </div>\n' +
-            '</div>\n';
-        //  $('#result').html(data);
-        /* $.ajax({
-           type: "POST",
-           data: "primer=" + uid,
-           url: 'app/profile.php',
-           success: function(data) {
-             $(".active").text('Продукты такие');
-             $('#result').html(data);
-             var arr = ["Яблоко", "Апельсин", "Груша"];
-
-
-           }
-         });*/
-    };
-
-    function PageCatalog(uid) {
-        Animation("#result");
-        $.getJSON("https://jsonplaceholder.typicode.com/users/" + uid, function (data) {
-            {
-                //console.log(data);
-                Bild_Blok(data, "#result");
-            }
-        });
-    };
-
-    function Animation(id) {
-        var data = ' <div class="example-loading example-well h-150 vertical-align text-xs-center">\n' +
-            '                  <div class="loader vertical-align-middle loader-grill"></div>\n' +
-            '                </div>';
-        $(id).html(data);
-    }
-
-    function Bild_Blok(data, id) {
-        // alert(typeof data);
-        var items = [];
-
-        $.each(data, function (key, val) {
-            //   val random=random.m
-            items.push('<!-- Product Item -->\n' +
-                '\t\t\t\t\t\t\t<div class="product_item discount col-md-3">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../images/featured_1.png" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price">$' + val.price + '<span>$' + val.price + '</span></div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">' + val.name + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');
-        });
-        $(id).html(items);
-        $('[data-size="products_found"]').text(data.length);
-        $('[data-titel="categori"]').text(data.titel);
-    }
-
-    function getRandomData(bellFactor) {
-        var bellFactor = 100;
-
-        //http://stackoverflow.com/questions/1295584/most-efficient-way-to-create-a-zero-filled-javascript-array
-
-
-        return Math.floor((Math.random() * 1000000) + 1);
-    }
-
-    //конец работы с категориями
-    $('[data-toggle = categori]').click(function () {
-        console.log(this);
-        //     alert( "Handler for .click() called." );
-        log()
-    });
-
-    //https://bootsnipp.com/snippets/yNWWa
-    //отрисовка профиля страницы
-    function errors(error, id) {
-        $(id).html('<a class="btn btn-primary btn-round btn-xs" href="../index.html">Обновить ошибку</a>\n' + 'ошибка ' + error);
-    }
-
-    function menu_cat(data, id) {
-        // var li='<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>';
-        var items = [];
-        $.each(data, function (key, val) {
-            //   val random=random.m
-            items.push('<li><a href="' + setLocation('#book/' + val.uid) + '">' + val.name + '</a></li>');
-        });
-        // alert(items);
-        $(id).html(items);
-    }
-
-    //подгрузка главная при загрузке страницы
-    $(document).ready(function () {
-
-
-       // getIssues();
-        filter_bild();
-        runPage(location.hash);
-        /*$.getJSON("dev/catalog_new.php", function (data) {
-
-		//
-        });*/
-        document.title = "Главная";
-        ///	$('[data-titel=categori]').text('Категории');
-        //  var menuActive = false;
-        //var header = $('.header');
-
-    });
-
-    function getIssues() {
+    function prod_mas() {
         return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/catalog_new.php',
+            url: '../dev/product.json',
             type: 'GET',
             dataType: 'json',
             success: function (data) {
                 //console.log();
-                Bild_Blok(data['data'], "#result");
+
             },
             error: function () {
                 alert('Выполненно с ошибками getIssues');
             }
         });
     }
+    //построение блока товаров
 
-    function filter_bild() {
-        return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/theme.php',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                // console.log(data);
-                var items = [];
-                $.each(data, function (key, val) {
-                    //val random=random.m;
-                    var url = val.name;
-                    items.push('<li><a class="target" href="javascript:setLocation(' + val.id + ')" data-url="' + val.uid + '">' + val.name + '</a></li>');
-                    //  items.push('<li><a class="target" href="#" onclick="return setAttr('sort','name') data-url="'+val.uid+'">'+val.name+'</a></li>');
-                });
-                // alert(items);
-                $("#sidebar_categories").html(items);
-            },
-            error: function () {
-                alert('Выполненно с ошибками filter_bild');
-            }
-        });
-    }
-
-    function filter_date(id) {
-
-        return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/theme.php',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                return data;
-            }
-        });
-    }
-
-    function setLocation(id) {
-        $.getJSON("http://aida.k99969kp.beget.tech/dev/theme.php", function (data) {
-            $.each(data, function (key, val) {
-                //alert(val.uid+ "  "+ id);
-                if (val.id == id) {
-                    // alert(val.id+ "  "+ id);
-                    //location.href ='/#/'+val.uid;
-                    //location.hash = '/#/'+val.uid;
-                    $("#result").html();
-                    getIssues_id(id);
-
-                    try {
-                        history.replaceState(null, null, '?categori=' + id);
-                    }
-                    catch (e) {
-                        location.hash = '#categori_' + id;
-                    }
-                }
-                //работа с категорией товаров для прорисовки
-            });
-        });
-    }
-
-    $("#search_button").click(function () {
-        setLocation_all_page($("#search").val());
-    });
-
-    function setLocation_all_page(url) {
-        //location.href ='/#/'+val.uid;
-        //location.hash = '/#/'+val.uid;
-        alert("href:" + location.href + "--hash:" + location.hash);
-        location.hash = '#/' + url;
-        $("#result").text(location.hash = '/' + url);
-        // getIssues_id(val.uid);
-
-    }
-
-    function getIssues_id(id) {
-        return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/index.php?catalog_id="' + id + '"',
-            type: 'GET',
-            //data:id,
-            dataType: 'json',
-            success: function (data) {
-                Bild_Blok(data, "#result");
-                $('[data-size="products_found"]').text(data.length);
-                $('[data-titel="categori"]').text(data.titel);
-            },
-            error: function () {
-                alert('Выполненно с ошибками или категория пустая getIssues_id');
-            }
-        });
-    }
-
-    function setAttr(prmName, val) {
-        var res = '';
-        var d = location.href.split("#")[0].split("?");
-        var base = d[0];
-        var query = d[1];
-        if (query) {
-            var params = query.split("&");
-            for (var i = 0; i < params.length; i++) {
-                var keyval = params[i].split("=");
-                if (keyval[0] != prmName) {
-                    res += params[i] + '&';
-                }
-            }
-        }
-        res += prmName + '=' + val;
-        window.location.href = base + '?' + res;
-        return false;
-    }
-
-    function changeHash(id) {
-
-        try {
-            history.replaceState(null, null, '?categori=' + id);
-        }
-        catch (e) {
-            location.hash = '#categori_' + id;
-        }
-
-    }
-
-
-    //отрисовка шаблона получене  json
-    function runPage() {
-        /*$.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/index_test.php',
-            // url: 'https://jsonplaceholder.typicode.com/users/',
-            data: url,
-            dataType: 'html',
-            type:"POST",
-            success: function(data){
-                console.log(data);
-                $('#result').html(data);
-            },
-            error: function (data) {
-                //console.log(data);
-                var url = "http://aida.k99969kp.beget.tech/error/404.php";
-                $(location).attr('href',url);
-            } //
-        });*/
-        $.post("../dev/index_test.php", {
-                hash: location.search,
-                href: location.href,
-            },
-            function (data) {
-                Bild_Shop(data);
-            }, "html");
-    }
-
-    //отрисовка параметров
-    function Bild_Shop(data) {
-        $('#result').html(data);
-    }
-
-    //  menu=['Акции и скидки','Магазины','Помощь','О нас'];
-
-    function CoffeeMachine(power) {
+    function CoffeeMachine() {
         this.titel = 'Главаная';
         this.user = false;
         this.cart_shop = function () {
@@ -843,138 +511,83 @@
         this.waterAmount = [];
 
         // физическая константа - удельная теплоёмкость воды для getBoilTime
-        var WATER_HEAT_CAPACITY = 40;
+
 
         // расчёт времени для кипячения
-        function getBoilTime() {
-            return this.waterAmount * WATER_HEAT_CAPACITY * 80 / power; // ошибка!
+        function data_prod() {
+            return $.ajax({
+                url: 'http://aida.k99969kp.beget.tech/dev/poduct.json',
+                type: 'GET',
+                //data:id,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    return  data;
+               //     Bild_Blok(data, "#result");
+               //     $('[data-size="products_found"]').text(data.length);
+               //     $('[data-titel="categori"]').text(data.titel);
+                },
+                error: function () {
+                    alert('Выполненно с ошибками или категория пустая');
+                }
+            });
         }
 
         // что делать по окончании процесса
-        function onReady(data) {
+        function onReady() {
             //alert(waterAmount );
-
+            //data_prod();
+          //  alert(dataProd);
             var items = [];
-            $.each(data, function (key, val) {
+            $.each(data_prod(), function (key, val) {
                 //   val random=random.m
-                items.push('<li><a href="#">' + val + '<i class="fas fa-chevron-down"></i></a></li>');
-                //    alert(val);
+                items.push('\t\t\t\t\t\t\t<div class="product_item discount">\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$' + val.balance + '<span>$' + val.balance2 + '</span></div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">' + val.name + '</a></div></div>\n' +
+                    '\t\t\t\t\t\t\t\t</div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
+                    '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+                    '\t\t\t\t\t\t\t\t</ul>\n' +
+                    '\t\t\t\t\t\t\t</div>');
             });
-            //$(id).html(items);
-            $('#nav_heder').html(items);
+            $("#result").html(items);
+            $('[data-size="products_found"]').text(data_prod().length);
+          //  $('[data-titel="categori"]').text(data_prod().name);
 
         }
 
         this.run = function () {
-            setTimeout(onReady(this.waterAmount), getBoilTime());
+           onReady();
         };
 
     }
 
 
-    var coffeeMachine = new CoffeeMachine(100);
+    var coffeeMachine = new CoffeeMachine();
     coffeeMachine.waterAmount = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
     //onReady(coffeeMachine.waterAmount);
     coffeeMachine.run();
+  //  Bild_Blok(data['data'], "#result");
 
-
-    //функция запроса параметров страницы
-    function Page_load() {
-        //https://jsonplaceholder.typicode.com/posts/1
-        return $.ajax({
-            url: 'http://aida.k99969kp.beget.tech/dev/shop.json',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                //console.log(data);
-                var items = [];
-                $.each(data, function (key, val) {
-                    //   val random=random.m
-                //    items.push('<li><label><input type="checkbox" name="check" ' + status(val.status) + '> <span class="label-text">' + val.name + '</span></label></li>');
-                    items.push('<li class="list-group-item">' + val.name + '<label class="checkbox"><input type="checkbox"  ' + status(val.status) +'/><span class="warning"></span></label></li>');
-                    //alert(val +'Page_load');
-                });
-                //$(id).html(items);
-                $('#filter').html(items);
-            },
-            error: function () {
-                alert('Не строится');
-            }
-        });
-    }
-
-    function status(t) {
-        if (t == true) {
-            return 'checked'
-        }
-    }
-
-    //контструктор блока фильтра
-    function Filtr(data){
-        var select ='<div class="sidebar_section">\n' +
-            '\t\t\t\t\t\t\t<div class="sidebar_subtitle brands_subtitle">Brands</div>\n' +
-            '<ul class="list-group list-group-flush">\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Default\n' +
-            '                                <label class="checkbox">\n' +
-            '                                        <input type="checkbox" />\n' +
-            '                                        <span class="default"></span>\n' +
-            '                                    </label>\n' +
-            '                    </li>\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Primary\n' +
-            '                                                                <label class="checkbox">\n' +
-            '                                        <input type="checkbox" />\n' +
-            '                                        <span class="primary"></span>\n' +
-            '                                    </label>\n' +
-            '                    </li>\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Success\n' +
-            '                                                                <label class="checkbox">\n' +
-            '                                        <input type="checkbox" />\n' +
-            '                                        <span class="success"></span>\n' +
-            '                                    </label>\n' +
-            '                    </li>\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Info\n' +
-            '                                                               <label class="checkbox">\n' +
-            '                                        <input type="checkbox" />\n' +
-            '                                        <span class="info"></span>\n' +
-            '                                    </label>\n' +
-            '                    </li>\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Warning\n' +
-            '<label class="checkbox"><input type="checkbox" /><span class="warning"></span></label></li>\n' +
-            '                    <li class="list-group-item">\n' +
-            '                        Bootstrap Checkbox Danger\n' +
-            '                                                              <label class="checkbox">\n' +
-            '                                        <input type="checkbox" />\n' +
-            '                                        <span class="danger"></span>\n' +
-            '                                    </label>\n' +
-            '                    </li>\n' +
-            '                </ul>'+
-            '\t\t\t\t\t\t</div>';
-        var chek='';
-
-    }
-
-
-
-    Page_load();
 </script>
 
-<script src="../styles/bootstrap4/popper.js"></script>
-<script src="../styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../plugins/greensock/TweenMax.min.js"></script>
-<script src="../plugins/greensock/TimelineMax.min.js"></script>
-<script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="../plugins/greensock/animation.gsap.min.js"></script>
-<script src="../plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../plugins/easing/easing.js"></script>
-<script src="../plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="../../plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="../plugins/parallax-js-master/parallax.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
 
 
 </body>
