@@ -1,12 +1,7 @@
-<? session_start();
-/*  foreach ($_GET as $key=>$value){
-      $_SESSION[$key]=$value;
-  };*/
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" ng-app="myApp">
 <head>
-    <title>Shop</title>
+    <title>Blog</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
@@ -16,10 +11,14 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+<?
+//https://stackblitz.com/edit/react-j8rudf?file=style.css
+//https://qdmnxyolbqd.angular.stackblitz.io/
+?>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body>
@@ -36,21 +35,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
-                            8(8634)68 30 26
-                        </div>
-                        <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="images/mail.png" alt=""></div>
-                            <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
+                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
-
+                                <ul class="standard_dropdown top_bar_dropdown">
+                                    <li>
+                                        <a href="#">English<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="#">Italian</a></li>
+                                            <li><a href="#">Spanish</a></li>
+                                            <li><a href="#">Japanese</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="#">EUR Euro</a></li>
+                                            <li><a href="#">GBP British Pound</a></li>
+                                            <li><a href="#">JPY Japanese Yen</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                <div><a href="#">Регистрация</a></div>
-                                <div><a href="#">Войти</a></div>
+                                <div><a href="#">Register</a></div>
+                                <div><a href="#">Sign in</a></div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +78,7 @@
                     <!-- Logo -->
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">Aidaset</a></div>
+                            <div class="logo"><a href="#">OneTech</a></div>
                         </div>
                     </div>
 
@@ -77,11 +88,22 @@
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" required="required" id="search" class="header_search_input"
-                                               placeholder="Поиск...">
-
-                                        <button id="search_button" type="submit" class="header_search_button trans_300"
-                                                value="Submit"><img src="images/search.png" alt=""></button>
+                                        <input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+                                        <div class="custom_dropdown">
+                                            <div class="custom_dropdown_list">
+                                                <span class="custom_dropdown_placeholder clc">All Categories</span>
+                                                <i class="fas fa-chevron-down"></i>
+                                                <ul class="custom_list clc">
+                                                    <li><a class="clc" href="#">All Categories</a></li>
+                                                    <li><a class="clc" href="#">Computers</a></li>
+                                                    <li><a class="clc" href="#">Laptops</a></li>
+                                                    <li><a class="clc" href="#">Cameras</a></li>
+                                                    <li><a class="clc" href="#">Hardware</a></li>
+                                                    <li><a class="clc" href="#">Smartphones</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -91,24 +113,24 @@
                     <!-- Wishlist -->
                     <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                         <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-                            <!--<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                            <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                 <div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
                                 <div class="wishlist_content">
-                                    <div class="wishlist_text"><a href="#">Избранные</a></div>
+                                    <div class="wishlist_text"><a href="#">Wishlist</a></div>
                                     <div class="wishlist_count">115</div>
                                 </div>
-                            </div>-->
+                            </div>
 
                             <!-- Cart -->
                             <div class="cart">
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                     <div class="cart_icon">
                                         <img src="images/cart.png" alt="">
-                                        <div class="cart_count"><span></span></div>
+                                        <div class="cart_count"><span>10</span></div>
                                     </div>
                                     <div class="cart_content">
-                                        <div class="cart_text"><a href="?dev=cart">Корзина</a></div>
-                                        <div class="cart_price"></div>
+                                        <div class="cart_text"><a href="#">Cart</a></div>
+                                        <div class="cart_price">$85</div>
                                     </div>
                                 </div>
                             </div>
@@ -127,22 +149,94 @@
 
                         <div class="main_nav_content d-flex flex-row">
 
+                            <!-- Categories Menu -->
 
                             <div class="cat_menu_container">
                                 <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                                     <div class="cat_burger"><span></span><span></span><span></span></div>
-                                    <div class="cat_menu_text">Категории</div>
+                                    <div class="cat_menu_text">categories</div>
                                 </div>
 
-                                <ul class="cat_menu" id="cat_menu">
-
+                                <ul class="cat_menu">
+                                    <li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
+                                    <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
+                                    <li class="hassubs">
+                                        <a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
+                                        <ul>
+                                            <li class="hassubs">
+                                                <a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
                                 </ul>
                             </div>
 
                             <!-- Main Nav Menu -->
 
                             <div class="main_nav_menu ml-auto">
-                                <ul class="standard_dropdown main_nav_dropdown" id="nav_heder">
+                                <ul class="standard_dropdown main_nav_dropdown">
+                                    <li><a href="index.html">Home<i class="fas fa-chevron-down"></i></a></li>
+                                    <li class="hassubs">
+                                        <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hassubs">
+                                        <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hassubs">
+                                        <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="blog_single.php">Blog Post<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </div>
 
@@ -152,8 +246,7 @@
                                 <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
                                     <div class="menu_burger">
                                         <div class="menu_trigger_text">menu</div>
-                                        <div class="cat_burger menu_burger_inner">
-                                            <span></span><span></span><span></span></div>
+                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -175,8 +268,7 @@
 
                             <div class="page_menu_search">
                                 <form action="#">
-                                    <input type="search" required="required" class="page_menu_search_input"
-                                           placeholder="Search for products...">
+                                    <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
                                 </form>
                             </div>
                             <ul class="page_menu_nav">
@@ -199,7 +291,7 @@
                                     </ul>
                                 </li>
                                 <li class="page_menu_item">
-                                    <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                                    <a href="index.html">Home<i class="fa fa-angle-down"></i></a>
                                 </li>
                                 <li class="page_menu_item has-children">
                                     <a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
@@ -237,20 +329,13 @@
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
-                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
-                                </li>
-                                <li class="page_menu_item"><a href="contact.html">contact<i
-                                                class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="#">blog<i class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
                             </ul>
 
                             <div class="menu_contact">
-                                <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
-                                    8(8634)68 30 26
-                                </div>
-                                <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div>
-                                    <a href="mailto:shop@aidaset.ru">shop@aidaset.ru</a></div>
+                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
+                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             </div>
                         </div>
                     </div>
@@ -263,91 +348,34 @@
     <!-- Home -->
 
     <div class="home">
-        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b"
-             data-image-src="..."></div>
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/shop_background.jpg"></div>
         <div class="home_overlay"></div>
         <div class="home_content d-flex flex-column align-items-center justify-content-center">
-            <h2 class="home_title"><? var_dump($_GET); ?></h2>
+            <h2 class="home_title">Technological Blog</h2>
         </div>
     </div>
 
-    <!-- Shop -->
+    <!-- Blog -->
 
-    <div class="shop">
+    <div class="blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-
-                    <!-- Shop Sidebar -->
-                    <div class="shop_sidebar">
-                        <div class="sidebar_section">
-                            <div class="sidebar_title" data-titel="categori">Категория</div>
-                            <ul class="sidebar_categories" id="sidebar_categories">
-
-                            </ul>
+                <div class="col">
+                    <div class="blog_posts d-flex flex-row align-items-start justify-content-between" ng-controller="phoneController">
+                        <div class="blog_post" ng-repeat="phone in phones">
+                            <div class="blog_image" style="background-image:url(images/blog_1.jpg)"></div>
+                            <div class="blog_text">{{phone.body.substring(0, 106)}}...</div>
+                            <div class="blog_button"><a href="blog_single.php?id={{phone.id}}">{{phone.title.substring(0, 15)}}</a></div>
                         </div>
-
-                        <div class="sidebar_section" id="filter">
-                            <div class="sidebar_subtitle brands_subtitle">Brands</div>
-                            <div class="radio radio-primary">
-                                <input type="radio" name="radio1" id="radio1" value="option1">
-                                <label for="radio1">
-                                    Small
-                                </label>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-9">
-
-                    <!-- Shop Content -->
-
-                    <div class="shop_content">
-                        <div class="shop_bar clearfix">
-                            <div class="shop_product_count"><span data-size="products_found">186</span> найденные товары
-                            </div>
-                            <div class="shop_sorting">
-                                <span>Сотрировка по:</span>
-                                <ul>
-                                    <li>
-                                        <span class="sorting_text">По популярности<i
-                                                    class="fas fa-chevron-down"></span></i>
-                                        <ul>
-                                            <li class="shop_sorting_button"
-                                                data-isotope-option='{ "sortBy": "original-order" }' href="#" onclick="return changeHash(1)">По рейтингу
-                                            </li>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }' href="#" onclick="return changeHash(2)">
-                                                По алфаиту
-                                            </li>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }' href="#" onclick="return changeHash(3)">
-                                                По цене
-                                            </li><a >Сортировка по Имени</a>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="product_grid row" id="result">
-                            <div class="product_grid_border"></div>
-                            <!--samo-->
-
-
-                        </div>
-                        <!--Navigation -->
 
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
 
-    <!-- Недавно просмотренные -->
+    <!-- Newsletter -->
+
     <div class="newsletter">
         <div class="container">
             <div class="row">
@@ -355,16 +383,15 @@
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                         <div class="newsletter_title_container">
                             <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-                            <div class="newsletter_title">Подписаться на рассылку</div>
-                            <div class="newsletter_text"><p>... и получите купон% 20 для первой покупки.</p></div>
+                            <div class="newsletter_title">Sign up for Newsletter</div>
+                            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
                             <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required"
-                                       placeholder="Введите ваш адрес электронной почты">
-                                <button class="newsletter_button">Подписатся</button>
+                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
+                                <button class="newsletter_button">Subscribe</button>
                             </form>
-                            <div class="newsletter_unsubscribe_link"><a href="#">Отписатся</a></div>
+                            <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
                         </div>
                     </div>
                 </div>
@@ -384,14 +411,13 @@
                             <div class="logo"><a href="#">OneTech</a></div>
                         </div>
                         <div class="footer_title">Got Question? Call Us 24/7</div>
-                        <div class="footer_phone">8(8634)68 30 26</div>
+                        <div class="footer_phone">+38 068 005 3570</div>
                         <div class="footer_contact_text">
                             <p>17 Princess Road, London</p>
                             <p>Grester London NW18JR, UK</p>
                         </div>
                         <div class="footer_social">
                             <ul>
-
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -458,12 +484,8 @@
                 <div class="col">
 
                     <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                        <div class="copyright_content">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="fa fa-heart"
-                                                                                aria-hidden="true"></i> by <a
-                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="logos ml-sm-auto">
@@ -480,106 +502,617 @@
         </div>
     </div>
 </div>
-
-<script src="js/jquery-3.3.1.min.js"></script>
-
 <script>
-    function prod_mas() {
-        return $.ajax({
-            url: '../dev/product.json',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                //console.log();
-
+    angular.module('myApp', []);
+    var myApp=angular.module('myApp');
+    myApp.controller('phoneController', function($scope) {
+        $scope.phones=[
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
             },
-            error: function () {
-                alert('Выполненно с ошибками getIssues');
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "qui est esse",
+                "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+            },
+            {
+                "userId": 1,
+                "id": 3,
+                "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+                "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+            },
+            {
+                "userId": 1,
+                "id": 4,
+                "title": "eum et est occaecati",
+                "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+            },
+            {
+                "userId": 1,
+                "id": 5,
+                "title": "nesciunt quas odio",
+                "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
+            },
+            {
+                "userId": 1,
+                "id": 6,
+                "title": "dolorem eum magni eos aperiam quia",
+                "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
+            },
+            {
+                "userId": 1,
+                "id": 7,
+                "title": "magnam facilis autem",
+                "body": "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas"
+            },
+            {
+                "userId": 1,
+                "id": 8,
+                "title": "dolorem dolore est ipsam",
+                "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
+            },
+            {
+                "userId": 1,
+                "id": 9,
+                "title": "nesciunt iure omnis dolorem tempora et accusantium",
+                "body": "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas"
+            },
+            {
+                "userId": 1,
+                "id": 10,
+                "title": "optio molestias id quia eum",
+                "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
+            },
+            {
+                "userId": 2,
+                "id": 11,
+                "title": "et ea vero quia laudantium autem",
+                "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
+            },
+            {
+                "userId": 2,
+                "id": 12,
+                "title": "in quibusdam tempore odit est dolorem",
+                "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
+            },
+            {
+                "userId": 2,
+                "id": 13,
+                "title": "dolorum ut in voluptas mollitia et saepe quo animi",
+                "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
+            },
+            {
+                "userId": 2,
+                "id": 14,
+                "title": "voluptatem eligendi optio",
+                "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
+            },
+            {
+                "userId": 2,
+                "id": 15,
+                "title": "eveniet quod temporibus",
+                "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae"
+            },
+            {
+                "userId": 2,
+                "id": 16,
+                "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
+                "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
+            },
+            {
+                "userId": 2,
+                "id": 17,
+                "title": "fugit voluptas sed molestias voluptatem provident",
+                "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
+            },
+            {
+                "userId": 2,
+                "id": 18,
+                "title": "voluptate et itaque vero tempora molestiae",
+                "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
+            },
+            {
+                "userId": 2,
+                "id": 19,
+                "title": "adipisci placeat illum aut reiciendis qui",
+                "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
+            },
+            {
+                "userId": 2,
+                "id": 20,
+                "title": "doloribus ad provident suscipit at",
+                "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
+            },
+            {
+                "userId": 3,
+                "id": 21,
+                "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
+                "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt"
+            },
+            {
+                "userId": 3,
+                "id": 22,
+                "title": "dolor sint quo a velit explicabo quia nam",
+                "body": "eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"
+            },
+            {
+                "userId": 3,
+                "id": 23,
+                "title": "maxime id vitae nihil numquam",
+                "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis"
+            },
+            {
+                "userId": 3,
+                "id": 24,
+                "title": "autem hic labore sunt dolores incidunt",
+                "body": "enim et ex nulla\nomnis voluptas quia qui\nvoluptatem consequatur numquam aliquam sunt\ntotam recusandae id dignissimos aut sed asperiores deserunt"
+            },
+            {
+                "userId": 3,
+                "id": 25,
+                "title": "rem alias distinctio quo quis",
+                "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
+            },
+            {
+                "userId": 3,
+                "id": 26,
+                "title": "est et quae odit qui non",
+                "body": "similique esse doloribus nihil accusamus\nomnis dolorem fuga consequuntur reprehenderit fugit recusandae temporibus\nperspiciatis cum ut laudantium\nomnis aut molestiae vel vero"
+            },
+            {
+                "userId": 3,
+                "id": 27,
+                "title": "quasi id et eos tenetur aut quo autem",
+                "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur"
+            },
+            {
+                "userId": 3,
+                "id": 28,
+                "title": "delectus ullam et corporis nulla voluptas sequi",
+                "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+            },
+            {
+                "userId": 3,
+                "id": 29,
+                "title": "iusto eius quod necessitatibus culpa ea",
+                "body": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
+            },
+            {
+                "userId": 3,
+                "id": 30,
+                "title": "a quo magni similique perferendis",
+                "body": "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia"
+            },
+            {
+                "userId": 4,
+                "id": 31,
+                "title": "ullam ut quidem id aut vel consequuntur",
+                "body": "debitis eius sed quibusdam non quis consectetur vitae\nimpedit ut qui consequatur sed aut in\nquidem sit nostrum et maiores adipisci atque\nquaerat voluptatem adipisci repudiandae"
+            },
+            {
+                "userId": 4,
+                "id": 32,
+                "title": "doloremque illum aliquid sunt",
+                "body": "deserunt eos nobis asperiores et hic\nest debitis repellat molestiae optio\nnihil ratione ut eos beatae quibusdam distinctio maiores\nearum voluptates et aut adipisci ea maiores voluptas maxime"
+            },
+            {
+                "userId": 4,
+                "id": 33,
+                "title": "qui explicabo molestiae dolorem",
+                "body": "rerum ut et numquam laborum odit est sit\nid qui sint in\nquasi tenetur tempore aperiam et quaerat qui in\nrerum officiis sequi cumque quod"
+            },
+            {
+                "userId": 4,
+                "id": 34,
+                "title": "magnam ut rerum iure",
+                "body": "ea velit perferendis earum ut voluptatem voluptate itaque iusto\ntotam pariatur in\nnemo voluptatem voluptatem autem magni tempora minima in\nest distinctio qui assumenda accusamus dignissimos officia nesciunt nobis"
+            },
+            {
+                "userId": 4,
+                "id": 35,
+                "title": "id nihil consequatur molestias animi provident",
+                "body": "nisi error delectus possimus ut eligendi vitae\nplaceat eos harum cupiditate facilis reprehenderit voluptatem beatae\nmodi ducimus quo illum voluptas eligendi\net nobis quia fugit"
+            },
+            {
+                "userId": 4,
+                "id": 36,
+                "title": "fuga nam accusamus voluptas reiciendis itaque",
+                "body": "ad mollitia et omnis minus architecto odit\nvoluptas doloremque maxime aut non ipsa qui alias veniam\nblanditiis culpa aut quia nihil cumque facere et occaecati\nqui aspernatur quia eaque ut aperiam inventore"
+            },
+            {
+                "userId": 4,
+                "id": 37,
+                "title": "provident vel ut sit ratione est",
+                "body": "debitis et eaque non officia sed nesciunt pariatur vel\nvoluptatem iste vero et ea\nnumquam aut expedita ipsum nulla in\nvoluptates omnis consequatur aut enim officiis in quam qui"
+            },
+            {
+                "userId": 4,
+                "id": 38,
+                "title": "explicabo et eos deleniti nostrum ab id repellendus",
+                "body": "animi esse sit aut sit nesciunt assumenda eum voluptas\nquia voluptatibus provident quia necessitatibus ea\nrerum repudiandae quia voluptatem delectus fugit aut id quia\nratione optio eos iusto veniam iure"
+            },
+            {
+                "userId": 4,
+                "id": 39,
+                "title": "eos dolorem iste accusantium est eaque quam",
+                "body": "corporis rerum ducimus vel eum accusantium\nmaxime aspernatur a porro possimus iste omnis\nest in deleniti asperiores fuga aut\nvoluptas sapiente vel dolore minus voluptatem incidunt ex"
+            },
+            {
+                "userId": 4,
+                "id": 40,
+                "title": "enim quo cumque",
+                "body": "ut voluptatum aliquid illo tenetur nemo sequi quo facilis\nipsum rem optio mollitia quas\nvoluptatem eum voluptas qui\nunde omnis voluptatem iure quasi maxime voluptas nam"
+            },
+            {
+                "userId": 5,
+                "id": 41,
+                "title": "non est facere",
+                "body": "molestias id nostrum\nexcepturi molestiae dolore omnis repellendus quaerat saepe\nconsectetur iste quaerat tenetur asperiores accusamus ex ut\nnam quidem est ducimus sunt debitis saepe"
+            },
+            {
+                "userId": 5,
+                "id": 42,
+                "title": "commodi ullam sint et excepturi error explicabo praesentium voluptas",
+                "body": "odio fugit voluptatum ducimus earum autem est incidunt voluptatem\nodit reiciendis aliquam sunt sequi nulla dolorem\nnon facere repellendus voluptates quia\nratione harum vitae ut"
+            },
+            {
+                "userId": 5,
+                "id": 43,
+                "title": "eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis",
+                "body": "similique fugit est\nillum et dolorum harum et voluptate eaque quidem\nexercitationem quos nam commodi possimus cum odio nihil nulla\ndolorum exercitationem magnam ex et a et distinctio debitis"
+            },
+            {
+                "userId": 5,
+                "id": 44,
+                "title": "optio dolor molestias sit",
+                "body": "temporibus est consectetur dolore\net libero debitis vel velit laboriosam quia\nipsum quibusdam qui itaque fuga rem aut\nea et iure quam sed maxime ut distinctio quae"
+            },
+            {
+                "userId": 5,
+                "id": 45,
+                "title": "ut numquam possimus omnis eius suscipit laudantium iure",
+                "body": "est natus reiciendis nihil possimus aut provident\nex et dolor\nrepellat pariatur est\nnobis rerum repellendus dolorem autem"
+            },
+            {
+                "userId": 5,
+                "id": 46,
+                "title": "aut quo modi neque nostrum ducimus",
+                "body": "voluptatem quisquam iste\nvoluptatibus natus officiis facilis dolorem\nquis quas ipsam\nvel et voluptatum in aliquid"
+            },
+            {
+                "userId": 5,
+                "id": 47,
+                "title": "quibusdam cumque rem aut deserunt",
+                "body": "voluptatem assumenda ut qui ut cupiditate aut impedit veniam\noccaecati nemo illum voluptatem laudantium\nmolestiae beatae rerum ea iure soluta nostrum\neligendi et voluptate"
+            },
+            {
+                "userId": 5,
+                "id": 48,
+                "title": "ut voluptatem illum ea doloribus itaque eos",
+                "body": "voluptates quo voluptatem facilis iure occaecati\nvel assumenda rerum officia et\nillum perspiciatis ab deleniti\nlaudantium repellat ad ut et autem reprehenderit"
+            },
+            {
+                "userId": 5,
+                "id": 49,
+                "title": "laborum non sunt aut ut assumenda perspiciatis voluptas",
+                "body": "inventore ab sint\nnatus fugit id nulla sequi architecto nihil quaerat\neos tenetur in in eum veritatis non\nquibusdam officiis aspernatur cumque aut commodi aut"
+            },
+            {
+                "userId": 5,
+                "id": 50,
+                "title": "repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem",
+                "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
+            },
+            {
+                "userId": 6,
+                "id": 51,
+                "title": "soluta aliquam aperiam consequatur illo quis voluptas",
+                "body": "sunt dolores aut doloribus\ndolore doloribus voluptates tempora et\ndoloremque et quo\ncum asperiores sit consectetur dolorem"
+            },
+            {
+                "userId": 6,
+                "id": 52,
+                "title": "qui enim et consequuntur quia animi quis voluptate quibusdam",
+                "body": "iusto est quibusdam fuga quas quaerat molestias\na enim ut sit accusamus enim\ntemporibus iusto accusantium provident architecto\nsoluta esse reprehenderit qui laborum"
+            },
+            {
+                "userId": 6,
+                "id": 53,
+                "title": "ut quo aut ducimus alias",
+                "body": "minima harum praesentium eum rerum illo dolore\nquasi exercitationem rerum nam\nporro quis neque quo\nconsequatur minus dolor quidem veritatis sunt non explicabo similique"
+            },
+            {
+                "userId": 6,
+                "id": 54,
+                "title": "sit asperiores ipsam eveniet odio non quia",
+                "body": "totam corporis dignissimos\nvitae dolorem ut occaecati accusamus\nex velit deserunt\net exercitationem vero incidunt corrupti mollitia"
+            },
+            {
+                "userId": 6,
+                "id": 55,
+                "title": "sit vel voluptatem et non libero",
+                "body": "debitis excepturi ea perferendis harum libero optio\neos accusamus cum fuga ut sapiente repudiandae\net ut incidunt omnis molestiae\nnihil ut eum odit"
+            },
+            {
+                "userId": 6,
+                "id": 56,
+                "title": "qui et at rerum necessitatibus",
+                "body": "aut est omnis dolores\nneque rerum quod ea rerum velit pariatur beatae excepturi\net provident voluptas corrupti\ncorporis harum reprehenderit dolores eligendi"
+            },
+            {
+                "userId": 6,
+                "id": 57,
+                "title": "sed ab est est",
+                "body": "at pariatur consequuntur earum quidem\nquo est laudantium soluta voluptatem\nqui ullam et est\net cum voluptas voluptatum repellat est"
+            },
+            {
+                "userId": 6,
+                "id": 58,
+                "title": "voluptatum itaque dolores nisi et quasi",
+                "body": "veniam voluptatum quae adipisci id\net id quia eos ad et dolorem\naliquam quo nisi sunt eos impedit error\nad similique veniam"
+            },
+            {
+                "userId": 6,
+                "id": 59,
+                "title": "qui commodi dolor at maiores et quis id accusantium",
+                "body": "perspiciatis et quam ea autem temporibus non voluptatibus qui\nbeatae a earum officia nesciunt dolores suscipit voluptas et\nanimi doloribus cum rerum quas et magni\net hic ut ut commodi expedita sunt"
+            },
+            {
+                "userId": 6,
+                "id": 60,
+                "title": "consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere",
+                "body": "asperiores sunt ab assumenda cumque modi velit\nqui esse omnis\nvoluptate et fuga perferendis voluptas\nillo ratione amet aut et omnis"
+            },
+            {
+                "userId": 7,
+                "id": 61,
+                "title": "voluptatem doloribus consectetur est ut ducimus",
+                "body": "ab nemo optio odio\ndelectus tenetur corporis similique nobis repellendus rerum omnis facilis\nvero blanditiis debitis in nesciunt doloribus dicta dolores\nmagnam minus velit"
+            },
+            {
+                "userId": 7,
+                "id": 62,
+                "title": "beatae enim quia vel",
+                "body": "enim aspernatur illo distinctio quae praesentium\nbeatae alias amet delectus qui voluptate distinctio\nodit sint accusantium autem omnis\nquo molestiae omnis ea eveniet optio"
+            },
+            {
+                "userId": 7,
+                "id": 63,
+                "title": "voluptas blanditiis repellendus animi ducimus error sapiente et suscipit",
+                "body": "enim adipisci aspernatur nemo\nnumquam omnis facere dolorem dolor ex quis temporibus incidunt\nab delectus culpa quo reprehenderit blanditiis asperiores\naccusantium ut quam in voluptatibus voluptas ipsam dicta"
+            },
+            {
+                "userId": 7,
+                "id": 64,
+                "title": "et fugit quas eum in in aperiam quod",
+                "body": "id velit blanditiis\neum ea voluptatem\nmolestiae sint occaecati est eos perspiciatis\nincidunt a error provident eaque aut aut qui"
+            },
+            {
+                "userId": 7,
+                "id": 65,
+                "title": "consequatur id enim sunt et et",
+                "body": "voluptatibus ex esse\nsint explicabo est aliquid cumque adipisci fuga repellat labore\nmolestiae corrupti ex saepe at asperiores et perferendis\nnatus id esse incidunt pariatur"
+            },
+            {
+                "userId": 7,
+                "id": 66,
+                "title": "repudiandae ea animi iusto",
+                "body": "officia veritatis tenetur vero qui itaque\nsint non ratione\nsed et ut asperiores iusto eos molestiae nostrum\nveritatis quibusdam et nemo iusto saepe"
+            },
+            {
+                "userId": 7,
+                "id": 67,
+                "title": "aliquid eos sed fuga est maxime repellendus",
+                "body": "reprehenderit id nostrum\nvoluptas doloremque pariatur sint et accusantium quia quod aspernatur\net fugiat amet\nnon sapiente et consequatur necessitatibus molestiae"
+            },
+            {
+                "userId": 7,
+                "id": 68,
+                "title": "odio quis facere architecto reiciendis optio",
+                "body": "magnam molestiae perferendis quisquam\nqui cum reiciendis\nquaerat animi amet hic inventore\nea quia deleniti quidem saepe porro velit"
+            },
+            {
+                "userId": 7,
+                "id": 69,
+                "title": "fugiat quod pariatur odit minima",
+                "body": "officiis error culpa consequatur modi asperiores et\ndolorum assumenda voluptas et vel qui aut vel rerum\nvoluptatum quisquam perspiciatis quia rerum consequatur totam quas\nsequi commodi repudiandae asperiores et saepe a"
+            },
+            {
+                "userId": 7,
+                "id": 70,
+                "title": "voluptatem laborum magni",
+                "body": "sunt repellendus quae\nest asperiores aut deleniti esse accusamus repellendus quia aut\nquia dolorem unde\neum tempora esse dolore"
+            },
+            {
+                "userId": 8,
+                "id": 71,
+                "title": "et iusto veniam et illum aut fuga",
+                "body": "occaecati a doloribus\niste saepe consectetur placeat eum voluptate dolorem et\nqui quo quia voluptas\nrerum ut id enim velit est perferendis"
+            },
+            {
+                "userId": 8,
+                "id": 72,
+                "title": "sint hic doloribus consequatur eos non id",
+                "body": "quam occaecati qui deleniti consectetur\nconsequatur aut facere quas exercitationem aliquam hic voluptas\nneque id sunt ut aut accusamus\nsunt consectetur expedita inventore velit"
+            },
+            {
+                "userId": 8,
+                "id": 73,
+                "title": "consequuntur deleniti eos quia temporibus ab aliquid at",
+                "body": "voluptatem cumque tenetur consequatur expedita ipsum nemo quia explicabo\naut eum minima consequatur\ntempore cumque quae est et\net in consequuntur voluptatem voluptates aut"
+            },
+            {
+                "userId": 8,
+                "id": 74,
+                "title": "enim unde ratione doloribus quas enim ut sit sapiente",
+                "body": "odit qui et et necessitatibus sint veniam\nmollitia amet doloremque molestiae commodi similique magnam et quam\nblanditiis est itaque\nquo et tenetur ratione occaecati molestiae tempora"
+            },
+            {
+                "userId": 8,
+                "id": 75,
+                "title": "dignissimos eum dolor ut enim et delectus in",
+                "body": "commodi non non omnis et voluptas sit\nautem aut nobis magnam et sapiente voluptatem\net laborum repellat qui delectus facilis temporibus\nrerum amet et nemo voluptate expedita adipisci error dolorem"
+            },
+            {
+                "userId": 8,
+                "id": 76,
+                "title": "doloremque officiis ad et non perferendis",
+                "body": "ut animi facere\ntotam iusto tempore\nmolestiae eum aut et dolorem aperiam\nquaerat recusandae totam odio"
+            },
+            {
+                "userId": 8,
+                "id": 77,
+                "title": "necessitatibus quasi exercitationem odio",
+                "body": "modi ut in nulla repudiandae dolorum nostrum eos\naut consequatur omnis\nut incidunt est omnis iste et quam\nvoluptates sapiente aliquam asperiores nobis amet corrupti repudiandae provident"
+            },
+            {
+                "userId": 8,
+                "id": 78,
+                "title": "quam voluptatibus rerum veritatis",
+                "body": "nobis facilis odit tempore cupiditate quia\nassumenda doloribus rerum qui ea\nillum et qui totam\naut veniam repellendus"
+            },
+            {
+                "userId": 8,
+                "id": 79,
+                "title": "pariatur consequatur quia magnam autem omnis non amet",
+                "body": "libero accusantium et et facere incidunt sit dolorem\nnon excepturi qui quia sed laudantium\nquisquam molestiae ducimus est\nofficiis esse molestiae iste et quos"
+            },
+            {
+                "userId": 8,
+                "id": 80,
+                "title": "labore in ex et explicabo corporis aut quas",
+                "body": "ex quod dolorem ea eum iure qui provident amet\nquia qui facere excepturi et repudiandae\nasperiores molestias provident\nminus incidunt vero fugit rerum sint sunt excepturi provident"
+            },
+            {
+                "userId": 9,
+                "id": 81,
+                "title": "tempora rem veritatis voluptas quo dolores vero",
+                "body": "facere qui nesciunt est voluptatum voluptatem nisi\nsequi eligendi necessitatibus ea at rerum itaque\nharum non ratione velit laboriosam quis consequuntur\nex officiis minima doloremque voluptas ut aut"
+            },
+            {
+                "userId": 9,
+                "id": 82,
+                "title": "laudantium voluptate suscipit sunt enim enim",
+                "body": "ut libero sit aut totam inventore sunt\nporro sint qui sunt molestiae\nconsequatur cupiditate qui iste ducimus adipisci\ndolor enim assumenda soluta laboriosam amet iste delectus hic"
+            },
+            {
+                "userId": 9,
+                "id": 83,
+                "title": "odit et voluptates doloribus alias odio et",
+                "body": "est molestiae facilis quis tempora numquam nihil qui\nvoluptate sapiente consequatur est qui\nnecessitatibus autem aut ipsa aperiam modi dolore numquam\nreprehenderit eius rem quibusdam"
+            },
+            {
+                "userId": 9,
+                "id": 84,
+                "title": "optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut",
+                "body": "sint molestiae magni a et quos\neaque et quasi\nut rerum debitis similique veniam\nrecusandae dignissimos dolor incidunt consequatur odio"
+            },
+            {
+                "userId": 9,
+                "id": 85,
+                "title": "dolore veritatis porro provident adipisci blanditiis et sunt",
+                "body": "similique sed nisi voluptas iusto omnis\nmollitia et quo\nassumenda suscipit officia magnam sint sed tempora\nenim provident pariatur praesentium atque animi amet ratione"
+            },
+            {
+                "userId": 9,
+                "id": 86,
+                "title": "placeat quia et porro iste",
+                "body": "quasi excepturi consequatur iste autem temporibus sed molestiae beatae\net quaerat et esse ut\nvoluptatem occaecati et vel explicabo autem\nasperiores pariatur deserunt optio"
+            },
+            {
+                "userId": 9,
+                "id": 87,
+                "title": "nostrum quis quasi placeat",
+                "body": "eos et molestiae\nnesciunt ut a\ndolores perspiciatis repellendus repellat aliquid\nmagnam sint rem ipsum est"
+            },
+            {
+                "userId": 9,
+                "id": 88,
+                "title": "sapiente omnis fugit eos",
+                "body": "consequatur omnis est praesentium\nducimus non iste\nneque hic deserunt\nvoluptatibus veniam cum et rerum sed"
+            },
+            {
+                "userId": 9,
+                "id": 89,
+                "title": "sint soluta et vel magnam aut ut sed qui",
+                "body": "repellat aut aperiam totam temporibus autem et\narchitecto magnam ut\nconsequatur qui cupiditate rerum quia soluta dignissimos nihil iure\ntempore quas est"
+            },
+            {
+                "userId": 9,
+                "id": 90,
+                "title": "ad iusto omnis odit dolor voluptatibus",
+                "body": "minus omnis soluta quia\nqui sed adipisci voluptates illum ipsam voluptatem\neligendi officia ut in\neos soluta similique molestias praesentium blanditiis"
+            },
+            {
+                "userId": 10,
+                "id": 91,
+                "title": "aut amet sed",
+                "body": "libero voluptate eveniet aperiam sed\nsunt placeat suscipit molestias\nsimilique fugit nam natus\nexpedita consequatur consequatur dolores quia eos et placeat"
+            },
+            {
+                "userId": 10,
+                "id": 92,
+                "title": "ratione ex tenetur perferendis",
+                "body": "aut et excepturi dicta laudantium sint rerum nihil\nlaudantium et at\na neque minima officia et similique libero et\ncommodi voluptate qui"
+            },
+            {
+                "userId": 10,
+                "id": 93,
+                "title": "beatae soluta recusandae",
+                "body": "dolorem quibusdam ducimus consequuntur dicta aut quo laboriosam\nvoluptatem quis enim recusandae ut sed sunt\nnostrum est odit totam\nsit error sed sunt eveniet provident qui nulla"
+            },
+            {
+                "userId": 10,
+                "id": 94,
+                "title": "qui qui voluptates illo iste minima",
+                "body": "aspernatur expedita soluta quo ab ut similique\nexpedita dolores amet\nsed temporibus distinctio magnam saepe deleniti\nomnis facilis nam ipsum natus sint similique omnis"
+            },
+            {
+                "userId": 10,
+                "id": 95,
+                "title": "id minus libero illum nam ad officiis",
+                "body": "earum voluptatem facere provident blanditiis velit laboriosam\npariatur accusamus odio saepe\ncumque dolor qui a dicta ab doloribus consequatur omnis\ncorporis cupiditate eaque assumenda ad nesciunt"
+            },
+            {
+                "userId": 10,
+                "id": 96,
+                "title": "quaerat velit veniam amet cupiditate aut numquam ut sequi",
+                "body": "in non odio excepturi sint eum\nlabore voluptates vitae quia qui et\ninventore itaque rerum\nveniam non exercitationem delectus aut"
+            },
+            {
+                "userId": 10,
+                "id": 97,
+                "title": "quas fugiat ut perspiciatis vero provident",
+                "body": "eum non blanditiis soluta porro quibusdam voluptas\nvel voluptatem qui placeat dolores qui velit aut\nvel inventore aut cumque culpa explicabo aliquid at\nperspiciatis est et voluptatem dignissimos dolor itaque sit nam"
+            },
+            {
+                "userId": 10,
+                "id": 98,
+                "title": "laboriosam dolor voluptates",
+                "body": "doloremque ex facilis sit sint culpa\nsoluta assumenda eligendi non ut eius\nsequi ducimus vel quasi\nveritatis est dolores"
+            },
+            {
+                "userId": 10,
+                "id": 99,
+                "title": "temporibus sit alias delectus eligendi possimus magni",
+                "body": "quo deleniti praesentium dicta non quod\naut est molestias\nmolestias et officia quis nihil\nitaque dolorem quia"
+            },
+            {
+                "userId": 10,
+                "id": 100,
+                "title": "at nam consequatur ea labore ea harum",
+                "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
             }
-        });
-    }
-    //построение блока товаров
+        ]
 
-    function CoffeeMachine() {
-        this.titel = 'Главаная';
-        this.user = false;
-        this.cart_shop = function () {
-            this.cart = {count: '', total: '', item: [{name: '', price: '', col: ''}]};
-        };
-        this.Recently_Viewed = [{name: '', avatar: '', price: [''], item_discount: '', item_new: 1}];
-        this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-        this.waterAmount = [];
-
-        // физическая константа - удельная теплоёмкость воды для getBoilTime
-
-
-        // расчёт времени для кипячения
-        function data_prod() {
-            return $.ajax({
-                url: 'http://aida.k99969kp.beget.tech/dev/poduct.json',
-                type: 'GET',
-                //data:id,
-                dataType: 'json',
-                success: function (data) {
-
-                    var items = [];
-                    $.each(data_prod(), function (key, val) {
-                        //   val random=random.m
-                        items.push('\t\t\t\t\t\t\t<div class="product_item discount">\n' +
-                            '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                            '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>\n' +
-                            '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                            '\t\t\t\t\t\t\t\t\t<div class="product_price">$' + val.balance + '<span>$' + val.balance2 + '</span></div>\n' +
-                            '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">' + val.name + '</a></div></div>\n' +
-                            '\t\t\t\t\t\t\t\t</div>\n' +
-                            '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
-                            '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                            '\t\t\t\t\t\t\t\t</ul>\n' +
-                            '\t\t\t\t\t\t\t</div>');
-                    });
-                    $("#result").html(items);
-                //    $.each(data, function (key, val) {
-                  //      alert(key+'-/-'+val.name);
-                    //});
-              //      return  data;
-                    //     Bild_Blok(data, "#result");
-                    //     $('[data-size="products_found"]').text(data.length);
-                    //     $('[data-titel="categori"]').text(data.titel);
-                },
-                error: function () {
-                    alert('Выполненно с ошибками или категория пустая');
-                }
-            });
-        }
-
-        // что делать по окончании процесса
-        function onReady() {
-            //alert(waterAmount );
-            //data_prod();
-            //  alert(dataProd);
-
-            $('[data-size="products_found"]').text(data_prod().length);
-            //  $('[data-titel="categori"]').text(data_prod().name);
-
-        }
-
-        this.run = function () {
-           setTimeout(onReady(),10000);
-        };
-
-    }
-
-
-    var coffeeMachine = new CoffeeMachine();
-    coffeeMachine.waterAmount = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    //onReady(coffeeMachine.waterAmount);
-    coffeeMachine.run();
-    //  Bild_Blok(data['data'], "#result");
+    });
 
 </script>
-
+<script src="js/jquery-3.3.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/greensock/TweenMax.min.js"></script>
@@ -588,12 +1121,9 @@
 <script src="plugins/greensock/animation.gsap.min.js"></script>
 <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-
-
-
+<script src="js/blog_custom.js"></script>
 </body>
 
 </html>

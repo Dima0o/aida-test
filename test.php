@@ -1,4 +1,9 @@
-<? session_start();
+<?
+//header('http://aida.k99969kp.beget.tech/blog.html');
+//header('Location: http://aida.k99969kp.beget.tech/blog.html');
+//header("Location: http://aida.k99969kp.beget.tech/blog.html");
+//exit;
+session_start();
 /*  foreach ($_GET as $key=>$value){
       $_SESSION[$key]=$value;
   };*/
