@@ -10,6 +10,6 @@ mb_internal_encoding("UTF-8");
     mysql_query ("set character_set_client='utf8'");
     mysql_query ("set character_set_results='utf8'");
     mysql_query ("set collation_connection='utf8_bin'");
-//adadaS   # if (!$db){echo "Нет соединения<br>";}else{echo "Соединение есть<br>";}
+#if (!$db){echo "Нет соединения<br>";}else{echo "Соединение есть<br>";}
 ?>
 
