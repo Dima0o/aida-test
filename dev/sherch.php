@@ -9,7 +9,7 @@ $search = addslashes($search);
 $search = htmlspecialchars($search);
 $search = stripslashes($search);
 if($search == ''){
-    exit("Начните вводить запрос");
+    #exit("Начните вводить запрос");
 }
 /*
 $db = mysql_connect("localhost","k99969kp_1c","123456");
@@ -31,11 +31,16 @@ if(mysql_num_rows($query) > 0){
 $qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`prod` WHERE id = $search ");
 if(mysql_num_rows($qr_result) > 0){
     $sql = mysql_fetch_array($qr_result);
-    do{
-        echo "<div>".$sql['name']."</div>";
+    do{?>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading"><?=$sql['name']?></h4>
+                    <p class="list-group-item-text"><?=$sql['uid'].'  - - - - '.$sql['name']?>.</p>
+                </a>
+
+        <?
     }while($sql = mysql_fetch_array($qr_result));
 }else{
-    echo "Нет результатов--".$_POST['search'].'--'.$search;
+   # echo "Нет результатов--".$_POST['search'].'--'.$search;
 }
 
 ?>

@@ -85,20 +85,12 @@
 								<div class="header_search_form_container">
 									<form action="#" class="header_search_form clearfix">
 										<input type="search" id="search" required="required" class="header_search_input" placeholder="Поиск ...">
-										<div class="custom_dropdown">
-											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
-												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
-												</ul>
-											</div>
-										</div>
+                                        <div class="custom_list clc active" >
+                                            <div class="bs-example">
+                                                <div class="list-group" id="resSearch">
+                                                </div>
+                                            </div>
+                                        </div>
 										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
 									</form>
 								</div>
@@ -147,7 +139,7 @@
 
 							<!-- Categories Menu -->
 
-							<div class="cat_menu_container">
+							<div class="cat_menu_container" style="z-index: 0;">
 								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
 									<div class="cat_burger"><span></span><span></span><span></span></div>
 									<div class="cat_menu_text">Категории</div>
@@ -223,7 +215,6 @@
 	<div class="single_post">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2"><div id="resSearch">Начните вводить запрос</div>
 					<div class="single_post_title"></div>
 					<div class="single_post_text"></div>
 				</div>
