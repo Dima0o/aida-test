@@ -38,7 +38,7 @@ function GlobalPage(power) {
 
         var items = [];
         $.each(data, function (key, val) {
-            items.push('<li><a href="categori.php?id='+val.id+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
+            items.push('<li><a href="catalog.php?id='+val.id+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
         });
         $('.cat_menu').html(items);
     }
