@@ -61,7 +61,7 @@ function GlobalPage(power) {
 
 }
 function Global_categori() {
-    $.getJSON("../dev/category.php", function (data) {
+    $.getJSON("../dev/category_global.php", function (data) {
         var items = [];
         $.each(data, function (key, val) {
             items.push('<li><a href="categori.php?id='+val.id+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
@@ -82,3 +82,87 @@ function Global_categori() {
     });*/
 }
 //http://aida.k99969kp.beget.tech/dev/category.php
+function Categori_ui(id) {
+    return $.ajax({
+        url: 'dev/category.php?id="' + id + '"',
+        type: 'GET',
+        //data:id,
+        dataType: 'json',
+        success: function (data) {
+            var items = [];
+            $('.shop_sidebar').html('<div class="sidebar_section">\n' +
+                '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
+                '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
+                '\n' +
+                '                            </ul>\n' +
+                '                        </div>');
+            console.log(data['data']);
+            //$.each(data, function (key, val) {
+                $.each(data['data'], function (key, val) {
+                //   val random=random.m
+                     var status='';
+                    if (val.id == id) {
+                        status='style="color: #ef7f1b;"';
+                    }
+                items.push('<li><a href="?id='+val.id+'" '+status+'>'+val.name+'</a></li>');
+                });
+            //});
+            $('#sidebar_categories').html(items);
+            //$('[data-size="products_found"]').text(data.length);
+            $('[data-titel="categori"]').text(data.titel);
+        },
+        error: function () {
+            alert('Выполненно с ошибками или категория пустая getIssues_id');
+        }
+    });
+
+}
+function Prod_div(id) {
+    return $.ajax({
+        url: 'dev/categore.php?id="' + id + '"',
+        type: 'GET',
+        //data:id,
+        dataType: 'json',
+        success: function (data) {
+            var items = [];
+            /*$('.shop_sidebar').html('<div class="sidebar_section">\n' +
+                '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
+                '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
+                '\n' +
+                '                            </ul>\n' +
+                '                        </div>');
+            console.log(data['data']);*/
+            //$.each(data, function (key, val) {
+            $.each(data['data'], function (key, val) {
+                items.push('<div class="product_item is_new">\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$225</div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>\n' +
+                    '\t\t\t\t\t\t\t\t</div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
+                    '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+                    '\t\t\t\t\t\t\t\t</ul>\n' +
+                    '\t\t\t\t\t\t\t</div>');
+            });
+            //});
+            $('#result').html(items);
+            //$('[data-size="products_found"]').text(data.length);
+            //$('[data-titel="categori"]').text(data.titel);
+        },
+        error: function () {
+            alert('Выполненно с ошибками или категория пустая getIssues_id');
+        }
+    });
+
+}
+
+/*<div class="sidebar_section">
+                            <div class="sidebar_title" data-titel="categori">Категория</div>
+                            <ul class="sidebar_categories" id="sidebar_categories">
+
+                            </ul>
+                        </div>*/

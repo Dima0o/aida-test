@@ -97,3 +97,7 @@ git commit -m "Категории и меню (без урла на страни
 git add .
 git commit -m "Поиск работает надо токо запрос переписать и переделать блок оторбражения  (переверстать) доделать футер и корзигу и возится с товарами а то уже горит"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+
+git add .
+"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

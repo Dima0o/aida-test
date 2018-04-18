@@ -233,25 +233,7 @@ session_start();
 
                     <!-- Shop Sidebar -->
                     <div class="shop_sidebar">
-                        <div class="sidebar_section">
-                            <div class="sidebar_title" data-titel="categori">Категория</div>
-                            <ul class="sidebar_categories" id="sidebar_categories">
-
-                            </ul>
-                        </div>
-
-                        <div class="sidebar_section" id="filter">
-                            <div class="sidebar_subtitle brands_subtitle">Brands</div>
-                            <div class="radio radio-primary">
-                                <input type="radio" name="radio1" id="radio1" value="option1">
-                                <label for="radio1">
-                                    Small
-                                </label>
-                            </div>
-
-                        </div>
-
-
+                        <!-- работа с боковым  элементоу управления для  категорий-->
                     </div>
 
                 </div>
@@ -431,98 +413,6 @@ session_start();
 
 <script src="js/jquery-3.3.1.min.js"></script>
 
-<script>
-    function prod_mas() {
-        return $.ajax({
-            url: '../dev/product.json',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                //console.log();
-
-            },
-            error: function () {
-                alert('Выполненно с ошибками getIssues');
-            }
-        });
-    }
-    //построение блока товаров
-
-    function CoffeeMachine() {
-        this.titel = 'Главаная';
-        this.user = false;
-        this.cart_shop = function () {
-            this.cart = {count: '', total: '', item: [{name: '', price: '', col: ''}]};
-        };
-        this.Recently_Viewed = [{name: '', avatar: '', price: [''], item_discount: '', item_new: 1}];
-        this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-        this.waterAmount = [];
-
-        // физическая константа - удельная теплоёмкость воды для getBoilTime
-
-
-        // расчёт времени для кипячения
-        function data_prod() {
-            return $.ajax({
-                url: 'http://aida.k99969kp.beget.tech/dev/poduct.json',
-                type: 'GET',
-                //data:id,
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    return  data;
-                    //     Bild_Blok(data, "#result");
-                    //     $('[data-size="products_found"]').text(data.length);
-                    //     $('[data-titel="categori"]').text(data.titel);
-                },
-                error: function () {
-                    alert('Выполненно с ошибками или категория пустая');
-                }
-            });
-        }
-
-        // что делать по окончании процесса
-        function onReady() {
-            //alert(waterAmount );
-            //data_prod();
-            //  alert(dataProd);
-            var items = [];
-            $.each(data_prod(), function (key, val) {
-                //   val random=random.m
-                items.push('\t\t\t\t\t\t\t<div class="product_item discount">\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$' + val.balance + '<span>$' + val.balance2 + '</span></div>\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">' + val.name + '</a></div></div>\n' +
-                    '\t\t\t\t\t\t\t\t</div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
-                    '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                    '\t\t\t\t\t\t\t\t</ul>\n' +
-                    '\t\t\t\t\t\t\t</div>');
-            });
-            $("#result").html(items);
-            $('[data-size="products_found"]').text(data_prod().length);
-            //  $('[data-titel="categori"]').text(data_prod().name);
-
-        }
-
-        this.run = function () {
-            onReady();
-        };
-
-    }
-
-
-    var coffeeMachine = new CoffeeMachine();
-    coffeeMachine.waterAmount = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    //onReady(coffeeMachine.waterAmount);
-    coffeeMachine.run();
-    //  Bild_Blok(data['data'], "#result");
-
-</script>
 
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -561,8 +451,8 @@ session_start();
             });
         });
     });
-
-
+    Categori_ui(<?=$_GET['id']?>);
+    Prod_div(<?=$_GET['id']?>);
 
 </script>
 
