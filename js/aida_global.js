@@ -90,7 +90,7 @@ function Categori_ui(id) {
         dataType: 'json',
         success: function (data) {
             var items = [];
-            $('.shop_sidebar').html('<div class="sidebar_section">\n' +
+            $('.shop_sidebar').prepend('<div class="sidebar_section">\n' +
                 '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
                 '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
                 '\n' +
@@ -139,7 +139,7 @@ function Prod_div(id) {
                     '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
                     '\t\t\t\t\t\t\t\t\t<div class="product_price">$225</div>\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">Philips BT6900A</a></div></div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
                     '\t\t\t\t\t\t\t\t</div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
                     '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
@@ -173,45 +173,42 @@ function Filter(id) {
         //data:id,
         dataType: 'json',
         success: function (data) {
-            alert(id);
+            //alert(id);*
             var items = [];
-            //$.each(data, function (key, val) {
             $.each(data, function (key, value) {
+                $('.shop_sidebar').append('<div class="sidebar_section"><div class="sidebar_title" data-titel="categori">'+value.name+'</div><div class="sidebar_categories" id="'+value.id+'" style="margin-top: 6px;"' +
+                    '"></div></div>');
                 var items = [];
                 //console.log(val.data);
-                if (value.type==1){
+
                     $.each(value.data, function (key, val) {
-                        items.push('<div class="form-check">\n' +
-                            '\t\t\t\t\t<label>\n' +
-                            '\t\t\t\t\t\t<input type="checkbox" name="check"> <span class="label-text">'+val.name+'</span>\n' +
-                            '\t\t\t\t\t</label>\n' +
-                            '\t\t\t\t</div>');
+                        items.push('<label><input data-filter="'+val.value+'" type="checkbox" name="check"> <span class="label-text">'+val.name+'</span></label><br>');
                     });
-                } else{
-                    $.each(value.data, function (key, val) {
-                        items.push('<div class="form-check">\n' +
-                            '\t\t\t\t\t<label>\n' +
-                            '\t\t\t\t\t\t<input type="checkbox" name="check"> <span class="label-text">'+val.name+'</span>\n' +
-                            '\t\t\t\t\t</label>\n' +
-                            '\t\t\t\t</div>');
-                    });
-                };
-                $('.shop_sidebar').append('<div class="sidebar_section">\n' +
-                '                            <div class="sidebar_title" data-titel="categori">'+value.name+'</div>\n' +
-                '                            <div class="sidebar_categories" id="'+value.id+'">\n'+
-                '                            </div>\n' +
-                '                        </div>');
-                console.log(items);
-                $(value.id).html(items);
+                //console.log(items);
+                $("#"+value.id).html(items);
             });
-            //});
-            //$('#sidebar_categories').html(items);
-            //$('[data-size="products_found"]').text(data.length);
-            //$('[data-titel="categori"]').text(data.titel);
+            $('.shop_sidebar').append('<a id="superid" class="btn btn-sm btn-warning btn-lg btn-block"  type="button">Фильтр <span class="caret"></span></a>');
         },
         error: function () {
             alert('Выполненно с ошибками или категория пустая Filter');
         }
     });
 
+}
+function log(){
+    console.log('1');
+};
+
+$(document).on('click','#superid',function(){
+//рабочий элемент
+    showHotels();
+});
+function showHotels() {
+    var items = [];
+    $("input:checked").each(function(id) {
+        //alert( $("body").data("bar"));
+        items.push($(this).data("filter"));
+    })
+    console.log(items);
+    //$("#result").load("resort.php", { 'resort[]': tagsArray });
 }

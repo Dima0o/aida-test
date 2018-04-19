@@ -11,7 +11,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shop</title>
+    <title>Каталог</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
@@ -24,6 +24,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+    
 
 </head>
 
@@ -229,7 +230,7 @@ session_start();
     <div class="shop">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-2">
 
                     <!-- Shop Sidebar -->
                     <div class="shop_sidebar">
@@ -238,7 +239,7 @@ session_start();
 
                 </div>
 
-                <div class="col-lg-9">
+                <div class="col-lg-10">
 
                     <!-- Shop Content -->
 
