@@ -101,3 +101,21 @@ git commit -m "Поиск работает надо токо запрос пер
 git add .
 "
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "работа"
+git add .
+git commit -m "Кривой поиск и отображение готовы осталось перенести статьи компанни для блога"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "начинаем работать с футером "
+git add .
+git commit -m "Работаем с каталогом  отрисовка проба сориторовок"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Работа с каталогом отрисовка каталога + наращивание  шаблнизатора от категио"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git commit -m "Работа с каталогом отрисовка каталога + наращивание  шаблнизатора от категиории  работа с большим числом данных для товаро"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Что готово что то нет надо быстрее со свойствами разбиратся и фильром для товаров"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
