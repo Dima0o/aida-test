@@ -96,7 +96,7 @@ function Categori_ui(id) {
                 '\n' +
                 '                            </ul>\n' +
                 '                        </div>');
-            console.log(data['data']);
+            //console.log(data['data']);
             //$.each(data, function (key, val) {
                 $.each(data['data'], function (key, val) {
                 //   val random=random.m
@@ -166,3 +166,52 @@ function Prod_div(id) {
 
                             </ul>
                         </div>*/
+function Filter(id) {
+    return $.ajax({
+        url: 'dev/filter.json',
+        type: 'GET',
+        //data:id,
+        dataType: 'json',
+        success: function (data) {
+            alert(id);
+            var items = [];
+            //$.each(data, function (key, val) {
+            $.each(data, function (key, value) {
+                var items = [];
+                //console.log(val.data);
+                if (value.type==1){
+                    $.each(value.data, function (key, val) {
+                        items.push('<div class="form-check">\n' +
+                            '\t\t\t\t\t<label>\n' +
+                            '\t\t\t\t\t\t<input type="checkbox" name="check"> <span class="label-text">'+val.name+'</span>\n' +
+                            '\t\t\t\t\t</label>\n' +
+                            '\t\t\t\t</div>');
+                    });
+                } else{
+                    $.each(value.data, function (key, val) {
+                        items.push('<div class="form-check">\n' +
+                            '\t\t\t\t\t<label>\n' +
+                            '\t\t\t\t\t\t<input type="checkbox" name="check"> <span class="label-text">'+val.name+'</span>\n' +
+                            '\t\t\t\t\t</label>\n' +
+                            '\t\t\t\t</div>');
+                    });
+                };
+                $('.shop_sidebar').append('<div class="sidebar_section">\n' +
+                '                            <div class="sidebar_title" data-titel="categori">'+value.name+'</div>\n' +
+                '                            <div class="sidebar_categories" id="'+value.id+'">\n'+
+                '                            </div>\n' +
+                '                        </div>');
+                console.log(items);
+                $(value.id).html(items);
+            });
+            //});
+            //$('#sidebar_categories').html(items);
+            //$('[data-size="products_found"]').text(data.length);
+            //$('[data-titel="categori"]').text(data.titel);
+        },
+        error: function () {
+            alert('Выполненно с ошибками или категория пустая Filter');
+        }
+    });
+
+}
