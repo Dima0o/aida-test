@@ -24,7 +24,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
-    
+
 
 </head>
 
@@ -249,31 +249,22 @@ session_start();
                             </div>
                             <div class="shop_sorting">
                                 <span>Сотрировка по:</span>
-                                <ul>
-                                    <li>
-                                        <span class="sorting_text">По популярности<i
-                                                class="fas fa-chevron-down"></span></i>
-                                        <ul>
-                                            <li class="shop_sorting_button"
-                                                data-isotope-option='{ "sortBy": "original-order" }'>По рейтингу
-                                            </li>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>
-                                                По алфаиту
-                                            </li>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }'>
-                                                По цене
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <div class="button-group sort-by-button-group">
+                                    <button class="button is-checked" data-sort-value="original-order">original order</button>
+                                    <button class="button" data-sort-value="name">name</button>
+                                    <button class="button" data-sort-value="symbol">symbol</button>
+                                    <button class="button" data-sort-value="number">number</button>
+                                    <button class="button" data-sort-value="weight">weight</button>
+                                    <button class="button" data-sort-value="category">category</button>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="product_grid row" id="result">
+                        <div class="product_grid row grid" id="result">
                             <div class="product_grid_border"></div>
                             <!--samo-->
 
-                            <a href="#" onclick="return changeHash(2)">Сортировка по Имени</a>
+                            <a href="#" onclick="return changeHash(2)"></a>
                         </div>
                         <!--Navigation -->
 
@@ -424,9 +415,11 @@ session_start();
 <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-        <!--<script src="../plugins/parallax-js-master/parallax.min.js"></script>-->
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<!--<script src="js/shop_custom.js"></script>-->
+
 <script src="js/aida_global.js"></script>
 <script>
 
@@ -457,7 +450,13 @@ session_start();
     Filter(<?=$_GET['id']?>);
 
 </script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'UA-23581568-13');
+</script>
 </body>
 
 </html>

@@ -134,12 +134,12 @@ function Prod_div(id) {
             console.log(data['data']);*/
             //$.each(data, function (key, val) {
             $.each(data['data'], function (key, val) {
-                items.push('<div class="product_item is_new">\n' +
+                items.push('<div class="product_item is_new" data-category="post-transition">\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_'+Math.floor((Math.random() * 10) + 1)+'.jpg" alt=""></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$225</div>\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$'+val.price+'</div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
                     '\t\t\t\t\t\t\t\t</div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
                     '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
@@ -210,5 +210,48 @@ function showHotels() {
         items.push($(this).data("filter"));
     })
     console.log(items);
+    $('data-size-products_found').text(items);
     //$("#result").load("resort.php", { 'resort[]': tagsArray });
 }
+
+
+var iso = new Isotope( '#result', {
+    itemSelector: '.product-item',
+    layoutMode: 'fitRows',
+    getSortData: {
+        name: '.name',
+        weight: function( itemElem ) {
+            var weight = itemElem.querySelector('.weight').textContent;
+            return parseFloat( weight.replace( /[\(\)]/g, '') );
+        }
+    }
+});
+
+// bind sort button click
+var sortByGroup = document.querySelector('.sort-by-button-group');
+sortByGroup.addEventListener( 'click', function( event ) {
+    // only button clicks
+    if ( !matchesSelector( event.target, '.button' ) ) {
+        return;
+    }
+    var sortValue = event.target.getAttribute('data-sort-value');
+    iso.arrange({ sortBy: sortValue });
+});
+
+// change is-checked class on buttons
+var buttonGroups = document.querySelectorAll('.button-group');
+for ( var i=0; i < buttonGroups.length; i++ ) {
+    buttonGroups[i].addEventListener( 'click', onButtonGroupClick );
+}
+
+function onButtonGroupClick( event ) {
+    // only button clicks
+    if ( !matchesSelector( event.target, '.button' ) ) {
+        return;
+    }
+    var button = event.target;
+    button.parentNode.querySelector('.is-checked').classList.remove('is-checked');
+    button.classList.add('is-checked');
+}
+//https://codepen.io/desandro/pen/Wwabpr
+//https://progschool.clickmeeting.com/2018-04-19_3966_22417
