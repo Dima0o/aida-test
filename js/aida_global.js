@@ -52,11 +52,10 @@ function GlobalPage(power) {
             $.each(data, function (key, val) {
                 items.push('<li><a href="index.html">'+val+'<i class="fas fa-chevron-down"></i></a></li>');
             });
-        $('.main_nav_dropdown').html(items);
+        $('.top_bar_menu').html(items);
     }
     this.run = function () {
         Menu(this.Menu);
-     //   Categiru(this.Category);
     };
 
 }
@@ -66,7 +65,7 @@ function Global_categori() {
         $.each(data, function (key, val) {
             items.push('<li><a href="catalog.php?id=2">'+val+'<i class="fas fa-chevron-down"></i></a></li>');
         });
-        console.log(data);
+        //console.log(data);
         $('.cat_menu').html(items);
 });
 
@@ -139,10 +138,10 @@ function Prod_div(id) {
                     '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_'+Math.floor((Math.random() * 10) + 1)+'.jpg" alt=""></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_price">'+val.price+'</div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_price" >'+val.price+' руб.</div>\n' +
                     '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
                     '\t\t\t\t\t\t\t\t</div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-shopping-basket"></i></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="'+val.price+'"  data-id="'+val.id+'"><i class="fas fa-shopping-basket"></i></div>\n' +
                     '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
                     '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
                     '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
@@ -204,6 +203,44 @@ $(document).on('click','#superid',function(){
 //рабочий элемент
     showHotels();
 });
+
+//корзинка ггага
+
+
+
+$(document).on('click','.product_fav',function(){
+    var caunts = Number($('#cadr_col_shop').html());
+    caunts = caunts + 1;
+    //cadrAdd($(this).arrt(data-id));
+    $("div").find(".bigBlock")
+    $('#cadr_col_shop').html(caunts);
+    //var summa=$(this).find('data-price');
+    //$('.cart_price').html(summa);
+    console.log($(this).attr("data-price"));
+    var summa=$('.cart_price').attr("data-price");
+    summa=Number(summa)+Number($(this).attr("data-price"));
+    $('.cart_price').attr("data-price",summa);
+    $('.cart_price').html(summa);
+    //randomInteger(min, max)
+    $(this).css("background", getRandomColor());
+
+
+   //$(".cart_price").html($(this).parent(".product_item").children('innerText'));
+    //запись в сессию для корзинки
+    ///работа с рендерингом из корзины
+    //работа с атрибутом у элемента
+    //рабриа с корзиной
+});
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+//работа с фильтром
 function showHotels() {
     var items = [];
     $("input:checked").each(function(id) {
@@ -260,3 +297,8 @@ function onButtonGroupClick( event ) {
 }
 //https://codepen.io/desandro/pen/Wwabpr
 //https://progschool.clickmeeting.com/2018-04-19_3966_22417
+//Работа с корзиной  а куда деватся
+
+
+
+//Акции//Магазины//Вакансии//Партнёрам//Контакты

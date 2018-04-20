@@ -64,6 +64,7 @@ echo $row;
         while ($data = mysql_fetch_array($qr_result)) {
             if ($i == mysql_num_rows($qr_result)) {
                 $row.='{
+                         "id":'.$data['id'].',
                          "name":"'.str_replace('"', '11', $data['name']).'",
                          "uid":"'.$data['uid'].'",
                          "categori":"'.$data['categori'].'",
@@ -73,6 +74,7 @@ echo $row;
                 $i++;
             } else {
                 $row.='{
+                        "id":'.$data['id'].',
                          "name":"'.str_replace('"', '11', $data['name']).'",
                          "uid":"'.$data['uid'].'",
                          "categori":"'.$data['categori'].'",
