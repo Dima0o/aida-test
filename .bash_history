@@ -119,3 +119,15 @@ git commit -m "Работа с каталогом отрисовка катал�
 git add .
 git commit -m "Что готово что то нет надо быстрее со свойствами разбиратся и фильром для товаров"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "рисуем тестовый фильр для работы с товарами demo"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "рисуем фильтр из массива как то работает но не стабильно"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "рисуется фильтр понимаем что отметили осталась сортировку натянуть и профиль с корзиной"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Нашел планиг соритровки пока все норм  профиль и карзина остались"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

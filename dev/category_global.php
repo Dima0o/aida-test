@@ -3,7 +3,7 @@
 session_start();
 include_once('core.php');
 mb_internal_encoding("UTF-8");
-$qr_result = mysql_query("select * from `k99969kp_1c`.`categori` LIMIT 0, 5") or die(mysql_error());
+
 class Prod
 {
     function catalog_id(){
@@ -16,6 +16,7 @@ class Prod
     }
 }
 $i=1;
+$qr_result = mysql_query("select * from `k99969kp_1c`.`categori` LIMIT 0, 2") or die(mysql_error());
 while ($data = mysql_fetch_array($qr_result)) {
     $status='';
 

@@ -34,13 +34,13 @@ function GlobalPage(power) {
     }
     this.Menu=[];
     this.Category=[];
-    function Categiru(data) {
+    function Categiru1(data) {
 
         var items = [];
         $.each(data, function (key, val) {
             items.push('<li><a href="catalog.php?id='+val.id+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
         });
-        $('.cat_menu').html(items);
+        $('.cat_menu11').html(items);
     }
     function Menu(data) {
             var items = [];
@@ -64,10 +64,11 @@ function Global_categori() {
     $.getJSON("../dev/category_global.php", function (data) {
         var items = [];
         $.each(data, function (key, val) {
-            items.push('<li><a href="categori.php?id='+val.id+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
+            items.push('<li><a href="catalog.php?id=2">'+val+'<i class="fas fa-chevron-down"></i></a></li>');
         });
+        console.log(data);
         $('.cat_menu').html(items);
-    });
+});
 
  /*   $.ajax({
         url: '../dev/category.php',
@@ -138,10 +139,10 @@ function Prod_div(id) {
                     '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_'+Math.floor((Math.random() * 10) + 1)+'.jpg" alt=""></div>\n' +
                     '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_price">$'+val.price+'</div>\n' +
+                    '\t\t\t\t\t\t\t\t\t<div class="product_price">'+val.price+'</div>\n' +
                     '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
                     '\t\t\t\t\t\t\t\t</div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-heart"></i></div>\n' +
+                    '\t\t\t\t\t\t\t\t<div class="product_fav"><i class="fas fa-shopping-basket"></i></div>\n' +
                     '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
                     '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
                     '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
@@ -210,7 +211,10 @@ function showHotels() {
         items.push($(this).data("filter"));
     })
     console.log(items);
-    $('data-size-products_found').text(items);
+    //$('data-size-products_found').text(items);
+
+    //
+    $("#products_found").attr("data-size", "products_found").text(items);
     //$("#result").load("resort.php", { 'resort[]': tagsArray });
 }
 
@@ -220,8 +224,9 @@ var iso = new Isotope( '#result', {
     layoutMode: 'fitRows',
     getSortData: {
         name: '.name',
+
         weight: function( itemElem ) {
-            var weight = itemElem.querySelector('.weight').textContent;
+            var weight = itemElem.querySelector('.product_price').textContent;
             return parseFloat( weight.replace( /[\(\)]/g, '') );
         }
     }

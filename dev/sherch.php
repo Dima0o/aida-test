@@ -7,37 +7,14 @@ header("Content-type: text/html; charset=windows-1251");
 $search = $_POST['search'];
 $search = addslashes($search);
 $search = htmlspecialchars($search);
-$search = stripslashes($search);
+$search=$query = stripslashes($search);
 if($search == ''){
-    #exit("Начните вводить запрос");
+    exit("");
 }
-/*
-$db = mysql_connect("localhost","k99969kp_1c","123456");
-mysql_select_db("prod",$db);
-mysql_query("SET NAMES cp1251");
-
-$query = mysql_query("SELECT * FROM table WHERE MATCH(name) AGAINST('$search')",$db);
-if(mysql_num_rows($query) > 0){
-    $sql = mysql_fetch_array($query);
-    do{
-        echo "<div>".$sql['name']."</div>";
-    }while($sql = mysql_fetch_array($query));
-}else{
-    echo "Нет результатов";
-}
-
-*/
-//"SELECT * from `$db_name`.`files_user` WHERE text_name LIKE '%$slovo%' AND id_user = '$glid'");
-$qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`prod` WHERE id = $search ");
+$qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`prod` WHERE  `name` LIKE '%$query%' OR `id` LIKE '%$query%' LIMIT 0, 10");
 if(mysql_num_rows($qr_result) > 0){
     $sql = mysql_fetch_array($qr_result);
-    do{?>
-                  <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading"><?=$sql['name']?></h4>
-                    <p class="list-group-item-text"><?=$sql['uid'].'  - - - - '.$sql['name']?>.</p>
-                </a>
-
-        <?
+    do{?><a href="#" class="list-group-item"><?=$sql['name']?></a><?
     }while($sql = mysql_fetch_array($qr_result));
 }else{
    # echo "Нет результатов--".$_POST['search'].'--'.$search;
