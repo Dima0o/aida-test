@@ -43,7 +43,19 @@ function GlobalPage(power) {
         $('.cat_menu11').html(items);
     }
     function Menu(data) {
+        // работа с новым меню
+
+        $.getJSON("../dev/menu.json", function (data) {
             var items = [];
+            $.each(data, function (key, val) {
+                items.push('<li><a href="'+val.url+'">'+val.name+'<i class="fas fa-chevron-down"></i></a></li>');
+            });
+            //console.log(data);
+          //  $('.cat_menu').html(items);
+       $('.main_nav_dropdown').html(items);
+        });
+//alert('items');
+       /* var items = [];
             $.each(data, function (key, val) {
                 items.push('<li class="page_menu_item has-children"><a href="#">'+val+'<i class="fa fa-angle-down"></i></a></li>');
             });
@@ -51,10 +63,12 @@ function GlobalPage(power) {
             var items = [];
             $.each(data, function (key, val) {
                 items.push('<li><a href="index.html">'+val+'<i class="fas fa-chevron-down"></i></a></li>');
-            });
-        $('.top_bar_menu').html(items);
+            });*/
+       // $('.top_bar_menu').html(items);
     }
     this.run = function () {
+       // переписать меню для сайта
+
         Menu(this.Menu);
     };
 

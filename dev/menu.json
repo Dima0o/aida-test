@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Магазины",
+    "url": "<ReferenceError: objectUrl is not defined>"
+  },
+  {
+    "name": "Помощь",
+    "url": "<ReferenceError: objectUrl is not defined>"
+  },
+  {
+    "name": "Доставка и оплата",
+    "url": "<ReferenceError: objectUrl is not defined>"
+  },
+  {
+    "name": "Статус заказа",
+    "url": "<ReferenceError: objectUrl is not defined>"
+  }
+]
