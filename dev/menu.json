@@ -1,7 +1,7 @@
 [
   {
     "name": "Магазины",
-    "url": "<ReferenceError: objectUrl is not defined>"
+    "url": "shop.php"
   },
   {
     "name": "Помощь",
