@@ -439,8 +439,10 @@
                     $.each(data, function (key, val) {
                         $('#blog_page').append('<div class="blog_post">\n' +
                             '<div class="blog_image" style="background-image:url('+val.url+')"></div>\n' +
-                            '<div class="blog_text">'+val.title+'</br>'+val.time+'</div>\n' +
-                            '<div class="blog_button"><a href="shop_page.php?id='+val.id+'">Подробнее</a></div>\n' +
+                            '<div class="blog_text">'+val.title+'</br>'+val.time+'' +
+                            ' <a href="shop_page.php?id='+val.id+'" type="button" class="btn btn-warning btn-xs">Подробнее</a>'+
+                            '</div>\n' +
+                            //'<div class="blog_button"><a href="shop_page.php?id='+val.id+'">Подробнее</a></div>\n' +
                             '</div>');
                     });
                 },
