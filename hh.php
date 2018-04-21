@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" >
 <head>
-    <title>Blog</title>
+    <title>Вакансии</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
@@ -239,8 +239,16 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="blog_posts d-flex flex-row align-items-start justify-content-between" id="blog_page">
+                    <h1>Вакансии</h1>
+                    <p>Работа в сети супермаркетов «Айдасеть» — это достойная работа с полным социальным пакетом и соблюдением всех трудовых норм.
+                        Хотите работать в молодом дружном коллективе? Тогда Вам к нам! С полным списком открытых вакансий Вы можете ознакомиться ниже.</p>
+
+
+                    <div class="blog_posts d-flex flex-row align-items-start justify-content-between row" id="blog_page">
+
+
                     </div>
+
                 </div>
 
             </div>
@@ -444,10 +452,10 @@
                 dataType: 'json',
                 success: function (data) {
                     $.each(data['items'], function (key, val) {
-                        var items = [];
-                        alert(val.snippet.requirement);
+                        //var items = [];
+                        //alert(val.snippet.requirement);
                         //value=ContentData(val.snippet);
-                        $('#blog_page').append('<div class="blog_post">\n' +
+                       /* $('#blog_page').append('<div class="blog_post">\n' +
                             '<div class="blog_image" style="background-image:url()"></div>\n' +
                             '<div class="blog_text">'+val.name+'</div>\n' +
                             '<div class="blog_text">'+val.name+'</div>\n' +
@@ -455,7 +463,25 @@
                                 val.snippet.requirement+'</br>' +
                                 val.snippet.responsibility+
                             '</div>'+
-                            '</div>');
+                            '</div>');*/
+
+                        $('#blog_page').append( ' <div class="col-sm-6 col-md-6 col-lg-6 mt-6">\n' +
+                       '                                <div class="card">\n' +
+                       //'                                    <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">\n' +
+                       '                                    <div class="card-block">\n' +
+                            '<div class="blog_text">'+val.name+'</div>\n' +
+                                                        '<div class="blog_text" style="font-weight:  100;">' +
+                            val.snippet.requirement+'</br>' +
+                            val.snippet.responsibility+
+
+                            '</div>'+
+                        '</div>\n' +
+                         '<div class="card-footer">\n' +
+                            '                        <small>Зарплата  от  '+val.salary.from+' до '+val.salary.to+' руб. </small>\n' +
+                            '                        <a href="'+val.apply_alternate_url+'" class="btn btn-secondary float-right btn-sm">Откликнутся</a>\n' +
+                            '                    </div>'+
+                       '                                </div>\n' +
+                       '                            </div>');
 
                       /*  $('#blog_page').append('<div class="row">' +
                             '<div class="col-lg-8">' +
@@ -474,8 +500,6 @@
                 }
             });
         }
-
-
     </script>
 </body>
 </html>

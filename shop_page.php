@@ -349,7 +349,7 @@
     function setLocation() {
         $.getJSON("dev/shop_list.json", function (data) {
             $.each(data, function (key, val) {
-
+ var titel='';
                 if(val.id==<?=$_GET['id']?>){
                     /*alert(val.id+' //--'+<?=$_GET['id']?>);
                     $('.single_post_title').html(data.title);
@@ -364,6 +364,9 @@
                             '<div class="blog_image" style="background-image:url('+val.url+')"></div>' +
                         '</div>'+
                         '</div>');
+                    titel=val.title;
+                    document.title = 'Магазин '+titel;
+                    //console.log(titel);
                 };
 
             });
@@ -378,6 +381,7 @@
     GlobalPage.Category = Global_categori();
     GlobalPage.run();
     $(document).ready(function () {
+
         $("#search").on('input', function postinput() {
             var search = $(this).val(); // this.value
             $.ajax({
@@ -392,9 +396,6 @@
             });
         });
     });
-
-
-
 </script>
 </body>
 
