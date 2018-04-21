@@ -270,45 +270,6 @@ function showHotels() {
 }
 
 
-var iso = new Isotope( '#result', {
-    itemSelector: '.product-item',
-    layoutMode: 'fitRows',
-    getSortData: {
-        name: '.name',
-
-        weight: function( itemElem ) {
-            var weight = itemElem.querySelector('.product_price').textContent;
-            return parseFloat( weight.replace( /[\(\)]/g, '') );
-        }
-    }
-});
-
-// bind sort button click
-var sortByGroup = document.querySelector('.sort-by-button-group');
-sortByGroup.addEventListener( 'click', function( event ) {
-    // only button clicks
-    if ( !matchesSelector( event.target, '.button' ) ) {
-        return;
-    }
-    var sortValue = event.target.getAttribute('data-sort-value');
-    iso.arrange({ sortBy: sortValue });
-});
-
-// change is-checked class on buttons
-var buttonGroups = document.querySelectorAll('.button-group');
-for ( var i=0; i < buttonGroups.length; i++ ) {
-    buttonGroups[i].addEventListener( 'click', onButtonGroupClick );
-}
-
-function onButtonGroupClick( event ) {
-    // only button clicks
-    if ( !matchesSelector( event.target, '.button' ) ) {
-        return;
-    }
-    var button = event.target;
-    button.parentNode.querySelector('.is-checked').classList.remove('is-checked');
-    button.classList.add('is-checked');
-}
 //https://codepen.io/desandro/pen/Wwabpr
 //https://progschool.clickmeeting.com/2018-04-19_3966_22417
 //Работа с корзиной  а куда деватся

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="myApp">
+<html lang="ru" >
 <head>
     <title>Blog</title>
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
     //https://qdmnxyolbqd.angular.stackblitz.io/
     ?>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 </head>
 
 <body>
@@ -35,8 +35,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
+                            +38 068 005 3570
+                        </div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="images/mail.png" alt=""></div>
+                            <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
@@ -88,14 +93,16 @@
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" id="search" required="required" class="header_search_input" placeholder="Поиск ...">
-                                        <div class="custom_list clc active" >
+                                        <input type="search" id="search" required="required" class="header_search_input"
+                                               placeholder="Поиск ...">
+                                        <div class="custom_list clc active">
                                             <div class="bs-example">
                                                 <div class="list-group" id="resSearch">
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img
+                                                    src="images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -168,7 +175,8 @@
                                 <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
                                     <div class="menu_burger">
                                         <div class="menu_trigger_text">Меню</div>
-                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+                                        <div class="cat_burger menu_burger_inner">
+                                            <span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -190,15 +198,21 @@
 
                             <div class="page_menu_search">
                                 <form action="#">
-                                    <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                                    <input type="search" required="required" class="page_menu_search_input"
+                                           placeholder="Search for products...">
                                 </form>
                             </div>
                             <ul class="page_menu_nav">
                             </ul>
 
                             <div class="menu_contact">
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
+                                    +38 068 005 3570
+                                </div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div>
+                                    <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             </div>
                         </div>
                     </div>
@@ -211,7 +225,8 @@
     <!-- Home -->
 
     <div class="home">
-        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/shop_background.jpg"></div>
+        <div class="home_background parallax-window" data-parallax="scroll"
+             data-image-src="images/shop_background.jpg"></div>
         <div class="home_overlay"></div>
         <div class="home_content d-flex flex-column align-items-center justify-content-center">
             <h2 class="home_title">Technological Blog</h2>
@@ -224,13 +239,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="blog_posts d-flex flex-row align-items-start justify-content-between" ng-controller="phoneController">
-                        <div class="blog_post" ng-repeat="phone in phones">
-                            <div class="blog_image" style="background-image:url(images/blog_1.jpg)"></div>
-                            <div class="blog_text">{{phone.body.substring(0, 106)}}...</div>
-                            <div class="blog_button"><a href="blog_single.php?id={{phone.id}}">{{phone.title.substring(0, 15)}}</a></div>
-                        </div>
-
+                    <div class="blog_posts d-flex flex-row align-items-start justify-content-between" id="blog_page">
                     </div>
                 </div>
 
@@ -251,7 +260,8 @@
                             </div>
                             <div class="newsletter_content clearfix">
                                 <form action="#" class="newsletter_form">
-                                    <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
+                                    <input type="email" class="newsletter_input" required="required"
+                                           placeholder="Enter your email address">
                                     <button class="newsletter_button">Subscribe</button>
                                 </form>
                                 <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
@@ -347,8 +357,13 @@
                     <div class="col">
 
                         <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                            <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены | Разработанно в компанни  <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Aida Tech lab</a>
+                            <div class="copyright_content">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                Все права защищены | Разработанно в компанни <i class="fa fa-heart"
+                                                                                aria-hidden="true"></i> by <a href="#"
+                                                                                                              target="_blank">Aida
+                                    Tech lab</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
                             <div class="logos ml-sm-auto">
@@ -366,29 +381,17 @@
         </div>
     </div>
     <script>
-        angular.module('myApp', []);
-        var myApp=angular.module('myApp');
-        myApp.controller('phoneController', function($scope) {
-            $scope.phones = [{
-                "userId": 1,
-                "id": 1,
-                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-            }, {
-                "userId": 1,
-                "id": 1,
-                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-            },
-                {
-                    "userId": 1,
-                    "id": 1,
-                    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-                },]
+        /*  angular.module('myApp', []);
+          var myApp=angular.module('myApp');
+          myApp.controller('phoneController', function($scope) {
+           $http.get("dev/shop_list.json")
+         .then(function(response) {
+          $scope.phones = response.data;
+         });
+           //$scope.phones = []
 
-        });
-
+          });*/
+        //https://geekbrains.ru/posts/learn_react
 
 
     </script>
@@ -403,34 +406,51 @@
     <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="plugins/easing/easing.js"></script>
-    <script src="js/blog_custom.js"></script>
+  <!--  <script src="js/blog_custom.js"></script>-->
     <script src="js/aida_global.js"></script>
     <script>
+        Shop_bild();
         var GlobalPage = new GlobalPage();
-        GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-        GlobalPage.Category=Global_categori();
-        //alert(Global_categori());
+        GlobalPage.Category = Global_categori();
         GlobalPage.run();
-        //filter bild https://bootsnipp.com/snippets/j6xjx
-
-        $(document).ready(function(){
-            $("#search").on('input', function postinput(){
+        $(document).ready(function () {
+            $("#search").on('input', function postinput() {
                 var search = $(this).val(); // this.value
                 $.ajax({
                     url: '../dev/sherch.php',
                     data: {"search": search},
                     type: 'post'
-                }).done(function(responseData) {
+                }).done(function (responseData) {
                     $("#resSearch").html(responseData);
-                }).fail(function(search) {
+                }).fail(function (search) {
                     $("#resSearch").html(search);
                     console.log('Failed');
                 });
             });
         });
 
+        //работа с маггазином
+        function Shop_bild() {
+            return $.ajax({
+                url: 'dev/shop_list.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (key, val) {
+                        $('#blog_page').append('<div class="blog_post">\n' +
+                            '<div class="blog_image" style="background-image:url('+val.url+')"></div>\n' +
+                            '<div class="blog_text">'+val.title+'</br>'+val.time+'</div>\n' +
+                            '<div class="blog_button"><a href="shop_page.php?id='+val.id+'">Подробнее</a></div>\n' +
+                            '</div>');
+                    });
+                },
+                error: function () {
+                    alert('Выполненно с ошибками или категория пустая getIssues_id');
+                }
+            });
+        }
+
 
     </script>
 </body>
-
 </html>
