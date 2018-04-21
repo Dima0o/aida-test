@@ -134,3 +134,15 @@ git commit -m "Нашел планиг соритровки пока все но
 git add .
 git commit -m "Более менеие фильтр подработывает надо блоки посворачивать со скролингом сделать и переверстать  чекбоксы запрос перестроить для работы с данными"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Осталась соритровка  и фильтрация  поиск  собсвенный контент картинки"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Отработка первых страниц сайт для массовости"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Работа со страницей магазины для сайта"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Пошел домой"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
