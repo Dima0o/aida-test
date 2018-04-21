@@ -4,11 +4,16 @@
     "url": "shop.php"
   },
   {
-    "name": "Помощь",
+    "name": "Помощь**",
     "url": "<ReferenceError: objectUrl is not defined>"
   },
+   {
+    "name": "Вакансии",
+    "url": "hh.php"
+  },
+
   {
-    "name": "Доставка и оплата",
+    "name": "Доставка и оплата**",
     "url": "<ReferenceError: objectUrl is not defined>"
   },
   {
