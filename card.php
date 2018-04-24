@@ -1,31 +1,19 @@
-<?
-//header('http://aida.k99969kp.beget.tech/blog.html');
-//header('Location: http://aida.k99969kp.beget.tech/blog.html');
-//header("Location: http://aida.k99969kp.beget.tech/blog.html");
-//exit;
-session_start();
-/*  foreach ($_GET as $key=>$value){
-      $_SESSION[$key]=$value;
-  };*/
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Каталог</title>
+    <title>Корзина</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/cart_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+
+     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 </head>
 
 <body>
@@ -35,8 +23,6 @@ session_start();
     <!-- Header -->
 
     <header class="header">
-
-        <!-- Top Bar -->
 
         <div class="top_bar">
             <div class="container">
@@ -273,67 +259,64 @@ session_start();
         </div>
     </header>
 
-    <!-- Home -->
+    <!-- Cart -->
 
-    <div class="home">
-        <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b"
-             data-image-src="..."></div>
-        <div class="home_overlay"></div>
-        <div class="home_content d-flex flex-column align-items-center justify-content-center">
-            <h2 class="home_title">Рекламный текст</h2>
-        </div>
-    </div>
-
-    <!-- Shop -->
-
-    <div class="shop">
+    <div class="cart_section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cart_container">
+                        <div class="cart_title">Shopping Cart</div>
+                        <div class="cart_items">
+                            <ul class="cart_list">
+                                <li class="cart_item clearfix">
+                                    <div class="cart_item_image"><img src="images/shopping_cart.jpg" alt=""></div>
+                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+                                        <div class="cart_item_name cart_info_col">
+                                            <div class="cart_item_title">Name</div>
+                                            <div class="cart_item_text">MacBook Air 13</div>
+                                        </div>
+                                        <div class="cart_item_color cart_info_col">
+                                            <div class="cart_item_title">Color</div>
+                                            <div class="cart_item_text"><span style="background-color:#999999;"></span>Silver</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col">
+                                            <div class="cart_item_title">Quantity</div>
+                                            <div class="cart_item_text">1</div>
+                                        </div>
+                                        <div class="cart_item_price cart_info_col">
+                                            <div class="cart_item_title">Price</div>
+                                            <div class="cart_item_text">$2000</div>
+                                        </div>
+                                        <div class="cart_item_total cart_info_col">
+                                            <div class="cart_item_title">Total</div>
+                                            <div class="cart_item_text">$2000</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <!-- Shop Sidebar -->
-                    <div class="shop_sidebar">
-                        <!-- работа с боковым  элементоу управления для  категорий-->
-                    </div>
-
-                </div>
-
-                <div class="col-lg-10">
-
-                    <!-- Shop Content -->
-
-                    <div class="shop_content">
-                        <div class="shop_bar clearfix">
-                            <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденные товары
-                            </div>
-                            <div class="shop_sorting">
-                                <span>Сотрировка по:</span>
-                                <div class="button-group sort-by-button-group">
-                                    <button class="button is-checked" data-sort-value="original-order">original order</button>
-                                    <button class="button" data-sort-value="name">name</button>
-                                    <button class="button" data-sort-value="symbol">symbol</button>
-                                    <button class="button" data-sort-value="number">number</button>
-                                    <button class="button" data-sort-value="weight">weight</button>
-                                    <button class="button" data-sort-value="category">category</button>
-                                </div>
+                        <!-- Order Total -->
+                        <div class="order_total">
+                            <div class="order_total_content text-md-right">
+                                <div class="order_total_title">Order Total:</div>
+                                <div class="order_total_amount">$2000</div>
                             </div>
                         </div>
 
-                        <div class="product_grid row grid" id="result">
-                            <div class="product_grid_border"></div>
-                            <!--samo-->
-
-                            <a href="#" onclick="return changeHash(2)"></a>
+                        <div class="cart_buttons">
+                            <button type="button" class="button cart_button_clear">Add to Cart</button>
+                            <button type="button" class="button cart_button_checkout">Add to Cart</button>
                         </div>
-                        <!--Navigation -->
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Недавно просмотренные -->
+    <!-- Newsletter -->
+
     <div class="newsletter">
         <div class="container">
             <div class="row">
@@ -341,16 +324,15 @@ session_start();
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                         <div class="newsletter_title_container">
                             <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-                            <div class="newsletter_title">Подписаться на рассылку</div>
-                            <div class="newsletter_text"><p>... и получите купон% 20 для первой покупки.</p></div>
+                            <div class="newsletter_title">Sign up for Newsletter</div>
+                            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
                             <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required"
-                                       placeholder="Введите ваш адрес электронной почты">
-                                <button class="newsletter_button">Подписатся</button>
+                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
+                                <button class="newsletter_button">Subscribe</button>
                             </form>
-                            <div class="newsletter_unsubscribe_link"><a href="#">Отписатся</a></div>
+                            <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
                         </div>
                     </div>
                 </div>
@@ -502,17 +484,6 @@ session_start();
             });
         });
     });
-    Categori_ui(<?=$_GET['id']?>);
-    Prod_div(<?=$_GET['id']?>);
-    Filter(<?=$_GET['id']?>);
-
-</script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
 </script>
 </body>
 

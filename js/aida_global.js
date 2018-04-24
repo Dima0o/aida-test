@@ -68,7 +68,7 @@ function GlobalPage(power) {
     }
     this.run = function () {
        // переписать меню для сайта
-
+        CardShop();
         Menu(this.Menu);
     };
 
@@ -231,20 +231,26 @@ $(document).on('click','.product_fav',function(){
     $('#cadr_col_shop').html(caunts);
     //var summa=$(this).find('data-price');
     //$('.cart_price').html(summa);
-    console.log($(this).attr("data-price"));
+    //console.log($(this).attr("data-price"));
     var summa=$('.cart_price').attr("data-price");
     summa=Number(summa)+Number($(this).attr("data-price"));
     $('.cart_price').attr("data-price",summa);
     $('.cart_price').html(summa);
     //randomInteger(min, max)
     $(this).css("background", getRandomColor());
+    // array.length = 2
+    var arrays=cadrMass($(this).attr("data-id"));
+    //$.cookie('cookie_name',pushed);
 
-
-   //$(".cart_price").html($(this).parent(".product_item").children('innerText'));
-    //запись в сессию для корзинки
-    ///работа с рендерингом из корзины
-    //работа с атрибутом у элемента
-    //рабриа с корзиной
+    /*
+        array= [];//$.cookie('cookie_name');
+        array.push(summa);
+        alert(array);
+        $.cookie('cookie_name' ,array );
+        console.log($.cookie('cookie_name'));
+        $.cookie('cookie_name', arr);
+        $(".cart_price").html($(this).parent(".product_item").children('innerText'));
+    */
 });
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -282,8 +288,54 @@ function showHotels() {
 
 //работа с корзиной
 
-function Card_glob() {
-    this.itap;
+
+
+//Акции//Магазины//Вакансии//Партнёрам//Контакты
+function CardShop() {
+    $('#cadr_col_shop').text($.cookie('cookie_name'));
+    $('.cart_price').html($.cookie('cookie_name'));
+    $('.cart_count').html($.cookie('cookie_name'));
+    $('.cart_text').html('<a href="card.php">Корзина</a>');
+
+    if($.cookie('cookie_name').length >0){
+        $('.cart_price').html($.cookie('cookie_name'));
+        alert($.cookie('cookie_name'));
+    }else{
+        $('#cadr_col_shop').text('');
+        alert(2);
+        var array = [ "one", "two" ];
+       // $.cookie('cookie_name', array);
+    }
+
+ //
+
+// получить значение существующих кукисов можно так:
+
+// если запрашиваемых кукисов не существует, то эта функция вернет null
+// а так можно удалить кукисы
+
 }
 
+function cadrMass(value) {
+    var arr =[$.cookie('cookie_name')]
+//arr[6] = 7;
+//замена последнего элемента массива
+    arr.push(value);
+    /*
+    вывод:
+     [1, 2, 3, 4, 5, 7]
+    */
+    $.cookie('cookie_name',[arr]);
+    console.log($.cookie('cookie_name'));
+//добавление в конец массива
 
+  //  console.log(arr);
+   /* if($.cookie('cookie_name').length >0){
+
+        $.cookie('cookie_name',array);
+    }else {
+        $.cookie('cookie_name',array);
+    }*/
+return arr;
+
+}

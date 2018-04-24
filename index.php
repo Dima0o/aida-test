@@ -977,7 +977,9 @@
 
 
 </script>
-<script src="js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/greensock/TweenMax.min.js"></script>
@@ -988,11 +990,10 @@
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
-<script src="js/blog_custom.js"></script>
-    <script src="js/aida_global.js"></script>
+<script src="js/aida_global.js"></script>
     <script>
         var GlobalPage = new GlobalPage();
-        GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
+       // GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
         GlobalPage.Category=Global_categori();
         //alert(Global_categori());
         GlobalPage.run();
@@ -1011,7 +1012,10 @@
                     $("#resSearch").html(search);
                     console.log('Failed');
                 });
+                // так можно установить новые кукисы или переписать значения у уже существующих:
+
             });
+           
         });
 
 
