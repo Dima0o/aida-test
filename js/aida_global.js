@@ -7,7 +7,7 @@ function GlobalPage(power) {
         this.cart = {count: '', total: '', item: [{name: '', price: '', col: ''}]};
     };
     this.Recently_Viewed = [{name: '', avatar: '', price: [''], item_discount: '', item_new: 1}];
-    this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
+  //  this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
     this.waterAmount = [];
 
     // физическая константа - удельная теплоёмкость воды для getBoilTime
@@ -124,6 +124,7 @@ function Categori_ui(id) {
             $('#sidebar_categories').html(items);
             //$('[data-size="products_found"]').text(data.length);
             $('[data-titel="categori"]').text(data.titel);
+
         },
         error: function () {
             alert('Выполненно с ошибками или категория пустая getIssues_id');
@@ -252,6 +253,7 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+
 }
 
 //работа с фильтром
@@ -276,4 +278,12 @@ function showHotels() {
 
 
 
-//Акции//Магазины//Вакансии//Партнёрам//Контакты
+//Акции//Магазины**//Вакансии**//Партнёрам//Контакты
+
+//работа с корзиной
+
+function Card_glob() {
+    this.itap;
+}
+
+

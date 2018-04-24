@@ -503,6 +503,11 @@ session_start();
                 console.log('Failed');
             });
         });
+
+
+
+        document.cookie = "userName=Vasya";
+        alert( document.cookie );
     });
     Categori_ui(<?=$_GET['id']?>);
     Prod_div(<?=$_GET['id']?>);

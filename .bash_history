@@ -146,3 +146,20 @@ git commit -m "Работа со страницей магазины для са
 git add .
 git commit -m "Пошел домой"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "субота пришел рабоатть"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Магазины кое как готовы"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Ваканссии"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Ваканссии good so good"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Планирование  в битрике вакансии и магазины  осталось магазины"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+"
