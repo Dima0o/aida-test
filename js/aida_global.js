@@ -239,8 +239,12 @@ $(document).on('click','.product_fav',function(){
     //randomInteger(min, max)
     $(this).css("background", getRandomColor());
     // array.length = 2
-    var arrays=cadrMass($(this).attr("data-id"));
+    cadrMass($(this).attr("data-id"));
     //$.cookie('cookie_name',pushed);
+
+    $.cookie('cadr_col_shop',caunts);
+    $.cookie('cart_price',summa);
+    $.cookie('cart_count',caunts);
 
     /*
         array= [];//$.cookie('cookie_name');
@@ -292,16 +296,16 @@ function showHotels() {
 
 //Акции//Магазины//Вакансии//Партнёрам//Контакты
 function CardShop() {
-    $('#cadr_col_shop').text($.cookie('cookie_name'));
-    $('.cart_price').html($.cookie('cookie_name'));
-    $('.cart_count').html($.cookie('cookie_name'));
+    $('#cadr_col_shop').text($.cookie('cadr_col_shop'));
+    $('.cart_price').html($.cookie('cart_price'));
+    $('.cart_count').html($.cookie('cart_count'));
     $('.cart_text').html('<a href="card.php">Корзина</a>');
 
     if($.cookie('cookie_name').length >0){
-        $('.cart_price').html($.cookie('cookie_name'));
-        alert($.cookie('cookie_name'));
+      //  $('.cart_price').html($.cookie('cookie_name'));
+    //    alert($.cookie('cookie_name'));
     }else{
-        $('#cadr_col_shop').text('');
+        //$('#cadr_col_shop').text('');
         alert(2);
         var array = [ "one", "two" ];
        // $.cookie('cookie_name', array);
@@ -318,24 +322,9 @@ function CardShop() {
 
 function cadrMass(value) {
     var arr =[$.cookie('cookie_name')]
-//arr[6] = 7;
-//замена последнего элемента массива
     arr.push(value);
-    /*
-    вывод:
-     [1, 2, 3, 4, 5, 7]
-    */
-    $.cookie('cookie_name',[arr]);
-    console.log($.cookie('cookie_name'));
-//добавление в конец массива
-
-  //  console.log(arr);
-   /* if($.cookie('cookie_name').length >0){
-
-        $.cookie('cookie_name',array);
-    }else {
-        $.cookie('cookie_name',array);
-    }*/
+    $.cookie('card_id',[arr]);
+   // console.log($.cookie('cookie_name'));
 return arr;
 
 }
