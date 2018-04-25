@@ -1,5 +1,9 @@
 [
   {
+    "name": "Главная",
+    "url": "index.php"
+  },
+  {
     "name": "Магазины",
     "url": "shop.php"
   },

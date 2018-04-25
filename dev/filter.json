@@ -6,39 +6,39 @@
     "data": [
       {
         "name":"Ассорти",
-        "value":"1"
+        "value":"vievs_1"
       }
       ,{
         "name":"Копченый",
-        "value":"2"
+        "value":"vievs_2"
       },
       {
         "name":"Мягкий",
-        "value":"3"
+        "value":"vievs_3"
       },
       {
         "name":"Плавленый",
-        "value":"4"
+        "value":"vievs_4"
       },
       {
         "name":"Полутвердый",
-        "value":"5"
+        "value":"vievs_5"
       },
       {
         "name":"Рассольный",
-        "value":"6"
+        "value":"vievs_6"
       },
       {
         "name":"С плесенью",
-        "value":"7"
+        "value":"vievs_7"
       },
       {
         "name":"Твердый",
-        "value":"8"
+        "value":"vievs_8"
       },
       {
         "name":"Творожный",
-        "value":"9"
+        "value":"vievs_9"
       }
     ]
   },
@@ -49,43 +49,43 @@
     "data": [
       {
         "name":"Адыгейский",
-        "value":"1"
+        "value":"vievs2_1"
       },
       {
         "name":"Алтайский",
-        "value":"2"
+        "value":"vievs2_2"
       },
       {
         "name":"Английский",
-        "value":"3"
+        "value":"vievs2_3"
       },
       {
         "name":"Блюделис",
-        "value":"4"
+        "value":"vievs2_4"
       },
       {
         "name":"Бри",
-        "value":"5"
+        "value":"vievs2_5"
       },
       {
         "name":"Брынза",
-        "value":"6"
+        "value":"vievs2_6"
       },
       {
         "name":"Буррата",
-        "value":"7"
+        "value":"vievs2_7"
       },
       {
         "name":"Венский",
-        "value":"8"
+        "value":"vievs2_8"
       },
       {
         "name":"Витязь",
-        "value":"9"
+        "value":"vievs2_9"
       },
       {
         "name":"Гауда",
-        "value":"10"
+        "value":"vievs2_10"
       }
     ]
   }

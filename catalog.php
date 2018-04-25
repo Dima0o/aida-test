@@ -277,7 +277,7 @@ session_start();
 
     <div class="home">
         <div class="home_background parallax-window" data-parallax="scroll" style="background-color: #ef7f1b"
-             data-image-src="..."></div>
+             data-image-src=""></div>
         <div class="home_overlay"></div>
         <div class="home_content d-flex flex-column align-items-center justify-content-center">
             <h2 class="home_title">Рекламный текст</h2>
@@ -307,14 +307,17 @@ session_start();
                             <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденные товары
                             </div>
                             <div class="shop_sorting">
-                                <span>Сотрировка по:</span>
-                                <div class="button-group sort-by-button-group">
-                                    <button class="button is-checked" data-sort-value="original-order">original order</button>
-                                    <button class="button" data-sort-value="name">name</button>
-                                    <button class="button" data-sort-value="symbol">symbol</button>
-                                    <button class="button" data-sort-value="number">number</button>
-                                    <button class="button" data-sort-value="weight">weight</button>
-                                    <button class="button" data-sort-value="category">category</button>
+                                <span></span>
+                                <div class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                        Сотрировка по:
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 1</a></li>
+                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 2</a></li>
+                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 3</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -475,7 +478,7 @@ session_start();
 <script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
-<!--<script src="js/shop_custom.js"></script>-->
+<!--<script src="js/shop_custom.js"></script>--->
 
 <script src="js/aida_global.js"></script>
 <script>
@@ -504,7 +507,7 @@ session_start();
     });
     Categori_ui(<?=$_GET['id']?>);
     Prod_div(<?=$_GET['id']?>);
-    Filter(<?=$_GET['id']?>);
+  //  Filter(<?=$_GET['id']?>);
 
 </script>
 <script>

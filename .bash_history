@@ -163,3 +163,12 @@ git commit -m "Планирование  в битрике вакансии и �
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
 git add .
 "
+git add .
+git commit -m "Вторник готово"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Вторник работа с куки пробую сделать товар в корзине"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Вторник работа с куки пробую сделать товар в корзине"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

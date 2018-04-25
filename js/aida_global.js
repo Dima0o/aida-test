@@ -202,7 +202,7 @@ function Filter(id) {
                 //console.log(items);
                 $("#"+value.id).html(items);
             });
-            $('.shop_sidebar').append('<a id="superid" class="btn btn-sm btn-warning btn-lg btn-block"  type="button">Фильтр <span class="caret"></span></a>');
+            $('.shop_sidebar').append('<a id="superid1" class="btn btn-sm btn-warning btn-lg btn-block"  type="button">Фильтр ***<span class="caret"></span></a>');
         },
         error: function () {
             alert('Выполненно с ошибками или категория пустая Filter');
@@ -213,16 +213,11 @@ function Filter(id) {
 function log(){
     console.log('1');
 };
-
 $(document).on('click','#superid',function(){
 //рабочий элемент
     showHotels();
 });
-
 //корзинка ггага
-
-
-
 $(document).on('click','.product_fav',function(){
     var caunts = Number($('#cadr_col_shop').html());
     caunts = caunts + 1;
@@ -235,7 +230,7 @@ $(document).on('click','.product_fav',function(){
     var summa=$('.cart_price').attr("data-price");
     summa=Number(summa)+Number($(this).attr("data-price"));
     $('.cart_price').attr("data-price",summa);
-    $('.cart_price').html(summa);
+    $('.cart_price').html(summa+'руб.');
     //randomInteger(min, max)
     $(this).css("background", getRandomColor());
     // array.length = 2
@@ -245,16 +240,6 @@ $(document).on('click','.product_fav',function(){
     $.cookie('cadr_col_shop',caunts);
     $.cookie('cart_price',summa);
     $.cookie('cart_count',caunts);
-
-    /*
-        array= [];//$.cookie('cookie_name');
-        array.push(summa);
-        alert(array);
-        $.cookie('cookie_name' ,array );
-        console.log($.cookie('cookie_name'));
-        $.cookie('cookie_name', arr);
-        $(".cart_price").html($(this).parent(".product_item").children('innerText'));
-    */
 });
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -263,44 +248,37 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-
 }
 
 //работа с фильтром
 function showHotels() {
     var items = [];
     $("input:checked").each(function(id) {
-        //alert( $("body").data("bar"));
         items.push($(this).data("filter"));
     })
     console.log(items);
-    //$('data-size-products_found').text(items);
-
-    //
     $("#products_found").attr("data-size", "products_found").text(items);
-    //$("#result").load("resort.php", { 'resort[]': tagsArray });
+
+    $.ajax({
+        method: "POST",
+        url: "dev/some.php",
+        data: {name: items, location: "Boston"},
+        dataType: 'json'
+    }).done(function (msg) {
+        alert("Data Saved: " + msg);
+    });
 }
-
-
 //https://codepen.io/desandro/pen/Wwabpr
 //https://progschool.clickmeeting.com/2018-04-19_3966_22417
 //Работа с корзиной  а куда деватся
-
-
-
 //Акции//Магазины**//Вакансии**//Партнёрам//Контакты
-
 //работа с корзиной
-
-
-
 //Акции//Магазины//Вакансии//Партнёрам//Контакты
 function CardShop() {
     $('#cadr_col_shop').text($.cookie('cadr_col_shop'));
     $('.cart_price').html($.cookie('cart_price'));
     $('.cart_count').html($.cookie('cart_count'));
     $('.cart_text').html('<a href="card.php">Корзина</a>');
-
     if($.cookie('cookie_name').length >0){
       //  $('.cart_price').html($.cookie('cookie_name'));
     //    alert($.cookie('cookie_name'));
@@ -310,14 +288,9 @@ function CardShop() {
         var array = [ "one", "two" ];
        // $.cookie('cookie_name', array);
     }
-
- //
-
 // получить значение существующих кукисов можно так:
-
 // если запрашиваемых кукисов не существует, то эта функция вернет null
 // а так можно удалить кукисы
-
 }
 
 function cadrMass(value) {
@@ -326,5 +299,15 @@ function cadrMass(value) {
     $.cookie('card_id',[arr]);
    // console.log($.cookie('cookie_name'));
 return arr;
-
 }
+//работа с ффильрром для категории
+//найстройка фильтраф свойств для категории
+
+$(document).on('click','#superid',function(){
+//рабочий элемент
+    showHotels();
+});
+//работа с сортировкой товаров и подргузка при скролинге или клике
+$(document).on('click','.href_sort',function(){
+    alert('ggod');
+});
