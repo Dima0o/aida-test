@@ -132,47 +132,33 @@ function Categori_ui(id) {
     });
 
 }
-function Prod_div(id) {
-    return $.ajax({
-        url: 'dev/categore.php?id="' + id + '"',
-        type: 'GET',
-        //data:id,
+function Prod_div(ids) {
+    $.ajax({
+        method: "POST",
+        url: "dev/categore.php",
         dataType: 'json',
-        success: function (data) {
-            var items = [];
-            /*$('.shop_sidebar').html('<div class="sidebar_section">\n' +
-                '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
-                '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
-                '\n' +
-                '                            </ul>\n' +
-                '                        </div>');
-            console.log(data['data']);*/
-            //$.each(data, function (key, val) {
-            $.each(data['data'], function (key, val) {
-                items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_'+Math.floor((Math.random() * 10) + 1)+'.jpg" alt=""></div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_price" >'+val.price+' руб.</div>\n' +
-                    '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">'+val.name.substr(0,20)+'</a></div></div>\n' +
-                    '\t\t\t\t\t\t\t\t</div>\n' +
-                    '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="'+val.price+'"  data-id="'+val.id+'"><i class="fas fa-shopping-basket"></i></div>\n' +
-                    '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                    '\t\t\t\t\t\t\t\t</ul>\n' +
-                    '\t\t\t\t\t\t\t</div>');
-            });
-            //});
-            $('#result').html(items);
-            //$('[data-size="products_found"]').text(data.length);
-            //$('[data-titel="categori"]').text(data.titel);
-        },
-        error: function () {
-            alert('Выполненно с ошибками или категория пустая getIssues_id');
-        }
+        //data: {id: ids},
+    }).done(function (data) {
+        var items = [];
+        $.each(data['data'], function (key, val) {
+            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+                '\t\t\t\t\t\t\t\t</div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
+                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+                '\t\t\t\t\t\t\t\t</ul>\n' +
+                '\t\t\t\t\t\t\t</div>');
+        });
+        $('#result').append(items);
+        $('#products_found').text(data.col);
+      //  alert('7878');
     });
-
 }
 
 /*<div class="sidebar_section">
@@ -181,12 +167,13 @@ function Prod_div(id) {
 
                             </ul>
                         </div>*/
+/*
 function Filter(id) {
     return $.ajax({
         url: 'dev/filter.json',
         type: 'GET',
         //data:id,
-        dataType: 'json',
+        dataType: 'json'
         success: function (data) {
             //alert(id);*
             var items = [];
@@ -210,6 +197,8 @@ function Filter(id) {
     });
 
 }
+
+*/
 function log(){
     console.log('1');
 };
@@ -307,7 +296,43 @@ $(document).on('click','#superid',function(){
 //рабочий элемент
     showHotels();
 });
-//работа с сортировкой товаров и подргузка при скролинге или клике
+//работа с сортировкой товаров     //2и подргузка при скролинге или клике
 $(document).on('click','.href_sort',function(){
-    alert('ggod');
+  var items=[];
+    //  alert($(this).attr("data-sort"));
+    $("input:checked").each(function(id) {
+        items.push($(this).data("filter"));
+    })
+   // sorting_text
+    $(".href_sort").removeAttr("style");
+    $(this).css("color", "orange");
+    $('.sorting_text').text($(this).text());
+    items.push($(this).attr("data-sort"));
+   // $("#products_found").attr("data-size", "products_found").text(items);
+    $.ajax({
+        method: "POST",
+        url: "dev/some.php",
+        data: {name: items},
+        dataType: 'json'
+    }).done(function (data) {
+        var items = [];
+        $.each(data['data'], function (key, val) {
+            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="#" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+                '\t\t\t\t\t\t\t\t</div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
+                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+                '\t\t\t\t\t\t\t\t</ul>\n' +
+                '\t\t\t\t\t\t\t</div>');
+        });
+        $('#result').html(items);
+        $('#products_found').text(data.col);
+    });
 });
+//https://github.com/akkez/perekrestok

@@ -24,7 +24,7 @@ class Prod
         $i=1;
         $qr_result = mysql_query("select * from `k99969kp_1c`.`categori` LIMIT 0, 5") or die(mysql_error());
         while ($data = mysql_fetch_array($qr_result)) {
-            //$status='';
+             $row='';
             if($data['id']==$id){
                 $status='"status": "color: #ef7f1b;",';
             }else{
@@ -33,29 +33,17 @@ class Prod
 
 
             if ($i == mysql_num_rows($qr_result)) {
-                $row.='{
-                    "id":"'.$data['id'].'",
-                     '.$status.'
-                    
-                    "name":"'.str_replace('"', '`', $data['name']).'"
-                   
-               }';
+                $row.='{"id":"'.$data['id'].'",'.$status.' "name":"'.str_replace('"', '`', $data['name']).'"}';
 
                 $i++;
             } else {
 
-                $row.='{       
-                "id":"'.$data['id'].'",
-                '.$status.'
-                "name":"'.str_replace('"', '`', $data['name']).'"
-                                    
-            },';
+                $row.='{"id":"'.$data['id'].'",'.$status.'  "name":"'.str_replace('"', '`', $data['name']).'"},';
                 $i++;
             }
 
         };
-echo $row;
-
+return $row;
     }
     function all(){
         $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0, 10") or die(mysql_error());
@@ -92,7 +80,10 @@ $Prod = new Prod;
 ?>
 
 {
-"col":"<?=$Prod->prod_col($_GET['id']);?>",
-
-"data":[<?=$Prod->all();?>]}
+"col":"<? if (isset($_GET['id'])) {    echo  $Prod->prod_col($_POST['id']);} else {    echo 58;}; ?>",
+"data":[<? if (isset($_POST['id'])) {
+    echo  $Prod->Prod_data($_POST['id']);
+} else {
+   echo $Prod->all();
+}; ?>]}
 

@@ -307,26 +307,26 @@ session_start();
                             <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденные товары
                             </div>
                             <div class="shop_sorting">
-                                <span></span>
-                                <div class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                                        Сотрировка по:
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 1</a></li>
-                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 2</a></li>
-                                        <li><a href="javascript:void(0)" class="href_sort">Пункт 3</a></li>
-                                    </ul>
-                                </div>
+                                <span>Сортировка по:</span>
+
+
+                                <ul>
+                                    <li>
+                                        <span class="sorting_text">По популярности убывание<i class="fas fa-chevron-down"></i></span>
+                                        <ul>
+                                            <li class="shop_sorting_button href_sort"  data-sort="popularity_up"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По популярности убывание</li>
+                                            <li class="shop_sorting_button href_sort"  data-sort="popularity_down"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По популярности возрастание</li>
+                                            <li class="shop_sorting_button href_sort" data-sort="price _up"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По Цене убывания</li>
+                                            <li class="shop_sorting_button href_sort" data-sort="price_down""><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По Цене возрастания</li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
                         <div class="product_grid row grid" id="result">
                             <div class="product_grid_border"></div>
                             <!--samo-->
-
-                            <a href="#" onclick="return changeHash(2)"></a>
                         </div>
                         <!--Navigation -->
 
@@ -484,8 +484,8 @@ session_start();
 <script>
 
     var GlobalPage = new GlobalPage();
-    GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    GlobalPage.Category=Global_categori();
+    //GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
+    //GlobalPage.Category=Global_categori();
     //alert(Global_categori());
     GlobalPage.run();
     //filter bild https://bootsnipp.com/snippets/j6xjx
