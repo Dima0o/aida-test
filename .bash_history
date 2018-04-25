@@ -172,3 +172,16 @@ git commit -m "Вторник работа с куки пробую сделат
 git add .
 git commit -m "Вторник работа с куки пробую сделать товар в корзине"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Среда работаю с сорировкой  выключил фильтр"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Фильр готов  осталось апи выводить нормально потом  анимация осталась и будет круто"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром\"
+
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром"
+
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

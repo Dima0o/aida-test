@@ -485,7 +485,7 @@ session_start();
 
     var GlobalPage = new GlobalPage();
     //GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    //GlobalPage.Category=Global_categori();
+    GlobalPage.Category=Global_categori();
     //alert(Global_categori());
     GlobalPage.run();
     //filter bild https://bootsnipp.com/snippets/j6xjx
