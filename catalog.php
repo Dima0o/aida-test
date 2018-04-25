@@ -17,13 +17,16 @@ session_start();
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+          integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
@@ -42,8 +45,13 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
-                        <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
+                            +38 068 005 3570
+                        </div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="images/mail.png" alt=""></div>
+                            <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                         <div class="top_bar_content ml-auto">
                             <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
@@ -95,14 +103,16 @@ session_start();
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" id="search" required="required" class="header_search_input" placeholder="Поиск ...">
-                                        <div class="custom_list clc active" >
+                                        <input type="search" id="search" required="required" class="header_search_input"
+                                               placeholder="Поиск ...">
+                                        <div class="custom_list clc active">
                                             <div class="bs-example">
                                                 <div class="list-group" id="resSearch">
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                        <button type="submit" class="header_search_button trans_300" value="Submit"><img
+                                                    src="images/search.png" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -175,7 +185,8 @@ session_start();
                                 <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
                                     <div class="menu_burger">
                                         <div class="menu_trigger_text">Меню</div>
-                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+                                        <div class="cat_burger menu_burger_inner">
+                                            <span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +208,8 @@ session_start();
 
                             <div class="page_menu_search">
                                 <form action="#">
-                                    <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                                    <input type="search" required="required" class="page_menu_search_input"
+                                           placeholder="Search for products...">
                                 </form>
                             </div>
                             <ul class="page_menu_nav">
@@ -258,13 +270,20 @@ session_start();
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
-                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
-                                <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
+                                </li>
+                                <li class="page_menu_item"><a href="contact.html">contact<i
+                                                class="fa fa-angle-down"></i></a></li>
                             </ul>
 
                             <div class="menu_contact">
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
+                                    +38 068 005 3570
+                                </div>
+                                <div class="menu_contact_item">
+                                    <div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div>
+                                    <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             </div>
                         </div>
                     </div>
@@ -304,7 +323,8 @@ session_start();
 
                     <div class="shop_content">
                         <div class="shop_bar clearfix">
-                            <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденные товары
+                            <div class="shop_product_count"><span id="products_found"
+                                                                  data-size="products_found">186</span> найденные товары
                             </div>
                             <div class="shop_sorting">
                                 <span>Сортировка по:</span>
@@ -312,12 +332,24 @@ session_start();
 
                                 <ul>
                                     <li>
-                                        <span class="sorting_text">По популярности убывание<i class="fas fa-chevron-down"></i></span>
+                                        <span class="sorting_text">По популярности убывание<i
+                                                    class="fas fa-chevron-down"></i></span>
                                         <ul>
-                                            <li class="shop_sorting_button href_sort"  data-sort="popularity_up"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По популярности убывание</li>
-                                            <li class="shop_sorting_button href_sort"  data-sort="popularity_down"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По популярности возрастание</li>
-                                            <li class="shop_sorting_button href_sort" data-sort="price _up"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По Цене убывания</li>
-                                            <li class="shop_sorting_button href_sort" data-sort="price_down""><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> По Цене возрастания</li>
+                                            <li class="shop_sorting_button href_sort" data-sort="popularity_up"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По популярности убывание
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="popularity_down"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По популярности возрастание
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="price _up"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По Цене убывания
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="price_down"
+                                            "><span class="glyphicon glyphicon-sort-by-attributes"
+                                                    aria-hidden="true"></span> По Цене возрастания</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -446,8 +478,11 @@ session_start();
                 <div class="col">
 
                     <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены | Разработанно в компанни  <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Aida Tech lab</a>
+                        <div class="copyright_content">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            Все права защищены | Разработанно в компанни <i class="fa fa-heart" aria-hidden="true"></i>
+                            by <a href="#" target="_blank">Aida Tech lab</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="logos ml-sm-auto">
@@ -465,7 +500,8 @@ session_start();
     </div>
 </div>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/greensock/TweenMax.min.js"></script>
@@ -485,21 +521,21 @@ session_start();
 
     var GlobalPage = new GlobalPage();
     //GlobalPage.Menu=['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    GlobalPage.Category=Global_categori();
+    GlobalPage.Category = Global_categori();
     //alert(Global_categori());
     GlobalPage.run();
     //filter bild https://bootsnipp.com/snippets/j6xjx
 
-    $(document).ready(function(){
-        $("#search").on('input', function postinput(){
+    $(document).ready(function () {
+        $("#search").on('input', function postinput() {
             var search = $(this).val(); // this.value
             $.ajax({
                 url: '../dev/sherch.php',
                 data: {"search": search},
                 type: 'post'
-            }).done(function(responseData) {
+            }).done(function (responseData) {
                 $("#resSearch").html(responseData);
-            }).fail(function(search) {
+            }).fail(function (search) {
                 $("#resSearch").html(search);
                 console.log('Failed');
             });
@@ -507,16 +543,19 @@ session_start();
     });
     Categori_ui(<?=$_GET['id']?>);
     Prod_div(<?=$_GET['id']?>);
-  //  Filter(<?=$_GET['id']?>);
+    //  Filter(<?=$_GET['id']?>);
 
 </script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'UA-23581568-13');
 </script>
 </body>
-
 </html>
