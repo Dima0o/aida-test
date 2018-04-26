@@ -2,21 +2,6 @@
 
 function GlobalPage(power) {
     this.titel = 'Главаная';
-    this.user = false;
-    this.cart_shop = function () {
-        this.cart = {count: '', total: '', item: [{name: '', price: '', col: ''}]};
-    };
-    this.Recently_Viewed = [{name: '', avatar: '', price: [''], item_discount: '', item_new: 1}];
-  //  this.menu = ['Акции и скидки', 'Магазины', 'Помощь', 'О нас'];
-    this.waterAmount = [];
-
-    // физическая константа - удельная теплоёмкость воды для getBoilTime
-    var WATER_HEAT_CAPACITY = 40;
-
-    // расчёт времени для кипячения
-    function getBoilTime() {
-        return this.waterAmount * WATER_HEAT_CAPACITY * 80 / power; // ошибка!
-    }
 
     // что делать по окончании процесса
     function onReady(data) {
@@ -68,8 +53,9 @@ function GlobalPage(power) {
     }
     this.run = function () {
        // переписать меню для сайта
-        CardShop();
+       // CardShop();
         Menu(this.Menu);
+        NullShop();
     };
 
 }
@@ -206,30 +192,7 @@ $(document).on('click','#superid',function(){
 //рабочий элемент
     showHotels();
 });
-//корзинка ггага
-$(document).on('click','.product_fav',function(){
-    var caunts = Number($('#cadr_col_shop').html());
-    caunts = caunts + 1;
-    //cadrAdd($(this).arrt(data-id));
-    $("div").find(".bigBlock")
-    $('#cadr_col_shop').html(caunts);
-    //var summa=$(this).find('data-price');
-    //$('.cart_price').html(summa);
-    //console.log($(this).attr("data-price"));
-    var summa=$('.cart_price').attr("data-price");
-    summa=Number(summa)+Number($(this).attr("data-price"));
-    $('.cart_price').attr("data-price",summa);
-    $('.cart_price').html(summa+'руб.');
-    //randomInteger(min, max)
-    $(this).css("background", getRandomColor());
-    // array.length = 2
-    cadrMass($(this).attr("data-id"));
-    //$.cookie('cookie_name',pushed);
 
-    $.cookie('cadr_col_shop',caunts);
-    $.cookie('cart_price',summa);
-    $.cookie('cart_count',caunts);
-});
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -264,16 +227,16 @@ function showHotels() {
 //работа с корзиной
 //Акции//Магазины//Вакансии//Партнёрам//Контакты
 function CardShop() {
-    $('#cadr_col_shop').text($.cookie('cadr_col_shop'));
-    $('.cart_price').html($.cookie('cart_price'));
+    $('#cadr_col_shop').html($.cookie('cadr_col_shop'));
+//    $('.cart_price').html($.cookie('cart_count'));
     $('.cart_count').html($.cookie('cart_count'));
     $('.cart_text').html('<a href="card.php">Корзина</a>');
-    if($.cookie('cookie_name').length >0){
+    if($.cookie('cadr_col_shop').length >0){
       //  $('.cart_price').html($.cookie('cookie_name'));
-    //    alert($.cookie('cookie_name'));
+      //alert($.cookie('cart_price'));
     }else{
         //$('#cadr_col_shop').text('');
-        alert(2);
+       // alert(22);
         var array = [ "one", "two" ];
        // $.cookie('cookie_name', array);
     }
@@ -336,3 +299,104 @@ $(document).on('click','.href_sort',function(){
     });
 });
 //https://github.com/akkez/perekrestok
+
+//очистака корзины пр клике на отсеченый товар или просто очистить корзину
+$(document).on('click','.wishlist_content',function(){
+    $.cookie('cart_count', 0);
+    $.cookie('cart_price', 0);
+});
+function NullShop() {
+    if($.cookie('cart_count')==0 ){
+        //$("div.content").remove()
+        $('.cart_price').html('');
+        $("div.cart_count").remove();
+    }else{
+        $('.cart_icon').append('<div class="cart_count"><span id="cadr_col_shop"></span></div>');
+        //RenderCard( $.cookie('cart_count'),$.cookie('cart_price'));
+        //$.cookie('cart_count',count);
+    }
+}
+function RenderCard(count,summa) {
+  //  NullShop();
+    $('.cart_price').html(summa+'руб.');
+    $('.cart_price').attr("data-price",summa);
+    $('#cadr_col_shop').text(count);
+
+};
+var arr = [{
+    "id": 1,
+    "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
+    "title": "ПивАссортимент на Чехова, 43",
+    "body": "<p><strong>Как найти:</strong> пересечение ул. Чехова и пер. Некрасовского, новое девятиэтажное здание, напротив «ВИСТ-Таганрог»<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Радиотехнический университет»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Некрасовском)</p>"
+},
+    {
+        "id": 1,
+        "title": "ПивАссортимент на Украинском, 19",
+        "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    {
+        "id": 1,
+        "title": "Айдасеть на Петровской, 14",
+        "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
+        "body": "<p><strong>Как найти:</strong> напротив магазина Айдасеть на Александровской, 40В<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Октябрьская площадь»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Украинском)</p>"
+    }];
+
+//$.cookie('masss',[arr]);
+//alert($.cookie('masss')+'////');
+
+/*
+обновленная работа с корзиной при добавлении
+ +через куки
+ -через сессии
+ -через обьекты
+ */
+
+$(document).on('click', '.product_fav', function () {
+    //поиск товара в текушей корзине
+
+    if ($.inArray($(this).attr("data-id"), $.cookie('cadr_list'))) {
+
+       /* $.cookie('cadr_list') = jQuery.grep($.cookie('cadr_list'), function (value) {
+            return value != $(this).attr("data-id");
+        });*/
+        if (count($.cookie('cadr_list')) == 0){
+            Card_Clear();
+        } else {
+            Card_Bild();
+        }
+    } else {
+        Card_Bild();
+    }
+});
+
+function Card_Bild() {
+    alert("Card_Bild");
+    $('#cadr_col_shop').html(count($.cookie('cadr_list')));
+    $('.cart_price').attr("data-price", $.cookie('cart_price'));
+}
+function Card_Clear() {
+    alert("Card_Clear");
+    $('.cart_price').html('');
+    $("div.cart_count").remove();
+}
+
+//глобальный модуль
+function count(obj) {
+    var count = 0;
+    for(var prs in obj)
+    {
+        if(obj.hasOwnProperty(prs)) count++;
+    }
+    return count;
+}
+
+
+/*
+рендеринг корзины при старте  глобальный
+ +через куки
+ -через сессии
+ -через обьекты
+*/
+
+

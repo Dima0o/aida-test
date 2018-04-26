@@ -185,3 +185,9 @@ git commit -m "Сортировка  работа с изображением в
 git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром"
 
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
