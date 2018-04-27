@@ -145,7 +145,7 @@ function Prod_div(ids) {
         method: "POST",
         url: "dev/categore.php",
         dataType: 'json',
-        //data: {id: ids},
+        data: {id: ids},
     }).done(function (data) {
         var items = [];
         $.each(data['data'], function (key, val) {
@@ -486,3 +486,4 @@ $(document).on('click', '.product_fav', function () {
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 (8634) 68-30-27</div>');
 
  }
+ //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
