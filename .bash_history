@@ -197,3 +197,6 @@ git commit -m "Кардинально новый подход к корзине 
 git add .
 git commit -m "Работа с корзиной"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Пятница начало"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

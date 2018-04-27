@@ -515,7 +515,10 @@ session_start();
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <!--<script src="js/shop_custom.js"></script>--->
-
+<script
+        src="http://code.jquery.com/ui/1.11.0-beta.1/jquery-ui.js"
+        integrity="sha256-q5raG0xmu2guatVMnFCPiZAbKKY5ZX0Wq0Uvar+qN78="
+        crossorigin="anonymous"></script>
 <script src="js/aida_global.js"></script>
 <script>
 
