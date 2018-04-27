@@ -191,3 +191,9 @@ git commit -m "Сортировка  работа с изображением в
 git add .
 git commit -m "Сортировка  работа с изображением в 1с  поэфективнее сделать товары и аминку для управление категриями и товаром"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Кардинально новый подход к корзине как отрисовке так и ее наполнению далее будет полная выгрузка товаров и категорий для работы с ними и фото у товаров"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Работа с корзиной"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
