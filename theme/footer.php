@@ -54,46 +54,17 @@
             <!-- блок  как с фильтрами позже  в суботу
              *@TODO: выполнить блок к суботе обеду.
              -->
-            <div class="col-lg-2 offset-lg-2">
-                <div class="footer_column">
-                    <div class="footer_title">Find it Fast</div>
-                    <ul class="footer_list">
-                        <li><a href="#">Computers & Laptops</a></li>
-                        <li><a href="#">Cameras & Photos</a></li>
-                        <li><a href="#">Hardware</a></li>
-                        <li><a href="#">Smartphones & Tablets</a></li>
-                        <li><a href="#">TV & Audio</a></li>
-                    </ul>
-                    <div class="footer_subtitle">Gadgets</div>
-                    <ul class="footer_list">
-                        <li><a href="#">Car Electronics</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-2">
-                <div class="footer_column">
-                    <ul class="footer_list footer_list_2">
-                        <li><a href="#">Video Games & Consoles</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Cameras & Photos</a></li>
-                        <li><a href="#">Hardware</a></li>
-                        <li><a href="#">Computers & Laptops</a></li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="col-lg-2">
                 <div class="footer_column">
                     <div class="footer_title">Customer Care</div>
                     <ul class="footer_list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Wish List</a></li>
-                        <li><a href="#">Customer Services</a></li>
-                        <li><a href="#">Returns / Exchange</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Product Support</a></li>
+                        <li><a href="#"> Акции</a></li>
+                        <li><a href="#">Магазины</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Партнёрам</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        
                     </ul>
                 </div>
             </div>

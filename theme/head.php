@@ -59,7 +59,11 @@
             <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                 <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                     <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                        <div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
+                        <div class="wishlist_icon">
+                            <!--<img src="images/heart.png" alt="">-->
+                            <i class="fas fa-heart" style="font-size: 38px; color:#ef7f1b;"></i>
+
+                        </div>
                         <div class="wishlist_content">
                             <div class="wishlist_text"><a href="#">Wishlist</a></div>
                             <div class="wishlist_count">115</div>
@@ -70,7 +74,7 @@
                     <div class="cart">
                         <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                             <div class="cart_icon">
-                                <img src="images/cart.png" alt="">
+                                <i class="fas fa-shopping-bag" style="font-size: 38px;color:#ef7f1b;"></i>
                                 <div class="cart_count"><span id="cadr_col_shop"></span></div>
                             </div>
                             <div class="cart_content">
