@@ -69,7 +69,8 @@ function GlobalPage(power) {
         $('.wishlist_count').html($.cookie('cadr_list'));
 
         //проверка на массив
-
+//работа с очисткой футера
+        $('.newsletter').remove();
 
 
 
@@ -481,7 +482,7 @@ $(document).on('click', '.product_fav', function () {
   */
  function PageBild() {
     // $('.top_bar_contact_item').remove();
-     $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">shop@aidaset.ru</a></div>');
-     $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 800 100 47 74</div>');
+     $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:aida-taganrog@yandex.ru">aida-taganrog@yandex.ru</a></div>');
+     $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 (8634) 68-30-27</div>');
 
  }
