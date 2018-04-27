@@ -286,11 +286,11 @@
                        //'                                    <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">\n' +
                        '                                    <div class="card-block">\n' +
                             '<div class="blog_text">'+val.name+'</div>\n' +
-                                                        '<div class="blog_text" style="font-weight:  100;">' +
-                            val.snippet.requirement+'</br>' +
-                            val.snippet.responsibility+
-
-                            '</div>'+
+                                '<div class="blog_text" style="font-weight:  100;">' +
+                                    '<b style="text-indent: 1.5em">Обязанности:</b> '+val.snippet.responsibility+'</br>' +
+                                    '<b style="text-indent: 1.5em">Требования:</b> '+ val.snippet.requirement+'</br>' +
+                                    '<b style="text-indent: 1.5em">Адрес:</b> '+val.address.city+' '+ val.address.street+' '+ val.address.building+'</br>' +
+                                '</div>'+
                         '</div>\n' +
                          '<div class="card-footer">\n' +
                             '                        <small>Зарплата  от  '+val.salary.from+' до '+val.salary.to+' руб. </small>\n' +

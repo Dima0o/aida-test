@@ -480,7 +480,7 @@ $(document).on('click', '.product_fav', function () {
   - доп пункты
   */
  function PageBild() {
-     $('.top_bar_contact_item').remove();
+    // $('.top_bar_contact_item').remove();
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">shop@aidaset.ru</a></div>');
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 800 100 47 74</div>');
 
