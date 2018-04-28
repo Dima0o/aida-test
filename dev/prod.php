@@ -211,5 +211,6 @@ $json='[
 ';
 
 $obj = json_decode($json);
-print $obj->{'longitude'}; // 12345
+echo $json;
+//print $obj->{'longitude'}; // 12345
 ?>

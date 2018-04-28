@@ -374,7 +374,18 @@ function Card_Bild() {
         $('.cart_price').attr("data-price", $.cookie('cart_price'));
         $('.cart_price').text($.cookie('cadr_price')+' руб.');
     }
+    /**/
+    $.ajax({
+        method: "POST",
+        url: "dev/card.php",
+        data: {item: $(this).attr('data-id'),col: $(this).attr('data-id')},
+        dataType: 'json'
+    }).done(function (data) {
+        Card_work(data);
+    });
  //   console.log($.cookie('cadr_price')+'++'+$.cookie('cadr_list'));
+
+
 }
 
 function Card_Clear() {
@@ -440,8 +451,6 @@ $(document).on('click', '.product_fav', function () {
                 '\t\t\t\t\t\t\t</div>');*/
         Card_work(data);
         });
-
-
     /*  var js_obj = $.cookie('cadr_list').split(',');
     js_obj = js_obj.filter(function(e){return e});
     js_obj = js_obj.filter(function(x) {
@@ -527,3 +536,22 @@ $(document).on('click', '.product_fav', function () {
      });
  }
  //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
+function Page_bild(id){
+     $('.image_list').remove();
+    $.ajax({
+        method: "POST",
+        url: "dev/prod.php",
+        data: {item: $(this).attr('data-id'),col: $(this).attr('data-id')},
+        dataType: 'json'
+    }).done(function (data) {
+        $('.image_selected').html('<img src="images/new_'+ Math.floor((Math.random() * 10) + 1) + '.jpg" alt="">');
+        $('.product_category').text('укроп');
+        $('.product_name').text('укроп');
+        $('.product_text').text('укроп');
+        $('.product_price').text('руб. '+Math.floor((Math.random() * 10000) + 1));
+
+
+    });
+};
+ //проверка кнопки в корзине есть или нету
+//Recently Viewed работа  с рекоменддуемыми товарами
