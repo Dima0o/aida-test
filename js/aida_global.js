@@ -417,7 +417,32 @@ if (!navigator.cookieEnabled) {
 */
 
 $(document).on('click', '.product_fav', function () {
-  /*  var js_obj = $.cookie('cadr_list').split(',');
+    $.ajax({
+        method: "POST",
+        url: "dev/card.php",
+        data: {item: $(this).attr('data-id'),col: $(this).attr('data-id')},
+        dataType: 'json'
+    }).done(function (data) {
+        /*var items = [];
+        $.each(data['data'], function (key, val) {
+            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+                '\t\t\t\t\t\t\t\t</div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
+                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+                '\t\t\t\t\t\t\t\t</ul>\n' +
+                '\t\t\t\t\t\t\t</div>');*/
+        Card_work(data);
+        });
+
+
+    /*  var js_obj = $.cookie('cadr_list').split(',');
     js_obj = js_obj.filter(function(e){return e});
     js_obj = js_obj.filter(function(x) {
         return x !== undefined && x !== null && x !== "null";
@@ -472,11 +497,11 @@ $(document).on('click', '.product_fav', function () {
   /*
   * 28.04.2018
   * */
-  
+
   //работа  корзиной через запись  с ключем сессии
-    $('#cadr_col_shop').html(1551);
-    $('.cart_price').attr("data-price", $.cookie('cart_price'));
-    $('.cart_price').text($.cookie('cadr_price')+' руб.')
+   // $('#cadr_col_shop').html(1551);
+    //$('.cart_price').attr("data-price", $.cookie('cart_price'));
+    //$('.cart_price').text($.cookie('cadr_price')+' руб.')
     //Card_Bild();
 });
 
@@ -487,10 +512,18 @@ $(document).on('click', '.product_fav', function () {
   -футер заполнить
   - доп пункты
   */
+ //https://themeforest.net/item/isomorphic-react-redux-admin-dashboard/20262330
  function PageBild() {
     // $('.top_bar_contact_item').remove();
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:aida-taganrog@yandex.ru">aida-taganrog@yandex.ru</a></div>');
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 (8634) 68-30-27</div>');
 
+ }
+ function Card_work(y) {
+     $.each(y,function(index,data){
+         $('#cadr_col_shop').html(data.item);
+         $('.cart_price').attr("data-price", data.col);
+         $('.cart_price').text(data.col+' руб.');
+     });
  }
  //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
