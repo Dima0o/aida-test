@@ -156,7 +156,7 @@ function Prod_div(ids) {
                 '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
                 '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
                 '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
@@ -311,7 +311,7 @@ $(document).on('click', '.href_sort', function () {
                 '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
                 '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
                 '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
@@ -328,6 +328,7 @@ $(document).on('click', '.href_sort', function () {
 $(document).on('click', '.wishlist_content', function () {
     $.cookie('cadr_list',null);
     $.cookie('cadr_price', 0);
+    Card_Clear();
 });
 
 function NullShop() {
@@ -349,25 +350,6 @@ function RenderCard(count, summa) {
     $('#cadr_col_shop').text(count);
 
 };
-var arr = [{
-    "id": 1,
-    "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "ПивАссортимент на Чехова, 43",
-    "body": "<p><strong>Как найти:</strong> пересечение ул. Чехова и пер. Некрасовского, новое девятиэтажное здание, напротив «ВИСТ-Таганрог»<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Радиотехнический университет»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Некрасовском)</p>"
-},
-    {
-        "id": 1,
-        "title": "ПивАссортимент на Украинском, 19",
-        "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-    },
-    {
-        "id": 1,
-        "title": "Айдасеть на Петровской, 14",
-        "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-        "body": "<p><strong>Как найти:</strong> напротив магазина Айдасеть на Александровской, 40В<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Октябрьская площадь»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Украинском)</p>"
-    }];
-
 //$.cookie('masss',[arr]);
 //alert($.cookie('masss')+'////');
 
@@ -383,28 +365,16 @@ function Card_Bild() {
     //var js_obj = $.cookie('cadr_list').split(',');
     //alert($.cookie('cadr_list'));
 
-    var js_obj = $.cookie('cadr_list').split(','),temp = [];
-    js_obj.push($(this).attr('data-id'));
-    js_obj = js_obj.filter(function(e){return e});
-    js_obj = js_obj.filter(function(x) {
-        return x !== undefined && x !== null && x !== "null";
-    });
-
-
-    for(let i of js_obj)
-        i && temp.push(i); // copy each non-empty value to the 'temp' array
-
-    js_obj = temp;
-    delete temp; // discard the variable
+     // discard the variable
   //  alert(js_obj);
-
    // console.log(js_obj);
+    js_obj = $.cookie('cadr_list').split(',')
     if( $.cookie('cadr_list')!=null &&$.cookie('cadr_list')!="null"){
         $('#cadr_col_shop').html(js_obj.length);
         $('.cart_price').attr("data-price", $.cookie('cart_price'));
         $('.cart_price').text($.cookie('cadr_price')+' руб.');
     }
-
+ //   console.log($.cookie('cadr_price')+'++'+$.cookie('cadr_list'));
 }
 
 function Card_Clear() {
@@ -447,31 +417,68 @@ if (!navigator.cookieEnabled) {
 */
 
 $(document).on('click', '.product_fav', function () {
-    if ($.cookie('cadr_list')==null &&$.cookie('cadr_list')=="null") {
-     //   alert('if');
-        // $.cookie('cadr_list',null);
-        var js_obj=[$(this).attr('data-id')];
-       // js_obj.push();
-        //js_obj = js_obj.filter(function(e){return e});
-        $.cookie('cadr_list', $(this).attr('data-id'));
-    }else {
-       // alert('else');
-        var js_obj = $.cookie('cadr_list').split(',');
-        js_obj.push($(this).attr('data-id'));
-        //js_obj = js_obj.filter(function(e){return e});
-        $.cookie('cadr_list', js_obj.join(','));
-    };
-    ///var js_obj = $.cookie('cadr_list').split(',');
- //работа с зарисовкой в корзине
-    
-    
-    //console.log(Number($.cookie('cadr_price'))+''+ Number($(this).attr('data-price')));
-    $.cookie('cadr_price',Number($.cookie('cadr_price')) + Number($(this).attr('data-price')));
-    Card_Bild();
-});
- function AddCard() {
+  /*  var js_obj = $.cookie('cadr_list').split(',');
+    js_obj = js_obj.filter(function(e){return e});
+    js_obj = js_obj.filter(function(x) {
+        return x !== undefined && x !== null && x !== "null";
+    });
+    $.cookie('cadr_list', js_obj.join(','));
+    var y = $.cookie('cadr_list').split(',');
+    console.log(y);
+    js_obj=[];
+    $.each(y,function(index,value){
 
- }
+            js_obj.push(Number($(this).attr("data-id")));
+
+
+        console.log(value+'*-/'+$(this).attr('data-id'));
+    });
+    console.log(js_obj);
+    //var js_obj = $.cookie('cadr_list').split(','),temp = [];
+    js_obj = js_obj.filter(function(e){return e});
+    js_obj = js_obj.filter(function(x) {
+        return x !== undefined && x !== null && x !== "null";
+    });
+    js_obj1=[];
+    $.each(js_obj,function(index,value){
+        js_obj1.push(Number(value.toString()));
+    });
+    js_obj=js_obj1;
+    for(let i of js_obj)
+        i && temp.push(i); // copy each non-empty value to the 'temp' array
+
+    js_obj = temp;
+    delete temp;
+    $.cookie('cadr_list', js_obj.join(','));
+    if($(this).attr('data-add')==1){
+
+        //console.log(y);
+
+        var number=$.cookie('cadr_price') - $(this).attr('data-price');
+        //alert($.cookie('cadr_price') +'-'+$(this).attr('data-price')+'='+ number);
+        if($.cookie('cadr_price')!=0){
+            $.cookie('cadr_price',$.cookie('cadr_price') - $(this).attr('data-price'));
+        };
+        $(this).removeAttr( 'style' );
+        //$(this).css("background", getRandomColor());
+        $(this).attr("data-add",0);
+    }else{
+
+        $(this).css("background", getRandomColor());
+        $(this).attr("data-add",1);
+        $.cookie('cadr_price',$.cookie('cadr_price') + $(this).attr('data-price'));
+    }*/
+
+  /*
+  * 28.04.2018
+  * */
+  
+  //работа  корзиной через запись  с ключем сессии
+    $('#cadr_col_shop').html(1551);
+    $('.cart_price').attr("data-price", $.cookie('cart_price'));
+    $('.cart_price').text($.cookie('cadr_price')+' руб.')
+    //Card_Bild();
+});
 
  /*
  работа с футером и шапкой
