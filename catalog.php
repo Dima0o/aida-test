@@ -27,7 +27,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
     <link rel="stylesheet" type="text/css"
           href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+
 
 </head>
 
@@ -129,7 +129,7 @@ session_start();
         src="http://code.jquery.com/ui/1.11.0-beta.1/jquery-ui.js"
         integrity="sha256-q5raG0xmu2guatVMnFCPiZAbKKY5ZX0Wq0Uvar+qN78="
         crossorigin="anonymous"></script>
-<script src="js/aida_global.js"></script>
+
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/greensock/TweenMax.min.js"></script>
