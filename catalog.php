@@ -27,33 +27,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
     <link rel="stylesheet" type="text/css"
           href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .modal {
-            display:    none;
-            position:   fixed;
-            z-index:    1000;
-            top:        0;
-            left:       0;
-            height:     100%;
-            width:      100%;
-            background: rgba( 255, 255, 255, .8 )
-            url('http://i.stack.imgur.com/FhHRx.gif')
-            50% 50%
-            no-repeat;
-        }
-
-        /* When the body has the loading class, we turn
-           the scrollbar off with overflow:hidden */
-        body.loading {
-            overflow: hidden;
-        }
-
-        /* Anytime the body has the loading class, our
-           modal element will be visible */
-        body.loading .modal {
-            display: block;
-        }
-    </style>
+   
 
 </head>
 
@@ -133,7 +107,7 @@ session_start();
                         </div>
 
                         <div class="product_grid row grid" id="result">
-                            <div class="modal"><!-- Place at bottom of page --></div>
+
                             <div class="product_grid_border"></div>
                             <!--samo-->
                         </div>
@@ -170,7 +144,7 @@ session_start();
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <!--<script src="js/shop_custom.js"></script>--->
 <script src="js/aida_global.js"></script>
-<script src="js/loading.js"></script>
+
 <script>
 
     var GlobalPage = new GlobalPage();

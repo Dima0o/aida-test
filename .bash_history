@@ -200,3 +200,24 @@ git commit -m "Работа с корзиной"
 git add .
 git commit -m "Пятница начало"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "mysor"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "работа с глобальной шапкой дальше футер глобальный  потом чистка файлов"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "работа с hh доплдены поля для вакансии"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "работа  с футером для  всех стораниц "
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "//TODO: сделать сортировку поиск профиль товара нормлаьную корзину страницу корзины  к вторнику и здавать"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "logo cadr"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "test bild"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git

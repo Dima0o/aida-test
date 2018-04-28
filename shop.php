@@ -17,7 +17,74 @@
     //https://stackblitz.com/edit/react-j8rudf?file=style.css
     //https://qdmnxyolbqd.angular.stackblitz.io/
     ?>
+    <style>#breadcrumbs-four{
+            overflow: hidden;
+            width: 100%;
+        }
 
+        #breadcrumbs-four li{
+            float: left;
+            margin: 0 .5em 0 1em;
+        }
+
+        #breadcrumbs-four a{
+            background: #ddd;
+            padding: .7em 1em;
+            float: left;
+            text-decoration: none;
+            color: #444;
+            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+            position: relative;
+        }
+
+        #breadcrumbs-four a:hover{
+            background: #efc9ab;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #breadcrumbs-four a::before,
+        #breadcrumbs-four a::after{
+            content:'';
+            position:absolute;
+            top: 0;
+            bottom: 0;
+            width: 1em;
+            background: #ddd;
+            transform: skew(-10deg);
+        }
+
+        #breadcrumbs-four a::before{
+
+            left: -.5em;
+            border-radius: 5px 0 0 5px;
+        }
+
+        #breadcrumbs-four a:hover::before{
+            background: #efc9ab;
+        }
+
+        #breadcrumbs-four a::after{
+            right: -.5em;
+            border-radius: 0 5px 5px 0;
+        }
+
+        #breadcrumbs-four a:hover::after{
+            background: #efc9ab;
+        }
+
+        #breadcrumbs-four .current,
+        #breadcrumbs-four .current:hover{
+            font-weight: bold;
+            background: none;
+        }
+
+        #breadcrumbs-four .current::after,
+        #breadcrumbs-four .current::before{
+            content: normal;
+        }</style>
 
 </head>
 
@@ -46,6 +113,9 @@
 
     <div class="blog">
         <div class="container">
+            <div class="row">
+                <h2 id="titel_page"></h2>
+            </div>
             <div class="row">
                 <div class="col">
                     <div class="blog_posts d-flex flex-row align-items-start justify-content-between" id="blog_page">
@@ -115,6 +185,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
+                    $('#titel_page').text('Наши магазины');
                     $.each(data, function (key, val) {
                         /*$('#blog_page').append('<div class="blog_post">\n' +
                             '<div class="blog_image" style="background-image:url('+val.url+')"></div>\n' +
@@ -123,22 +194,27 @@
                             '</div>\n' +
                             //'<div class="blog_button"><a href="shop_page.php?id='+val.id+'">Подробнее</a></div>\n' +
                             '</div>');*/
-                        $('#blog_page').append('<div class="col-sm-6 col-md-6 col-lg-4 mt-4">\n' +
-                            '<div class="card">\n' +
-                            '<div class="card-block">\n' +
-                          //  '<div class="blog_text">'+val.title+'</div>\n' +
-                            '<div class="blog_image" style="background-image:url('+val.url+')"></div>'+
-                            //'<div class="blog_text" style="font-weight:  100;">' +
-                            '<div class="blog_text">'+val.title+'</br>'+val.time+'' +
-                            '</div></div>\n' +
-                            '<div class="card-footer">\n' +
-                            '                        <a href=shop_page.php?id='+val.id+'" class="btn btn-secondary float-right btn-sm">Откликнутся</a>\n' +
-                            '                         </div>                                </div>\n' +
-                            '                            </div>');
+                        $('#blog_page').append(
+                            '<div class="col-sm-6 col-md-6 col-lg-4 mt-4">\n' +
+                                '<div class="card">\n' +
+                                    '<div class="card-block">\n' +
+                                  //  '<div class="blog_text">'+val.title+'</div>\n' +
+                                        '<div class="blog_image" style="background-image:url('+val.url+')"></div>'+
+                                    //'<div class="blog_text" style="font-weight:  100;">' +
+                                        '<div class="blog_text">'+val.title+
+                                            '<div class="single_post_text">'+val.time+'</div>                        ' +
+                                            '<div class="single_post_text">'+val.body+'</div>                        ' +
+                                        '</div>' +
+                                    '</div>\n' + //shop_page.php?id='+val.id+'
+                                    '<div class="card-footer">\n' +
+                                        '<a href="#" class="btn btn-warning float-right btn-sm">Выбрать **</a>\n' +
+                                    '</div>' +
+                                '</div>\n' +
+                            '</div>');
                     });
                 },
                 error: function () {
-                    alert('Выполненно с ошибками или категория пустая getIssues_id');
+                    alert('Выполненно с ошибками или категория пустая Shop_bild');
                 }
             });
         }

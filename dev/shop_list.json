@@ -3,19 +3,19 @@
     "id": 1,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storePivassCheck43-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "ПивАссортимент на Чехова, 43",
+    "title": "Чехова, 43",
     "body": "<p><strong>Как найти:</strong> пересечение ул. Чехова и пер. Некрасовского, новое девятиэтажное здание, напротив «ВИСТ-Таганрог»<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Радиотехнический университет»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Некрасовском)</p>"
   },
   {
     "id": 2,
-    "title": "ПивАссортимент на Украинском, 19",
+    "title": "Украинский, 19",
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storePivassukr19-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    "body": "<p><strong>Как найти:</strong> напротив магазина Айдасеть на Александровской, 40В<br>    <strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Октябрьская площадь»)<br>    <strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Украинском)</p>"
   },
   {
     "id": 3,
-    "title": "Айдасеть на Петровской, 14",
+    "title": "Петровская, 14",
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storeNikola14-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
     "body": "<p><strong>Как найти:</strong> напротив магазина Айдасеть на Александровской, 40В<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Октябрьская площадь»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Украинском)</p>"
@@ -24,41 +24,40 @@
     "id": 4,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storeNikola14-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на Николаевском, 14В",
+    "title": "Николаевский, 14В",
     "body": "<p><strong>Как найти:</strong> магазин по правой стороне немного дальше вторых ворот Николаевского кладбища в сторону села Николаевка<br><strong>Троллейбусы:</strong> 3 (остановка «Николаевское кладбище»)<br><strong>М/Т:&nbsp;</strong>5 &nbsp;(остановка напротив магазина)</p>"
   },
   {
     "id": 5,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storeDzerzh169-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на Дзержинского, 169",
+    "title": "Дзержинского, 169",
     "body": "<p><strong>Как найти: </strong>магазин напротив Диагностического центра, пересечение улиц Дзержинского и Толбухина<br><strong>Автобусы:</strong>&nbsp;31, 34, 35, 36 (остановка «Улица Толбухина»)<br><strong>Троллейбусы: </strong>1, 2,&nbsp;5 (остановка «Улица Толбухина»)<br><strong>М/Т:&nbsp;</strong>31, 34, 73, 74 (остановка напротив Диагностического центра)</p>"
   },
   {
     "id": 6,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storeAlex40V-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на 17-м Новом, 1",
-    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-  },
+    "title": "17-й Новый, 1",
+    "body": "<p><strong>Как найти:</strong> магазин по правой стороне немного дальше вторых ворот Николаевского кладбища в сторону села Николаевка<br>    <strong>Троллейбусы:</strong> 3 (остановка «Николаевское кладбище»)<br>    <strong>М/Т:&nbsp;</strong>5 &nbsp;(остановка напротив магазина)</p>"},
   {
     "id": 7,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/store17noviy1-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на Чехова, 43",
+    "title": "Чехова, 43",
     "body": "<p><strong>Как найти: </strong>новое здание рядом с детским садом<br><strong>Автобусы:</strong> 31 (остановка «Улица Транспортная»)<br><strong>Троллейбусы: </strong>5 (остановка «Улица Транспортная»)<br><strong>М/Т:&nbsp;</strong>11, 31, 56 (остановка напротив магазина)</p>"
   },
   {
     "id": 8,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/store17noviy1-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на Чехова, 282",
+    "title": "Чехова, 282",
     "body": "<p><strong>Как найти: </strong>новое здание рядом с детским садом<br>    <strong>Автобусы:</strong> 31 (остановка «Улица Транспортная»)<br>    <strong>Троллейбусы: </strong>5 (остановка «Улица Транспортная»)<br>    <strong>М/Т:&nbsp;</strong>11, 31, 56 (остановка напротив магазина)</p>" },
   {
     "id": 9,
     "url": "http://aidaset.ru/wp-content/uploads/2017/06/storeAlex40V-300x200.jpg",
     "time": "<p><strong>График работы:</strong> ПН-ВС с 9:00 до 23:00</p>",
-    "title": "Айдасеть на Александровской, 40В",
+    "title": "Александровской, 40В",
     "body": "<p><strong>Как найти:</strong> пересечение ул. Александровской и пер. Украинского<br><strong>Трамваи:</strong> 1-3, 2, 3, 5, 8, 9 (остановка «Октябрьская площадь»)<br><strong>М/Т:&nbsp;</strong>6, 60, 73 (остановка на пер. Украинском)</p>"
   }
 ]
