@@ -73,8 +73,7 @@ session_start();
 
                     <div class="shop_content">
                         <div class="shop_bar clearfix">
-                            <div class="shop_product_count"><span id="products_found"
-                                                                  data-size="products_found">186</span> найденные товары
+                            <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденно
                             </div>
                             <div class="shop_sorting">
                                 <span>Сортировка по:</span>
@@ -97,9 +96,7 @@ session_start();
                                                         class="glyphicon glyphicon-sort-by-attributes"
                                                         aria-hidden="true"></span> По Цене убывания
                                             </li>
-                                            <li class="shop_sorting_button href_sort" data-sort="price_down"
-                                            "><span class="glyphicon glyphicon-sort-by-attributes"
-                                                    aria-hidden="true"></span> По Цене возрастания</li>
+                                            <li class="shop_sorting_button href_sort" data-sort="price_down"><span class="glyphicon glyphicon-sort-by-attributes"aria-hidden="true"></span> По Цене возрастания</li>
                                         </ul>
                                     </li>
                                 </ul>

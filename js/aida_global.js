@@ -368,12 +368,12 @@ function Card_Bild() {
      // discard the variable
   //  alert(js_obj);
    // console.log(js_obj);
-    js_obj = $.cookie('cadr_list').split(',')
+   /* js_obj = $.cookie('cadr_list').split(',')
     if( $.cookie('cadr_list')!=null &&$.cookie('cadr_list')!="null"){
         $('#cadr_col_shop').html(js_obj.length);
         $('.cart_price').attr("data-price", $.cookie('cart_price'));
         $('.cart_price').text($.cookie('cadr_price')+' руб.');
-    }
+    }*/
     /**/
     $.ajax({
         method: "POST",

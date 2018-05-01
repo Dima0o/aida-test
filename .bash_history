@@ -221,3 +221,20 @@ git commit -m "logo cadr"
 git add .
 git commit -m "test bild"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Работа  с магазином добавил заголовок странице хлебные крошки не зашли еще  шас корзину добью"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Работа  с корзиной через бд для статистики по ключу сессии "
+git add .
+git commit -m "Возврат козиной яякса значения для работы в ней и работа с сессией для очистки ее"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "Выгрузка товаров работа с категориями уклон в api"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git add .
+git commit -m "go to home"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+git commit -m "go to home"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
