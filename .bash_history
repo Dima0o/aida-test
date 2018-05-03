@@ -238,3 +238,9 @@ git commit -m "go to home"
 git commit -m "go to home"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "вторник 1 мая"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "вторник 1 мая  работа с профилем   осталось картинку доделать и свойтав товра  и продакшен"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 

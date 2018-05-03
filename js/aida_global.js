@@ -552,7 +552,7 @@ function Page_bild(prod){
             $('.product_text').text(data.body);
             $('.product_rating').html(data.col[0].col);
             $('.product_price').text(data.price +' руб.');
-            $('.image_selected').html('<img src="'data.img +'" alt="">');
+            $('.image_selected').html('<img src="'+data.img +'" alt="">');
             console.log(data.col[0].name);
         });
 

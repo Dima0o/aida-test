@@ -19,19 +19,49 @@ echo '<br>';
 //count($data);
 */
 
-$name='Распродажа Водка Кизлярка Виноградная ориг.40% 0,1л (Кизляр.кон.з-д)';
+$name='Водка Кизлярка Виноградная';
 $pieces = explode(" ", $name);
+echo 'q';
 
-foreach ($pieces as $key=>$val){
-    $postData = file_get_contents('https://api.vk.com/method/photos.search?&v=5.52&q="'+$val.'"');
-    echo $val.'<br>';
-    $data = json_decode($postData, true);
-    foreach ($data as $value){
-        echo $value['count'];
-        if($value['count']>0){
-            foreach ($value['items'] as $v){
-                echo str_replace('\/', '/', $v["photo_1280"]);
+function img($val){
+    //$pieces = explode(" ", $name);
+echo $val;
+    //foreach ($pieces as $key=>$val){
+        if( $val!='Распродажа'  and  $val!= 'Водка' and $val!='ориг.40% 0,1л'){
+            $postData = file_get_contents('https://api.vk.com/method/photos.search?&v=5.52&q="'.$val.'"');
+            $data = json_decode($postData, true);
+        ///    var_dump($data);
+            foreach ($data as $value){
+                echo $value['count'];
+                if($value['count']>0){
+                    foreach ($value['items'] as $v){
+                        echo '</pre>';
+                        var_dump($v);
+                        echo '</pre>';
+                        //echo str_replace('\/', '/', $v["photo_1280"]);
+                        //    return $_SESSION['errors'].=$val["photo_1280"].'--'.$value;
+                    }
+                };
             }
-        };
+        }
+
+    //}
+}
+foreach ($pieces as $key=>$val){
+    if( $val!='Распродажа'  and  $val!= 'Водка' and $val!='ориг.40% 0,1л '){
+        /*$postData = file_get_contents('https://api.vk.com/method/photos.search?&v=5.52&q="'.$val.'"');
+        echo $val.'<br>';
+        $data = json_decode($postData, true);
+        echo $data;
+        foreach ($data as $value){
+           // echo $value['count'];
+            if($value['count']>0){
+                foreach ($value['items'] as $v){
+                    echo             ' <p><img src="'.str_replace('\/', '/', $v["photo_1280"]).'" width="450" height="450" alt=""></p><br>';
+                }
+            };
+
+        }*/
+        echo '<p>'. img($val).'</p><br>';
     }
 }

@@ -63,17 +63,32 @@ class Prod
        $pieces = explode(" ", $name);
 
        foreach ($pieces as $key=>$val){
-           $postData = file_get_contents('https://api.vk.com/method/photos.search?&v=5.52&q='+$val);
-           $data = json_decode($postData, true);
-           foreach ($data as $value){
-               return $value['count'];
-                 if($value['count']>0){
-                     foreach ($value['items'] as $v){
-                    //     return str_replace('\/', '/', $v["photo_1280"]);
-                         $_SESSION['errors'].=$val["photo_1280"].'--'.$value;
-                     }
-                 };
-           }
+            if( $val!='Распродажа'  and $val!='40%' and $val!='0,5л'   and  $val!= 'Водка' and $val!='ориг.40% 0,1л '){
+               $postData = file_get_contents('https://api.vk.com/method/photos.search?&v=5.52&q="'.$val.'"');
+               $data = json_decode($postData, true);
+               foreach ($data as $value){
+                  // return $value['count'];
+                     if($value['count']>0){
+                         foreach ($value['items'] as $v){
+                             if( $v['photo_604']!='' ) {
+                                 return str_replace('\/', '/', $v['photo_604']);
+                             }elseif ($v['photo_1280']!=''){
+                                 return str_replace('\/', '/', $v['photo_1280']);
+                             }elseif ($v['photo_807']!=''){
+                                 return str_replace('\/', '/', $v['photo_807']);
+                             }elseif ($v['photo_2560']!=''){
+                                 return str_replace('\/', '/', $v['photo_2560']);
+                             }
+
+                             /*else{
+                                 return str_replace('\/', '/', $v['photo_75']);
+                             }*/
+
+                        //    return $_SESSION['errors'].=$val["photo_1280"].'--'.$value;
+                         }
+                     };
+               }
+            }
 
        }
 
