@@ -74,6 +74,41 @@ return $row;
         };
         //return mysql_fetch_array($qr_result);
         return $row;
+    } function data($id){
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'") or die(mysql_error());
+        $i = 1;
+        $row='';
+        while ($data = mysql_fetch_array($qr_result)) {
+            if ($i == mysql_num_rows($qr_result)) {
+                $row.='{
+                         "id":'.$data['id'].',
+                         "name":"'.str_replace('"', '11', $data['name']).'",
+                         "uid":"'.$data['uid'].'",
+                         "categori":"'.$data['categori'].'",
+                         "price":"'.rand(0,222122).'",
+                         "tipe":"'.rand(0,2).'"
+                         }';
+                $i++;
+            } else {
+                $row.='{
+                        "id":'.$data['id'].',
+                         "name":"'.str_replace('"', '11', $data['name']).'",
+                         "uid":"'.$data['uid'].'",
+                         "categori":"'.$data['categori'].'",
+                         "price":"'.rand(0,222122).'",
+                         "tipe":"'.rand(0,2).'"
+                         },';
+                $i++;
+            }
+        };
+        //return mysql_fetch_array($qr_result);
+        return $row;
+    }
+    function categori_uid($id){
+     $qr_result = mysql_query("select * from `k99969kp_1c`.`categori` where `id`='".$id."'") or die(mysql_error());
+            while ($data = mysql_fetch_array($qr_result)) {
+                return $data['uid'];
+            }
     }
 }
 $Prod = new Prod;
@@ -82,8 +117,8 @@ $Prod = new Prod;
 {
 "col":"<? if (isset($_GET['id'])) {    echo  $Prod->prod_col($_POST['id']);} else {    echo 58;}; ?>",
 "data":[<? if (isset($_POST['id'])) {
-    echo  $Prod->Prod_data($_POST['id']);
+    echo  $Prod->data($Prod->categori_uid($_GET['id']));
 } else {
    echo $Prod->all();
-}; ?>]}
+}; ?>],"cat":"<? if (isset($_GET['id'])){echo $Prod->categori_uid($_GET['id']);}else{echo '';};?>"}
 

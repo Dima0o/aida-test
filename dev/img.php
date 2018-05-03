@@ -62,6 +62,18 @@ foreach ($pieces as $key=>$val){
             };
 
         }*/
-        echo '<p>'. img($val).'</p><br>';
+      //  echo '<p>'. img($val).'</p><br>';
     }
 }
+
+for($i=0;$i<10;$i++){
+    $arr[]=rand(-25,25);
+}
+foreach ($arr as $value){
+    if ($value < 0)
+    {
+        $new_arr[]=$value;
+    }
+}
+echo "sum(a) = " . array_sum($new_arr) . "\n";
+echo rand(-25,25);
