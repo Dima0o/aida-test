@@ -63,19 +63,13 @@ function GlobalPage(power) {
         }else if ($.cookie('cadr_price')==null) {
             $.cookie('cadr_price',0);
         };*/
-
         $('.cart_text').html('<a href="card.php">Корзина</a>');
         $('.wishlist_text').html('<a href="#">Избранные</a>');
         $('.wishlist_count').html($.cookie('cadr_list'));
-
         //проверка на массив
 //работа с очисткой футера
         $('.newsletter').remove();
-
-
-
         Card_Bild();
-
     };
 
 }
@@ -151,7 +145,7 @@ function Prod_div(ids) {
         $.each(data['data'], function (key, val) {
             items.push('<div class="product_item is_new" data-category="post-transition">\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
@@ -306,7 +300,7 @@ $(document).on('click', '.href_sort', function () {
         $.each(data['data'], function (key, val) {
             items.push('<div class="product_item is_new" data-category="post-transition">\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
@@ -428,10 +422,18 @@ if (!navigator.cookieEnabled) {
 */
 
 $(document).on('click', '.product_fav', function () {
+    if($(this).attr('data-add')==1){
+        $(this).removeAttr( 'style' );
+        $(this).attr('data-add',0);
+        //$(this).css("background", getRandomColor());
+    }else{
+        $(this).attr('data-add',1);
+        $(this).css("background", "#ef7f1b");
+    }
     $.ajax({
         method: "POST",
         url: "dev/card.php",
-        data: {item: $(this).attr('data-id'),col: $(this).attr('data-id')},
+        data: {item: $(this).attr('data-id'),col: $(this).attr('data-price')},
         dataType: 'json'
     }).done(function (data) {
         /*var items = [];
@@ -449,6 +451,7 @@ $(document).on('click', '.product_fav', function () {
                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
                 '\t\t\t\t\t\t\t\t</ul>\n' +
                 '\t\t\t\t\t\t\t</div>');*/
+
         Card_work(data);
         });
     /*  var js_obj = $.cookie('cadr_list').split(',');
