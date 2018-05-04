@@ -9,14 +9,7 @@ require '../rb-mysql.php';
 
 if($_SESSION['PHPSESSID']=='e748ee24c0b0d53aace7bbcdde6920ac'){
   //  echo '<h1>'.$_SESSION['PHPSESSID'].'</h1></br>';
-    foreach($_COOKIE as $key=>$value){
-    //    echo $key .' - '.$value .'<br>';
-    }
-    foreach($_POST as $key=>$value){
-      //  echo $key .' post '.$value .'<br>';
-    }
 }
-
 
 //$result = array_merge ($_COOKIE, $_POST);
 
@@ -33,13 +26,20 @@ if($_SESSION['PHPSESSID']=='e748ee24c0b0d53aace7bbcdde6920ac'){
 
     //}
 //card_online
+R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
 
+$cat = R::dispense('shop');
+$cat->token =$_SESSION['token'];
+$cat->prod =123;
+$cat->kol =12;
+
+$cat->kod ='asdasdaASDAD12';
+$cat->data = date("Y-m-d H:i:s");
+R::store( $cat );
 
 
 // работа с остальными штуками http://w3.org.ua/
 //  посмотреть дома для анализа http://w3.org.ua/eshop/shop/
-
-
 
 //if (isset($_POST['edite'])) {
     //
@@ -68,8 +68,8 @@ if($_SESSION['PHPSESSID']=='e748ee24c0b0d53aace7bbcdde6920ac'){
 //}*/
 
 function token_on($id){
-    $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$id."'") or die(mysql_error());
-    if(mysql_num_rows($qr_result)==0 or $_SESSION['PHPSESSID']!=''){
+
+    if(isset($_COOKIE['token']) or isset($_SESSION['token'])){
      /*
         $date=date("Y-m-d H:i:s");
         $qwery =mysql_query("INSERT INTO `k99969kp_1c`.`token` (`id`, `token`, `data`) 
@@ -78,6 +78,17 @@ function token_on($id){
         $result = array_merge ($_COOKIE, $_POST);
 //echo '[{"PHPSESSID":"e748ee24c0b0d53aace7bbcdde6920ac","cadr_list":"","cadr_price":"0","token":"ff63494649e895555fc608afcebc5f8b"}]';
        */
+        echo '<br>["tipe":"else",'.json_encode($_COOKIE).']</br>';
+        echo '<br>["tipe":"else",'.json_encode($_SESSION).']';
+    }else{
+
+
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$id."'") or die(mysql_error());
+        while ($data = mysql_fetch_array($qr_result)) {
+            $_SESSION['token']= $data['token'];
+        };
+        $row_cnt = mysqli_num_rows($qr_result);
+        //$result = array_merge ($_COOKIE, $_SESSION);
         R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
         $token=  md5(uniqid(rand(1,525), true));
         $_SESSION['token']=$token;
@@ -85,15 +96,19 @@ function token_on($id){
         $cat->token =$token;
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
-        $result = array_merge ($_COOKIE, $_SESSION);
-     echo '["tipe":"if",'.json_encode($result).']';
-    }else{
-        $result = array_merge ($_COOKIE, $_SESSION);
-        echo '["tipe":"else",'.json_encode($result).']';
+        //$_COOKIE['PHPSESSID']= $token;
+        setcookie("token",$token,time()+(60*60*24*30));
+        $_COOKIE['token']=$token;
+        echo '-'.$row_cnt;
+        // $_SESSION['token']= $token;
+        echo $_COOKIE['token'];
+        //$result = array_merge ($_COOKIE, $_SESSION);
+        echo '<br>["tipe":"if",'.json_encode($_COOKIE).']</br>';
+        echo '<br>["tipe":"if",'.json_encode($_SESSION).']';
     };
 }
 
 // авторизация через токен
 
-token_on($_COOKIE['PHPSESSID']);
+token_on($_COOKIE['token']);
 //запись данных в корзину
