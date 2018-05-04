@@ -7,9 +7,6 @@ include_once('core.php');
 mb_internal_encoding("UTF-8");
 require '../rb-mysql.php';
 
-if($_SESSION['PHPSESSID']=='e748ee24c0b0d53aace7bbcdde6920ac'){
-  //  echo '<h1>'.$_SESSION['PHPSESSID'].'</h1></br>';
-}
 
 //$result = array_merge ($_COOKIE, $_POST);
 
@@ -26,6 +23,7 @@ if($_SESSION['PHPSESSID']=='e748ee24c0b0d53aace7bbcdde6920ac'){
 
     //}
 //card_online
+/*  работа с наполнением в корзине если да то да если нет то просто рендеринг отдельно в 3 модуля разделить это все
 R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
 
 $cat = R::dispense('shop');
@@ -36,7 +34,7 @@ $cat->kol =12;
 $cat->kod ='asdasdaASDAD12';
 $cat->data = date("Y-m-d H:i:s");
 R::store( $cat );
-
+*/
 
 // работа с остальными штуками http://w3.org.ua/
 //  посмотреть дома для анализа http://w3.org.ua/eshop/shop/
@@ -106,6 +104,13 @@ function token_on($id){
         echo '<br>["tipe":"if",'.json_encode($_COOKIE).']</br>';
         echo '<br>["tipe":"if",'.json_encode($_SESSION).']';
     };
+}
+
+function out_card(){
+    //рендеринг корзины какой бы она не была
+}
+function add_card(){
+    //запись в корзину
 }
 
 // авторизация через токен
