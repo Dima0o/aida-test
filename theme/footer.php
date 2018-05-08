@@ -55,9 +55,9 @@
              *@TODO: выполнить блок к суботе обеду.
              -->
 
-            <div class="col-lg-2">
+            <div class="col-lg-2" id="footers">
                 <div class="footer_column">
-                    <div class="footer_title">Customer Care</div>
+                <!--    <div class="footer_title">Customer Care</div>-->
                     <ul class="footer_list">
                         <li><a href="#"> Акции</a></li>
                         <li><a href="#">Магазины</a></li>

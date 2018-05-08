@@ -111,6 +111,17 @@ function out_card(){
 }
 function add_card(){
     //запись в корзину
+    if(isset($_POST['item'])){
+        R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
+        $cat = R::dispense('shop');
+        $cat->token =$_SESSION['token'];
+        $cat->prod =$_POST['item'];
+        //$cat->user =$_POST[''];
+        $cat->kol =$_POST['col'];
+       // $cat->kod ='asdasdaASDAD12';
+        $cat->data = date("Y-m-d H:i:s");
+        R::store( $cat );
+    }
 }
 
 // авторизация через токен

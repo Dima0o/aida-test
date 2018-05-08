@@ -158,7 +158,7 @@ function Prod_div(ids) {
                 '\t\t\t\t\t\t\t</div>');
         });
         $('#result').append(items);
-        $('#products_found').text(data.col);
+        $('#products_found').text(data['data'].length);
     });
 }
 
@@ -313,7 +313,7 @@ $(document).on('click', '.href_sort', function () {
                 '\t\t\t\t\t\t\t</div>');
         });
         $('#result').html(items);
-        $('#products_found').text(data.col);
+        $('#products_found').text(data['data'].length);
     });
 });
 //https://github.com/akkez/perekrestok
@@ -433,7 +433,7 @@ $(document).on('click', '.product_fav', function () {
     $.ajax({
         method: "POST",
         url: "dev/card.php",
-        data: {item: $(this).attr('data-id'),col: $(this).attr('data-price')},
+        data: {item: $(this).attr('data-id'),col: 1},
         dataType: 'json'
     }).done(function (data) {
         /*var items = [];
@@ -561,6 +561,5 @@ function Page_bild(prod){
 
     });
     
-};
- //проверка кнопки в корзине есть или нету
+};//проверка кнопки в корзине есть или нету
 //Recently Viewed работа  с рекоменддуемыми товарами
