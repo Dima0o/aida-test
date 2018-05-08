@@ -7,83 +7,23 @@ include_once('core.php');
 mb_internal_encoding("UTF-8");
 require '../rb-mysql.php';
 
-
-//$result = array_merge ($_COOKIE, $_POST);
-
-//echo '['.json_encode($result).']';
-    /*if(isset($_POST['edite'])){
-        $qwery = mysql_query("
-            INSERT INTO `k99969kp_1c`.`auto_car_info` (`id`, `gos`, `brig`, `tipe`, `model`, `year`, `servis`, `kasko`, `status`, `sut`, `koment`, `remont`)
-            VALUES (NULL, '$gos', '$brig', '$type', '$model', '$year', '$sto', '$kasko', 1, '$sut', NULL, NULL);
-            ");
-        /*$qwery = mysql_query("
-        INSERT INTO  `$db_name`.`tiket_list` (`id`, `titel`, `sut`, `start`, `end`, `user1`, `user2`, `className`, `metta`, `allDay`, `progress`, `status`)VALUES (NULL, '$titel', '$sut', '$start', '$end', '$user1', '$user2', '$info', '$metta', '$true', '$progress', '$status')");
-        mysql_insert_id()
-    */
-
-    //}
-//card_online
-/*  работа с наполнением в корзине если да то да если нет то просто рендеринг отдельно в 3 модуля разделить это все
-R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
-
-$cat = R::dispense('shop');
-$cat->token =$_SESSION['token'];
-$cat->prod =123;
-$cat->kol =12;
-
-$cat->kod ='asdasdaASDAD12';
-$cat->data = date("Y-m-d H:i:s");
-R::store( $cat );
-*/
-
-// работа с остальными штуками http://w3.org.ua/
-//  посмотреть дома для анализа http://w3.org.ua/eshop/shop/
-
-//if (isset($_POST['edite'])) {
-    //
-    // $cat->name = $_GET['name'];
-    //$cat->uid = $_GET['code'];
-    // $cat->code = $_GET['categori'];
-  /*  $save = R::dispense('card_online');
-    //получение массива
-   $mass= json_decode($_POST['data']);
-    $save->uid=$_SESSION['PHPSESSID'];
-    $save->tipe=1;
-    $save->item=$mass['item'];
-    $save->col=$mass['col'];
-    $save->shop=1;
-    $save->time=date('d-m-Y H:M:S');*/
-
-    /*
-     * foreach (json_decode($_POST['data']) as $key=>$value){
-        $cat->$key=$value;
-        };
-    */
- //   R::store( $save );
-  //  echo 'Успешно Категория добавленна ' . $_GET['name'];
-//} else {
-  //  echo "Не порядочек";
-//}*/
-
 function token_on($id){
-
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])){
-     /*
+
         $date=date("Y-m-d H:i:s");
         $qwery =mysql_query("INSERT INTO `k99969kp_1c`.`token` (`id`, `token`, `data`) 
-          VALUES (NULL, '$token', '$date'");
+          VALUES (NULL, '".$_COOKIE['token']."', '$date'");
         //INSERT INTO `token` (`id`, `token`, `data`) VALUES (NULL, 'asda', '2018-05-04 00:00:00');
         $result = array_merge ($_COOKIE, $_POST);
 //echo '[{"PHPSESSID":"e748ee24c0b0d53aace7bbcdde6920ac","cadr_list":"","cadr_price":"0","token":"ff63494649e895555fc608afcebc5f8b"}]';
-       */
-        echo '<br>["tipe":"else",'.json_encode($_COOKIE).']</br>';
-        echo '<br>["tipe":"else",'.json_encode($_SESSION).']';
+
+   //   echo '['.json_encode($_COOKIE).']';
     }else{
 
 
         $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$id."'") or die(mysql_error());
         while ($data = mysql_fetch_array($qr_result)) {
-            $_SESSION['token']= $data['token'];
+            $_SESSION['token'] = $data['token'];
         };
         $row_cnt = mysqli_num_rows($qr_result);
         //$result = array_merge ($_COOKIE, $_SESSION);
@@ -97,17 +37,46 @@ function token_on($id){
         //$_COOKIE['PHPSESSID']= $token;
         setcookie("token",$token,time()+(60*60*24*30));
         $_COOKIE['token']=$token;
-        echo '-'.$row_cnt;
+         setcookie("token",$token,time()+(60*60*24*30));
+        $_COOKIE['token']=$token;
+
+
+       // echo '-'.$row_cnt;
         // $_SESSION['token']= $token;
-        echo $_COOKIE['token'];
+      //  echo $_COOKIE['token'];
         //$result = array_merge ($_COOKIE, $_SESSION);
-        echo '<br>["tipe":"if",'.json_encode($_COOKIE).']</br>';
-        echo '<br>["tipe":"if",'.json_encode($_SESSION).']';
+    //    echo '["tipe":"if",'.json_encode($_COOKIE).']';
     };
 }
 
 function out_card(){
+  //  echo $_COOKIE['token'];
     //рендеринг корзины какой бы она не была
+    $summ=0;
+    if(isset($_COOKIE['token']) or isset($_SESSION['token'])) {
+        $qr_result = mysql_query("select `prod`,`kol` from `k99969kp_1c`.`shop` WHERE `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
+        $data = array(); // в этот массив запишем то, что выберем из базы
+        while ($row = mysql_fetch_array($qr_result)) {// оформим каждую строку результата
+            // как ассоциативный массив
+            $data[] = $row;
+            $summ=$summ+$row['kol'];
+           // echo $row['id'];// допишем строку из выборки как новый элемент результирующего массива
+        }//echo '/'.$qr_result;
+        setcookie("cadr_col_shop",count($data));
+        $_COOKIE['cadr_col_shop']=count($data);
+        setcookie("cart_count",count($data));
+        $_COOKIE['cart_count']=count($data);
+         echo '[{"item":'.json_encode($data).',"sum":'.$summ.'}]';
+         $_SESSION['word']='adada';
+        //echo '["tipe":"if",'.json_encode($_COOKIE).']';
+        //echo $id;
+        //$.cookie('cadr_col_shop'));
+        //$('.cart_price').html($.cookie('cart_count'));
+        //$('.cart_count').html($.cookie('cart_count'));
+
+    }else{
+        printf('["col":[]]');
+    }
 }
 function add_card(){
     //запись в корзину
@@ -116,11 +85,10 @@ function add_card(){
         $cat = R::dispense('shop');
         $cat->token =$_SESSION['token'];
         $cat->prod =$_POST['item'];
-        //$cat->user =$_POST[''];
         $cat->kol =$_POST['col'];
-       // $cat->kod ='asdasdaASDAD12';
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
+        //запись в вессию
     }
 }
 
@@ -128,3 +96,15 @@ function add_card(){
 
 token_on($_COOKIE['token']);
 //запись данных в корзину
+
+add_card();
+out_card();
+/*
+R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');
+$cat = R::dispense('views');
+$cat->token =$_SESSION['uid'];
+$cat->prod =$_POST['item'];
+$cat->token = $_COOKIE['token'];
+
+$cat->data = date("Y-m-d H:i:s");
+R::store( $cat );*/

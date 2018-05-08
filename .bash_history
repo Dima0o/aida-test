@@ -258,3 +258,6 @@ git commit -m "Корзина разобрался с куки и сессией
 git add .
 git commit -m "Корзина разобрался с куки и сессией  шас буду работать  с заполнением   и выводом товаров в возврате потом   функцию на запись в корзину"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "Вторник  хочу добить сорировку"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 

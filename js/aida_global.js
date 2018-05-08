@@ -243,12 +243,12 @@ function showHotels() {
 //Акции//Магазины**//Вакансии**//Партнёрам//Контакты
 //работа с корзиной
 //Акции//Магазины//Вакансии//Партнёрам//Контакты
-function CardShop() {
-    $('#cadr_col_shop').html($.cookie('cadr_col_shop'));
+function CardShops() {
+    $('#cadr_col_shop').text($.cookie('cadr_col_shop'));
 //    $('.cart_price').html($.cookie('cart_count'));
-    $('.cart_count').html($.cookie('cart_count'));
+    $('.cart_count').text($.cookie('cart_count'));
     $('.cart_text').html('<a href="card.php">Корзина</a>');
-    if ($.cookie('cadr_col_shop').length > 0) {
+    /*if ($.cookie('cadr_col_shop').length > 0) {
         //  $('.cart_price').html($.cookie('cookie_name'));
         //alert($.cookie('cart_price'));
     } else {
@@ -256,7 +256,9 @@ function CardShop() {
         // alert(22);
         var array = ["one", "two"];
         // $.cookie('cookie_name', array);
-    }
+    }*/
+    alert($.cookie("cadr_col_shop"));
+    console.log($.cookie('cadr_col_shop'));
 // получить значение существующих кукисов можно так:
 // если запрашиваемых кукисов не существует, то эта функция вернет null
 // а так можно удалить кукисы
@@ -376,6 +378,7 @@ function Card_Bild() {
         dataType: 'json'
     }).done(function (data) {
         Card_work(data);
+        //CardShop();
     });
  //   console.log($.cookie('cadr_price')+'++'+$.cookie('cadr_list'));
 
@@ -426,14 +429,16 @@ $(document).on('click', '.product_fav', function () {
         $(this).removeAttr( 'style' );
         $(this).attr('data-add',0);
         //$(this).css("background", getRandomColor());
+        value=1;
     }else{
+       // value=0;
         $(this).attr('data-add',1);
         $(this).css("background", "#ef7f1b");
     }
     $.ajax({
         method: "POST",
         url: "dev/card.php",
-        data: {item: $(this).attr('data-id'),col: 1},
+        data: {item: $(this).attr('data-id'),col: 1,type:$(this).attr('data-add')},
         dataType: 'json'
     }).done(function (data) {
         /*var items = [];
@@ -532,10 +537,11 @@ $(document).on('click', '.product_fav', function () {
 
  }
  function Card_work(y) {
+
      $.each(y,function(index,data){
-         $('#cadr_col_shop').html(data.item);
-         $('.cart_price').attr("data-price", data.col);
-         $('.cart_price').text(data.col+' руб.');
+         $('#cadr_col_shop').html(data.item.length);
+         $('.cart_price').attr("data-price", data.sum);
+         $('.cart_price').text(data.sum+' руб.');
      });
  }
  //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
@@ -558,8 +564,7 @@ function Page_bild(prod){
             $('.image_selected').html('<img src="'+data.img +'" alt="">');
             console.log(data.col[0].name);
         });
-
     });
-    
 };//проверка кнопки в корзине есть или нету
 //Recently Viewed работа  с рекоменддуемыми товарами
+//обновлеине токена  чистка карзины
