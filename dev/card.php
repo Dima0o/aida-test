@@ -10,17 +10,19 @@ require '../rb-mysql.php';
 function token_on($id){
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])){
 
-        $date=date("Y-m-d H:i:s");
-        $qwery =mysql_query("INSERT INTO `k99969kp_1c`.`token` (`id`, `token`, `data`) 
-          VALUES (NULL, '".$_COOKIE['token']."', '$date'");
+       // $date=date("Y-m-d H:i:s");
+        //$qwery =mysql_query("INSERT INTO `k99969kp_1c`.`token` (`id`, `token`, `data`)
+         // VALUES (NULL, '".$_COOKIE['token']."', '$date'");
         //INSERT INTO `token` (`id`, `token`, `data`) VALUES (NULL, 'asda', '2018-05-04 00:00:00');
-        $result = array_merge ($_COOKIE, $_POST);
+     //   $result = array_merge ($_COOKIE, $_POST);
 //echo '[{"PHPSESSID":"e748ee24c0b0d53aace7bbcdde6920ac","cadr_list":"","cadr_price":"0","token":"ff63494649e895555fc608afcebc5f8b"}]';
 
    //   echo '['.json_encode($_COOKIE).']';
+
+
+
+
     }else{
-
-
         $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$id."'") or die(mysql_error());
         while ($data = mysql_fetch_array($qr_result)) {
             $_SESSION['token'] = $data['token'];
@@ -37,46 +39,40 @@ function token_on($id){
         //$_COOKIE['PHPSESSID']= $token;
         setcookie("token",$token,time()+(60*60*24*30));
         $_COOKIE['token']=$token;
-         setcookie("token",$token,time()+(60*60*24*30));
-        $_COOKIE['token']=$token;
-
-
-       // echo '-'.$row_cnt;
-        // $_SESSION['token']= $token;
-      //  echo $_COOKIE['token'];
-        //$result = array_merge ($_COOKIE, $_SESSION);
-    //    echo '["tipe":"if",'.json_encode($_COOKIE).']';
+        $_SESSION['token']=$token;
     };
 }
 
 function out_card(){
-  //  echo $_COOKIE['token'];
-    //рендеринг корзины какой бы она не была
     $summ=0;
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])) {
-        $qr_result = mysql_query("select `prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=0 and `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
+        $qr_result = mysql_query("select `id`,`prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=0 and `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
         $data = array(); // в этот массив запишем то, что выберем из базы
         while ($row = mysql_fetch_array($qr_result)) {// оформим каждую строку результата
             // как ассоциативный массив
             $data[] = $row;
-            $summ=$summ+$row['kol'];
-           // echo $row['id'];// допишем строку из выборки как новый элемент результирующего массива
-        }//echo '/'.$qr_result;
+            $summ=$summ+ price($row['prod'])*$row['kol'];
+        }
+         echo '[{"item":'.json_encode((super_unique($data,'prod'))).',"sum":'.$summ.',"token":"'.$_SESSION['token'].'"}]';
         setcookie("cadr_col_shop",count($data));
         $_COOKIE['cadr_col_shop']=count($data);
         setcookie("cart_count",count($data));
         $_COOKIE['cart_count']=count($data);
-         echo '[{"item":'.json_encode($data).',"sum":'.$summ.'}]';
          $_SESSION['word']='adada';
-        //echo '["tipe":"if",'.json_encode($_COOKIE).']';
-        //echo $id;
-        //$.cookie('cadr_col_shop'));
-        //$('.cart_price').html($.cookie('cart_count'));
-        //$('.cart_count').html($.cookie('cart_count'));
-
     }else{
         printf('["col":[]]');
     }
+}
+function super_unique($array,$key)
+{
+    $temp_array = [];
+    foreach ($array as &$v) {
+        if (!isset($temp_array[$v[$key]]))
+            $temp_array[$v[$key]] =& $v;
+    }
+    $array = array_values($temp_array);
+    return $array;
+
 }
 function add_card(){
     //запись в корзину
@@ -85,7 +81,7 @@ function add_card(){
         $cat = R::dispense('shop');
         $cat->token =$_SESSION['token'];
         $cat->prod =$_POST['item'];
-        $cat->kol =$_POST['col'];
+        $cat->kol =$_POST['kol'];
         $cat->status =$_POST['status'];
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
@@ -95,7 +91,18 @@ function add_card(){
 function join_card(){
 
 }
+function price($id)
+{
+    $qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`price` WHERE `id` ='".$id."' ORDER BY `price`.`data` DESC LIMIT 0, 1");
+    if (mysql_num_rows($qr_result) > 0) {
 
+        while($sql = mysql_fetch_array($qr_result)){
+            return  $sql['price']/10;
+        };
+    }else{
+        return  '404';
+    }
+}
 // авторизация через токен
 
 token_on($_COOKIE['token']);

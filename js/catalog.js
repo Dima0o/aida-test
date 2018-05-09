@@ -249,26 +249,27 @@ function Categori_ui(id) {
 $(document).on('click', '.btn-outline-warning', function () {
     alert($(this).parents(".product_item").attr("data-id")+''+$(this).attr('data-add'));
     if(Number($(this).parents(".babay").children(".col").children(".quantity").val())>0){
-        var items=Number($(this).parents(".babay").children(".col").children(".quantity").val());
-        var col=Number($(this).parents(".product_item is_new").attr("data-id"));
+        var cols=Number($(this).parents(".babay").children(".col").children(".quantity").val());
+        var items =Number($(this).parents(".product_item").attr("data-id"));
     }
-        if($(this).attr('data-add')==1){
-            $(this).removeAttr( 'style' );
-            $(this).attr('data-add',0);
-            col=0;
-        }else{
-            $(this).attr('data-add',1);
-            $(this).css("background", "#ef7f1b");
-        }
+
+        console.log()
         $.ajax({
             method: "POST",
             url: "dev/card.php",
-            data: {item:items ,col: cols,type:$(this).attr('data-add')},
+            data: {item:items ,kol: cols,status:$(this).attr('data-add')},
             dataType: 'json'
         }).done(function (data) {
             Card_work(data);
         });
-
+    if($(this).attr('data-add')==1){
+        $(this).removeAttr( 'style' );
+        $(this).attr('data-add',0);
+        col=0;
+    }else{
+        $(this).attr('data-add',1);
+        $(this).css("background", "#ef7f1b");
+    }
     });
 
 

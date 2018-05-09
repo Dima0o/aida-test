@@ -264,3 +264,6 @@ git commit -m "Вторник  хочу добить сорировку"
 git add .
 git commit -m "Немного поработал с  корзиной"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "переверстал каталог сделал работу с несколькими товарами надо добавить порог элементов атрибут"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
