@@ -54,7 +54,7 @@ function out_card(){
     //рендеринг корзины какой бы она не была
     $summ=0;
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])) {
-        $qr_result = mysql_query("select `prod`,`kol` from `k99969kp_1c`.`shop` WHERE `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
+        $qr_result = mysql_query("select `prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=0 and `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
         $data = array(); // в этот массив запишем то, что выберем из базы
         while ($row = mysql_fetch_array($qr_result)) {// оформим каждую строку результата
             // как ассоциативный массив
@@ -86,10 +86,14 @@ function add_card(){
         $cat->token =$_SESSION['token'];
         $cat->prod =$_POST['item'];
         $cat->kol =$_POST['col'];
+        $cat->status =$_POST['status'];
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
         //запись в вессию
     }
+}
+function join_card(){
+
 }
 
 // авторизация через токен

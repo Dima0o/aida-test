@@ -25,10 +25,59 @@ session_start();
     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <style>.count-input {
+            position: relative;
+            width: 100%;
+            max-width: 165px;
+            margin: 10px 0;
+        }
+        .count-input input {
+            width: 100%;
+            height: 36.92307692px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            background: none;
+            text-align: center;
+        }
+        .count-input input:focus {
+            outline: none;
+        }
+        .count-input .incr-btn {
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            font-size: 26px;
+            font-weight: 300;
+            text-align: center;
+            line-height: 30px;
+            top: 50%;
+            right: 0;
+            margin-top: -15px;
+            text-decoration:none;
+        }
+        .count-input .incr-btn:first-child {
+            right: auto;
+            left: 0;
+            top: 46%;
+        }
+        .count-input.count-input-sm {
+            max-width: 125px;
+        }
+        .count-input.count-input-sm input {
+            height: 36px;
+        }
+        .count-input.count-input-lg {
+            max-width: 200px;
+        }
+        .count-input.count-input-lg input {
+            height: 70px;
+            border-radius: 3px;
+        }</style>
 </head>
 
 <body>
@@ -105,7 +154,7 @@ session_start();
 
                         <div class="product_grid row grid" id="result">
 
-                            <div class="product_grid_border"></div>
+
                             <!--samo-->
                         </div>
                         <!--Navigation -->
@@ -141,6 +190,7 @@ session_start();
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <!--<script src="js/shop_custom.js"></script>--->
 <script src="js/aida_global.js"></script>
+<script src="js/catalog.js"></script>
 
 <script>
 
@@ -167,7 +217,7 @@ session_start();
         });
     });
     Categori_ui(<?=$_GET['id']?>);
-    Prod_div(<?=$_GET['id']?>);
+    Catalog_bild(<?=$_GET['id']?>);
     //  Filter(<?=$_GET['id']?>);
 
 </script>

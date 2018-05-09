@@ -97,70 +97,7 @@ function Global_categori() {
        });*/
 }
 
-//http://aida.k99969kp.beget.tech/dev/category.php
-function Categori_ui(id) {
-    return $.ajax({
-        url: 'dev/category.php?id="' + id + '"',
-        type: 'GET',
-        //data:id,
-        dataType: 'json',
-        success: function (data) {
-            var items = [];
-            $('.shop_sidebar').prepend('<div class="sidebar_section">\n' +
-                '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
-                '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
-                '\n' +
-                '                            </ul>\n' +
-                '                        </div>');
-            //console.log(data['data']);
-            //$.each(data, function (key, val) {
-            $.each(data['data'], function (key, val) {
-                //   val random=random.m
-                var status = '';
-                if (val.id == id) {
-                    status = 'style="color: #ef7f1b;"';
-                }
-                items.push('<li><a href="?id=' + val.id + '" ' + status + '>' + val.name + '</a></li>');
-            });
-            //});
-            $('#sidebar_categories').html(items);
-            //$('[data-size="products_found"]').text(data.length);
-            $('[data-titel="categori"]').text(data.titel);
-        },
-        error: function () {
-            alert('Выполненно с ошибками или категория пустая getIssues_id');
-        }
-    });
 
-}
-
-function Prod_div(ids) {
-    $.ajax({
-        method: "POST",
-        url: "dev/categore.php",
-        dataType: 'json',
-        data: {id: ids},
-    }).done(function (data) {
-        var items = [];
-        $.each(data['data'], function (key, val) {
-            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');
-        });
-        $('#result').append(items);
-        $('#products_found').text(data['data'].length);
-    });
-}
 
 /*<div class="sidebar_section">
                             <div class="sidebar_title" data-titel="categori">Категория</div>
@@ -218,25 +155,6 @@ function getRandomColor() {
     return color;
 }
 
-//работа с фильтром
-function showHotels() {
-    var items = [];
-    $("input:checked").each(function (id) {
-        items.push($(this).data("filter"));
-    })
-    console.log(items);
-    $("#products_found").attr("data-size", "products_found").text(items);
-
-    $.ajax({
-        method: "POST",
-        url: "dev/some.php",
-        data: {name: items, location: "Boston"},
-        dataType: 'json'
-    }).done(function (msg) {
-        alert("Data Saved: " + msg);
-    });
-}
-
 //https://codepen.io/desandro/pen/Wwabpr
 //https://progschool.clickmeeting.com/2018-04-19_3966_22417
 //Работа с корзиной  а куда деватся
@@ -271,61 +189,6 @@ function cadrMass(value) {
     // console.log($.cookie('cookie_name'));
     return arr;
 }
-
-//работа с ффильрром для категории
-//найстройка фильтраф свойств для категории
-
-$(document).on('click', '#superid', function () {
-//рабочий элемент
-    showHotels();
-});
-//работа с сортировкой товаров     //2и подргузка при скролинге или клике
-$(document).on('click', '.href_sort', function () {
-    var items = [];
-    //  alert($(this).attr("data-sort"));
-    $("input:checked").each(function (id) {
-        items.push($(this).data("filter"));
-    })
-    // sorting_text
-    $(".href_sort").removeAttr("style");
-    $(this).css("color", "orange");
-    $('.sorting_text').text($(this).text());
-    items.push($(this).attr("data-sort"));
-    // $("#products_found").attr("data-size", "products_found").text(items);
-    $.ajax({
-        method: "POST",
-        url: "dev/some.php",
-        data: {name: items},
-        dataType: 'json'
-    }).done(function (data) {
-        var items = [];
-        $.each(data['data'], function (key, val) {
-            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');
-        });
-        $('#result').html(items);
-        $('#products_found').text(data['data'].length);
-    });
-});
-//https://github.com/akkez/perekrestok
-
-//очистака корзины пр клике на отсеченый товар или просто очистить корзину
-$(document).on('click', '.wishlist_content', function () {
-    $.cookie('cadr_list',null);
-    $.cookie('cadr_price', 0);
-    Card_Clear();
-});
 
 function NullShop() {
     if ($.cookie('cart_count') == 0) {
@@ -424,41 +287,6 @@ if (!navigator.cookieEnabled) {
  -через обьекты
 */
 
-$(document).on('click', '.product_fav', function () {
-    if($(this).attr('data-add')==1){
-        $(this).removeAttr( 'style' );
-        $(this).attr('data-add',0);
-        //$(this).css("background", getRandomColor());
-        value=1;
-    }else{
-       // value=0;
-        $(this).attr('data-add',1);
-        $(this).css("background", "#ef7f1b");
-    }
-    $.ajax({
-        method: "POST",
-        url: "dev/card.php",
-        data: {item: $(this).attr('data-id'),col: 1,type:$(this).attr('data-add')},
-        dataType: 'json'
-    }).done(function (data) {
-        /*var items = [];
-        $.each(data['data'], function (key, val) {
-            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');*/
-
-        Card_work(data);
-        });
     /*  var js_obj = $.cookie('cadr_list').split(',');
     js_obj = js_obj.filter(function(e){return e});
     js_obj = js_obj.filter(function(x) {
@@ -520,7 +348,6 @@ $(document).on('click', '.product_fav', function () {
     //$('.cart_price').attr("data-price", $.cookie('cart_price'));
     //$('.cart_price').text($.cookie('cadr_price')+' руб.')
     //Card_Bild();
-});
 
  /*
  работа с футером и шапкой
