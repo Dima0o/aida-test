@@ -281,14 +281,12 @@ $(document).on('click', '.incr-btn-minus', function () {
         $(this).parents(".babay").children(".col").children(".quantity").val(vall);
     }
 });
-
 $(document).on('click', '.incr-btn-pluse', function () {
     //  alert(1);
    // if(Number($(this).parents(".babay").children(".col").children(".quantity").val())!=0){
         var vall=Number($(this).parents(".babay").children(".col").children(".quantity").val())+1;
         $(this).parents(".babay").children(".col").children(".quantity").val(vall);
     //}
-
 });
 
 
@@ -364,3 +362,13 @@ $(".incr-btn").on("click", function (e) {
     $button.parent().find('.quantity').val(newVal);
     e.preventDefault();
 });
+
+/**
+ заменить иконки
+ разнести скрипты по файлам чтобы меньше путатся
+ подчистить коменты
+ страницу сделать корзину
+ страница товара подправить
+ сделать иконки другие
+
+ */
