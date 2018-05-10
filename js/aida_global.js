@@ -395,3 +395,38 @@ function Page_bild(prod){
 };//проверка кнопки в корзине есть или нету
 //Recently Viewed работа  с рекоменддуемыми товарами
 //обновлеине токена  чистка карзины
+
+
+
+
+//работа с магазином точкой продаж
+
+
+//<a id="main-shop" href="#">Петровская 14<i class="fas fa-chevron-down"></i></a>
+//<ul id="list-shop"
+function Shop_listing() {
+    return $.ajax({
+        url: 'dev/shop_list.json',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+         //   console.log(data);
+
+            $('#main-shop').text($.cookie('main-shop'));
+            $.each(data, function (key, val) {
+                var elementLi = $('<li/>', {
+                  //  title: title,
+                    'data-id':val.id,
+                    html:'<a href="#">' + val.title + '</a>',
+                    click: function() {
+                        $('#main-shop').text($(this).text());
+                        $.cookie('main-shop',$(this).text());
+                       // alert($(this).attr('data-id'));
+                    },
+                    //'data-system-id': 100,
+                });
+                $('#list-shop').append(elementLi);
+            });
+        }});
+}
+Shop_listing();

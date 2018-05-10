@@ -4,6 +4,7 @@ session_start();
 include_once('core.php');
 mb_internal_encoding("UTF-8");
 
+
 class Prod
 {
     public  $status='';
@@ -46,7 +47,7 @@ class Prod
 return $row;
     }
     function all(){
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0, 10") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0, 10".$_POST['sort']) or die(mysql_error());
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
@@ -78,7 +79,7 @@ return $row;
         //return mysql_fetch_array($qr_result);
         return $row;
     } function data($id){
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'".$_POST['sort']) or die(mysql_error());
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
@@ -154,7 +155,6 @@ function price($id)
 {
     $qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`price` WHERE `uid` ='".$id."' ORDER BY `price`.`data` DESC LIMIT 0, 1");
     if (mysql_num_rows($qr_result) > 0) {
-
         while($sql = mysql_fetch_array($qr_result)){
             return  $sql['price']/10;
         };
@@ -166,10 +166,10 @@ function price($id)
 function data_all($id){
 
     if(isset($id)){
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'".$_POST['sort']) or die(mysql_error());
 
     }else{
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`".$_POST['sort']) or die(mysql_error());
     }
     $i = 1;
     $row='';
@@ -204,6 +204,7 @@ function data_all($id){
 ?>
 
 {
+"titel":"<?=$_POST['sort']?>",
 "col":"<? if (isset($_POST['id'])) {    echo  $Prod->prod_col($_POST['id']);} else {    echo 58;}; ?>",
 "data":[<? if (isset($_POST['id']) and $Prod->prod_col($_POST['id'])>0) {
     echo  data_all($Prod->categori_uid($_POST['id']));

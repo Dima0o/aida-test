@@ -113,7 +113,11 @@ session_start();
                     <div class="shop_sidebar">
                         <!-- работа с боковым  элементоу управления для  категорий-->
                     </div>
-
+                <!--
+                    <input class="checkbox" type="checkbox" name="brand[]" value="checkbox1" id="checkbox1" />
+                    <input class="checkbox" type="checkbox" name="brand[]" value="checkbox2" id="checkbox2" />
+                    <button onclick="getCheckedCheckBoxes()"> Кто выбран? </button>
+                -->
                 </div>
 
                 <div class="col-lg-10">
@@ -133,19 +137,19 @@ session_start();
                                         <span class="sorting_text">По популярности убывание<i
                                                     class="fas fa-chevron-down"></i></span>
                                         <ul>
-                                            <li class="shop_sorting_button href_sort" data-sort="popularity_up"><span
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY name DESC"><span
                                                         class="glyphicon glyphicon-sort-by-attributes"
                                                         aria-hidden="true"></span> По популярности убывание
                                             </li>
-                                            <li class="shop_sorting_button href_sort" data-sort="popularity_down"><span
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY name ASC"><span
                                                         class="glyphicon glyphicon-sort-by-attributes"
                                                         aria-hidden="true"></span> По популярности возрастание
                                             </li>
-                                            <li class="shop_sorting_button href_sort" data-sort="price _up"><span
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY id DESC"><span
                                                         class="glyphicon glyphicon-sort-by-attributes"
                                                         aria-hidden="true"></span> По Цене убывания
                                             </li>
-                                            <li class="shop_sorting_button href_sort" data-sort="price_down"><span class="glyphicon glyphicon-sort-by-attributes"aria-hidden="true"></span> По Цене возрастания</li>
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY id ASC"><span class="glyphicon glyphicon-sort-by-attributes"aria-hidden="true"></span> По Цене возрастания</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -218,7 +222,7 @@ session_start();
     });
     Categori_ui(<?=$_GET['id']?>);
     Catalog_bild(<?=$_GET['id']?>);
-    //  Filter(<?=$_GET['id']?>);
+   // Filter(<?=$_GET['id']?>);
 
 </script>
 <script>

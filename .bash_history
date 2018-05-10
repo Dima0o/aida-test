@@ -267,3 +267,17 @@ git commit -m "Немного поработал с  корзиной"
 git add .
 git commit -m "переверстал каталог сделал работу с несколькими товарами надо добавить порог элементов атрибут"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+composer phpunit/phpunit
+wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+chmod +x phpunit
+ phpunit
+./phpunit --version
+composer rebot
+composer reboot
+git add .
+git commit -m "Почти корзина с логикой быстрее рендеринг сделать   2 анимация   соритровка  фильтр  потом  профиль добить и корзину и  показывать"
+wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "Отставил коменты "
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 

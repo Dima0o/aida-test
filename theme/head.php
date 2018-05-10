@@ -7,7 +7,14 @@
 
                 <div class="top_bar_content ml-auto">
                     <div class="top_bar_menu">
+                        <ul class="standard_dropdown top_bar_dropdown">
+                            <li>
+                                <a id="main-shop" href="#">Петровская 14<i class="fas fa-chevron-down"></i></a>
+                                <ul id="list-shop">
 
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <div class="top_bar_user">
                         <div class="user_icon"><img src="images/user.svg" alt=""></div>

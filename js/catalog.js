@@ -1,4 +1,3 @@
-
 //работа с ффильрром для категории
 //найстройка фильтраф свойств для категории
 
@@ -7,7 +6,7 @@ $(document).on('click', '#superid', function () {
     showHotels();
 });
 //работа с сортировкой товаров     //2и подргузка при скролинге или клике
-$(document).on('click', '.href_sort', function () {
+$(document).on('click', '.href_sort1', function () {
     var items = [];
     //  alert($(this).attr("data-sort"));
     $("input:checked").each(function (id) {
@@ -29,10 +28,10 @@ $(document).on('click', '.href_sort', function () {
         $.each(data['data'], function (key, val) {
             items.push('<div class="product_item is_new" data-category="post-transition">\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
+                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
                 '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id=' + val.id + '" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
                 '\t\t\t\t\t\t\t\t</div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
                 '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
@@ -45,18 +44,11 @@ $(document).on('click', '.href_sort', function () {
         $('#products_found').text(data['data'].length);
     });
 });
-//https://github.com/akkez/perekrestok
-
-//очистака корзины пр клике на отсеченый товар или просто очистить корзину
 $(document).on('click', '.wishlist_content', function () {
-    $.cookie('cadr_list',null);
+    $.cookie('cadr_list', null);
     $.cookie('cadr_price', 0);
     Card_Clear();
 });
-
-
-
-//работа с фильтром
 function showHotels() {
     var items = [];
     $("input:checked").each(function (id) {
@@ -74,140 +66,54 @@ function showHotels() {
         alert("Data Saved: " + msg);
     });
 }
-
-
-
-function   Catalog_bild(ids) {
+function Catalog_bild(ids) {
     $.ajax({
         method: "POST",
         url: "dev/categore.php",
         dataType: 'json',
         data: {id: ids},
     }).done(function (data) {
-        var items = [];
-        $.each(data['data'], function (key, val) {
-            /*items.push('<div class="col-md-3">\n' +
-                '\t<figure class="card card-product">\n' +
-                '\t\t<div class="img-wrap"> \n' +
-                '\t\t\t<img src="'+val.img+'">\n' +
-                //'\t\t\t<a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>\n' +
-                '\t\t</div>\n' +
-
-                '\t</figure> <!-- card // -->\n' +
-                '</div> ');*/
-                         if(val.tipe==1){
-                             var tupe='\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' ;
-                         }else if(val.tipe==2){
-                             var tupe='\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                                 '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' ;
-                         }else {
-                             var tupe='';
-                         }
-  /*            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name">' +
-                  '                             <a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a>' +
-                  '                         </div>' +
-                                //'</div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-               // '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                  tupe+
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-               /*   '\t\t<figcaption class="info-wrap">\n' +
-                  '\t\t\t<div class="action-wrap">\n' +
-                  '\t\t\t\t<a href="#" id="card-add" class="btn btn-success btn-sm float-right">В корзину</a>\n' +
-                  '\t\t\t\t<div class="price-wrap h5">\n' +
-             //     '\t\t\t\t\t<span class="price-new">' + val.price + '</span>\n' +
-                //  '\t\t\t\t\t<del class="price-old">$1980</del>\n' +
-                  '\t\t\t\t</div> <!-- price-wrap.// -->\n' +
-                  '\t\t\t</div> <!-- action-wrap -->\n' +
-                  '\t\t</figcaption>\n' +*/
-/*
-                '\t\t\t\t\t\t\t</div>');
-                         this.elem='';
-*/
-             var buttonBuy='<button type="button" data-add="1" class="btn btn-sm btn-outline-warning">Купить</button>';
-          /*  var buttonBuy =$('<button/>', {
-                type:'button',
-                text:'Купить',
-                class: 'btn btn-sm btn-outline-warning',
-                click: function() {
-                    alert($(this).attr('data-system-id'));
-
-                },
-                'data-system-id': 100,
-            });*/
-            $('#result').append('<div class="product_item is_new" data-id="'+val.id+'" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="'+val.img+'" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '<div class="row babay" >' +
-                '<div class="col">'+
-                '                                <p class="incr-btn-minus" style=" font-size: 19px; display: inline-block; " data-action="decrease" href="#">–</p>\n' +
-                '                                <input style="width: 53px; text-align: center; display: inline-block;" class=" form-control form-control-sm quantity inputGroup-sizing-sm" type="text" name="quantity" value="1"/>\n' +
-                '                                <p class="incr-btn-pluse" style="font-size: 19px; display: inline-block; " data-action="increase" href="#">&plus;</p>\n' +
-                '</div> ' +
-                '<div class="col">'+buttonBuy+'</div> ' +
-                '</div>'+
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');
-
-            /*var elementProd =$('<div/>', {
-                class: 'product_border',
-                click: function() {
-                    alert($(this).attr('data-system-id'));
-                },
-                'data-system-id': 100,
-            });*/
-            /*var elementJq = $('<div/>', {
-                title: val.id,
-                html: elementProd,
-                category:'',
-                class: 'product_item is_new',
-                click: function() {
-                    alert($(this).attr('data-system-id'));
-                },
-                'data-system-id': 100,
-            });*/
-
-
-            /*
-            * <div class="product_item is_new" data-category="post-transition">
-								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="undefined" alt=""></div>
-								<div class="product_content">
-									<div class="product_price">100 руб.</div>
-									<div class="product_name name"><div><a href="product.php?id=1" tabindex="0">Распродажа Водка Киз</a></div></div>
-								</div>
-								<div class="product_fav" data-add="0" data-price="100" data-id="1"><i class="fas fa-heart"></i></div>
-								<ul class="product_marks">
-									<li class="product_mark product_discount">-25%</li>
-									<li class="product_mark product_new">new</li>
-								</ul>
-							</div>*/
-
-
-      //      $('#result').append(elementJq);
-           // $('<div>', element).appendTo('#result');
-        });
-       // $('#result').append(items);
-        $('#products_found').text(data['data'].length);
-       // alert('Построилось');
+        product_category(data);
     });
 }
+function product_category(data) {
+    var items = [];
+    $.each(data['data'], function (key, val) {
+        if (val.tipe == 1) {
+            var tupe = '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
+        } else if (val.tipe == 2) {
+            var tupe = '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
+        } else {
+            var tupe = '';
+        }
+        var buttonBuy = '<button type="button" data-add="1" class="btn btn-sm btn-outline-warning">Купить</button>';
+        $('#result').append('<div class="product_item is_new" data-id="' + val.id + '" data-category="post-transition">\n' +
+            '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+            '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
+            '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+            '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
+            '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id=' + val.id + '" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+            '<div class="row babay" >' +
+            '<div class="col">' +
+            '                                <p class="incr-btn-minus" style=" font-size: 19px; display: inline-block; " data-action="decrease" href="#">–</p>\n' +
+            '                                <input style="width: 53px; text-align: center; display: inline-block;" class=" form-control form-control-sm quantity inputGroup-sizing-sm" type="text" name="quantity" value="1"/>\n' +
+            '                                <p class="incr-btn-pluse" style="font-size: 19px; display: inline-block; " data-action="increase" href="#">&plus;</p>\n' +
+            '</div> ' +
+            '<div class="col">' + buttonBuy + '</div> ' +
+            '</div>' +
+            '\t\t\t\t\t\t\t\t</div>\n' +
+            '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
+            '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+            '\t\t\t\t\t\t\t\t</ul>\n' +
+            '\t\t\t\t\t\t\t</div>');
+    });
+    $('#products_found').text(data['data'].length);
 
+}
 
 //http://aida.k99969kp.beget.tech/dev/category.php
 function Categori_ui(id) {
@@ -247,120 +153,58 @@ function Categori_ui(id) {
 }
 
 $(document).on('click', '.btn-outline-warning', function () {
-    alert($(this).parents(".product_item").attr("data-id")+''+$(this).attr('data-add'));
-    if(Number($(this).parents(".babay").children(".col").children(".quantity").val())>0){
-        var cols=Number($(this).parents(".babay").children(".col").children(".quantity").val());
-        var items =Number($(this).parents(".product_item").attr("data-id"));
+    if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
+        var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
+        var items = Number($(this).parents(".product_item").attr("data-id"));
     }
 
-        console.log()
-        $.ajax({
-            method: "POST",
-            url: "dev/card.php",
-            data: {item:items ,kol: cols,status:$(this).attr('data-add')},
-            dataType: 'json'
-        }).done(function (data) {
-            Card_work(data);
-        });
-    if($(this).attr('data-add')==1){
-        $(this).removeAttr( 'style' );
-        $(this).attr('data-add',0);
-        col=0;
-    }else{
-        $(this).attr('data-add',1);
+    if ($(this).attr('data-add') == 1) {
+        $(this).parents(".babay").children(".col").children(".quantity").val(0);
+    }
+    console.log()
+    $.ajax({
+        method: "POST",
+        url: "dev/card.php",
+        data: {item: items, kol: cols, status: $(this).attr('data-add')},
+        dataType: 'json'
+    }).done(function (data) {
+        Card_work(data);
+    });
+    if ($(this).attr('data-add') == 1) {
+        $(this).removeAttr('style');
+        $(this).attr('data-add', 0);
+        col = 0;
+    } else {
+        $(this).attr('data-add', 1);
         $(this).css("background", "#ef7f1b");
     }
-    });
-
+});
 
 
 $(document).on('click', '.incr-btn-minus', function () {
-    //  alert(1);
-    if(Number($(this).parents(".babay").children(".col").children(".quantity").val())>0) {
+    if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
         var vall = Number($(this).parents(".babay").children(".col").children(".quantity").val()) - 1;
         $(this).parents(".babay").children(".col").children(".quantity").val(vall);
     }
 });
 $(document).on('click', '.incr-btn-pluse', function () {
-    //  alert(1);
-   // if(Number($(this).parents(".babay").children(".col").children(".quantity").val())!=0){
-        var vall=Number($(this).parents(".babay").children(".col").children(".quantity").val())+1;
-        $(this).parents(".babay").children(".col").children(".quantity").val(vall);
-    //}
+    var vall = Number($(this).parents(".babay").children(".col").children(".quantity").val()) + 1;
+    $(this).parents(".babay").children(".col").children(".quantity").val(vall);
 });
 
 
-$(document).on('click', '#card-add', function () {
-    if($(this).attr('data-add')==1){
-        $(this).removeAttr( 'style' );
-        $(this).attr('data-add',0);
-        //$(this).css("background", getRandomColor());
-    }else{
-        $(this).attr('data-add',1);
-        $(this).css("background", "#ef7f1b");
-    }
-    $.ajax({
+$(document).on('click', '.product_fav', function () {
+
+    /*$.ajax({
         method: "POST",
         url: "dev/card.php",
-        data: {item: $(this).attr('data-id'),col: 1,status:$(this).attr('data-add')},
+        data: {item: $(this).attr('data-id'), col: 1, status: $(this).attr('data-add')},
         dataType: 'json'
     }).done(function (data) {
-        /*var items = [];
-        $.each(data['data'], function (key, val) {
-            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_' + Math.floor((Math.random() * 10) + 1) + '.jpg" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id='+val.id+'" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-shopping-basket"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');*/
-
         Card_work(data);
-    }); });$(function(){
+    });*/
 
-    $('.spinner .btn:first-of-type').on('click', function() {
-        var btn = $(this);
-        var input = btn.closest('.spinner').find('input');
-        if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
-            input.val(parseInt(input.val(), 10) + 1);
-        } else {
-            btn.next("disabled", true);
-        }
-    });
-    $('.spinner .btn:last-of-type').on('click', function() {
-        var btn = $(this);
-        var input = btn.closest('.spinner').find('input');
-        if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
-            input.val(parseInt(input.val(), 10) - 1);
-        } else {
-            btn.prev("disabled", true);
-        }
-    });
-
-});
-$(".incr-btn").on("click", function (e) {
-    var $button = $(this);
-    var oldValue = $button.parent().find('.quantity').val();
-    $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
-    if ($button.data('action') == "increase") {
-        var newVal = parseFloat(oldValue) + 1;
-    } else {
-        // Don't allow decrementing below 1
-        if (oldValue > 1) {
-            var newVal = parseFloat(oldValue) - 1;
-        } else {
-            newVal = 1;
-            $button.addClass('inactive');
-        }
-    }
-    $button.parent().find('.quantity').val(newVal);
-    e.preventDefault();
+    setLocation($(this).attr('data-id'));
 });
 
 /**
@@ -372,3 +216,59 @@ $(".incr-btn").on("click", function (e) {
  сделать иконки другие
 
  */
+
+//работа с полноценной сортировкой
+/*
+*
+######## изменение (редактирование) Url без перезагрузки
+
+Набор методов JS позволяющих легко манипульровать GET параметрами в адресной строке без перезагрузки страницы.
+
+$.urlVar('page') - вернёт значение GET параметра page или если такого не существует - undefined
+$.urlVar('page',value) - устаноавливает значение GET параметра page= value
+$.delUrlVal('page') - удаляет GET параметр page из url
+$.getUrlVars() - возвращает имена(идексы) всех GET параметров
+*/
+function setLocation(curLoc){
+    try {
+        history.pushState(null, null, curLoc);
+
+        history.pushState({param: 'Value'}, '', 'myurl.html');
+        window.history.pushState('page2', 'Title', '/page2.php');
+        return;
+    } catch(e) {}
+    //location.hash = location.hash + curLoc;
+
+}
+ //получить
+
+
+function getCheckedCheckBoxes() {
+    var checkboxes = document.getElementsByClassName('checkbox');
+    var checkboxesChecked = []; // можно в массиве их хранить, если нужно использовать
+    for (var index = 0; index < checkboxes.length; index++) {
+        if (checkboxes[index].checked) {
+            checkboxesChecked.push(checkboxes[index].value); // положим в массив выбранный
+            alert(checkboxes[index].value); // делайте что нужно - это для наглядности
+        }
+    }
+    return checkboxesChecked; // для использования в нужном месте
+}
+
+
+
+//работа с сортировкой товаров     //2и подргузка при скролинге или клике
+$(document).on('click', '.href_sort', function () {
+    $('#result').remove();
+    $.ajax({
+        method: "POST",
+        url: "dev/categore.php",
+        data: {name: 1 , sort:$(this).attr("data-sort")},
+        dataType: 'json'
+    }).done(function (data) {
+        $('#result').html('<h1>Рендер</h1>');
+        console.log('//'+data.titel);
+        product_category(data);
+    });
+});
+

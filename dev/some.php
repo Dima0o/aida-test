@@ -80,6 +80,7 @@ $Prod = new Prod;
 ?>
 
 {
+"titel":"<?=$_POST['sort']?>",
 "col":"<? if (isset($_GET['id'])) {    echo  $Prod->prod_col($_POST['id']);} else {    echo 58;}; ?>",
 "data":[<? if (isset($_POST['id'])) {
     echo  $Prod->Prod_data($_POST['id']);
