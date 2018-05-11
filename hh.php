@@ -138,6 +138,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
+                    console.log(data);
                     $.each(data['items'], function (key, val) {
                         //var items = [];
                         //alert(val.snippet.requirement);
@@ -152,15 +153,14 @@
                             '</div>'+
                             '</div>');*/
 
-                        $('#blog_page').append( ' <div class="col-sm-6 col-md-6 col-lg-6 mt-6">\n' +
-                       '                                <div class="card">\n' +
-                       //'                                    <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">\n' +
-                       '                                    <div class="card-block">\n' +
+                        $('#blog_page').append( '<div class="col-sm-6 col-md-6 col-lg-6 mt-6">\n' +
+                       '<div class="card">\n' +
+                       '<div class="card-block">\n' +
                             '<div class="blog_text">'+val.name+'</div>\n' +
                                 '<div class="blog_text" style="font-weight:  100;">' +
                                     '<b style="text-indent: 1.5em">Обязанности:</b> '+val.snippet.responsibility+'</br>' +
                                     '<b style="text-indent: 1.5em">Требования:</b> '+ val.snippet.requirement+'</br>' +
-                                    '<b style="text-indent: 1.5em">Адрес:</b> '+val.address.city+' '+ val.address.street+' '+ val.address.building+'</br>' +
+                                  //  '<b style="text-indent: 1.5em">Адрес:</b> '+val.address.city+' '+ val.address.street+' '+ val.address.building+'</br>' +
                                 '</div>'+
                         '</div>\n' +
                          '<div class="card-footer">\n' +

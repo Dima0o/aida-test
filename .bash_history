@@ -281,3 +281,13 @@ wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
 git add .
 git commit -m "Отставил коменты "
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "Добиваю сортировку у блока для категории"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git commit -m "оработка нового  возврата  в категории с 4 пунктами  из джейсона с сортировкой"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "оработка нового  возврата  в категории с 4 пунктами  из джейсона с сортировкой"
+git add .
+git commit -m "оработка нового  возврата  в категории с 4 пунктами  из джейсона с сортировкой"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
