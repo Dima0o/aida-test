@@ -26,7 +26,7 @@ $(document).on('click', '.href_sort1', function () {
     }).done(function (data) {
         var items = [];
         $.each(data['data'], function (key, val) {
-            items.push('<div class="product_item is_new" data-category="post-transition">\n' +
+            items.push('<div class="product_item is_new " data-category="post-transition">\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
                 '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
@@ -89,27 +89,14 @@ function product_category(data) {
             var tupe = '';
         }
         var buttonBuy = '<button type="button" data-add="1" class="btn btn-sm btn-outline-warning">Купить</button>';
-        $('#result').append('<div class="product_item is_new" data-id="' + val.id + '" data-category="post-transition">\n' +
-            '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-            '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
-            '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-            '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-            '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id=' + val.id + '" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-            '<div class="row babay" >' +
-            '<div class="col">' +
-            '                                <p class="incr-btn-minus" style=" font-size: 19px; display: inline-block; " data-action="decrease" href="#">–</p>\n' +
-            '                                <input style="width: 53px; text-align: center; display: inline-block;" class=" form-control form-control-sm quantity inputGroup-sizing-sm" type="text" name="quantity" value="1"/>\n' +
-            '                                <p class="incr-btn-pluse" style="font-size: 19px; display: inline-block; " data-action="increase" href="#">&plus;</p>\n' +
-            '</div> ' +
-            '<div class="col">' + buttonBuy + '</div> ' +
-            '</div>' +
-            '\t\t\t\t\t\t\t\t</div>\n' +
-            '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
-            '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-            '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-            '\t\t\t\t\t\t\t\t</ul>\n' +
-            '\t\t\t\t\t\t\t</div>');
+        $('#result').append('<div class="card" style="width: 18rem;">\n' +
+            '  <img class="card-img-top" src=".../100px180/" alt="Card image cap">\n' +
+            '  <div class="card-body">\n' +
+            '    <h5 class="card-title">Card title</h5>\n' +
+            '    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>\n' +
+            '    <a href="#" class="btn btn-primary">Go somewhere</a>\n' +
+            '  </div>\n' +
+            '</div>');
     });
     $('#products_found').text(data['data'].length);
 

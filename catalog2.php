@@ -107,16 +107,18 @@ session_start();
     <div class="shop">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="list-group" id="catetoru">
-
-                    </div>
+                <div class="col-lg-2">
+                    <ul class="list-group shop_sidebar">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
                     <!-- Shop Sidebar -->
-                    <!--<div class="card card-1">
                     <div class="shop_sidebar">
-                        <!-- работа с боковым  элементоу управления для  категорий
+                        <!-- работа с боковым  элементоу управления для  категорий-->
                     </div>
-                    </div>-->
                 <!--
                     <input class="checkbox" type="checkbox" name="brand[]" value="checkbox1" id="checkbox1" />
                     <input class="checkbox" type="checkbox" name="brand[]" value="checkbox2" id="checkbox2" />
@@ -124,14 +126,49 @@ session_start();
                 -->
                 </div>
 
-                <div class="col-lg-9">
+                <div class="col-lg-10">
 
                     <!-- Shop Content -->
 
-                    <div class="container">
-                        <div class="row" id="result">
-                            
+                    <div class="shop_content">
+                        <div class="shop_bar clearfix">
+                            <div class="shop_product_count"><span id="products_found" data-size="products_found">186</span> найденно
+                            </div>
+                            <div class="shop_sorting">
+                                <span>Сортировка по:</span>
+
+
+                                <ul>
+                                    <li>
+                                        <span class="sorting_text">По популярности убывание<i
+                                                    class="fas fa-chevron-down"></i></span>
+                                        <ul>
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY name DESC"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По популярности убывание
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY name ASC"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По популярности возрастание
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY id DESC"><span
+                                                        class="glyphicon glyphicon-sort-by-attributes"
+                                                        aria-hidden="true"></span> По Цене убывания
+                                            </li>
+                                            <li class="shop_sorting_button href_sort" data-sort="ORDER BY id ASC"><span class="glyphicon glyphicon-sort-by-attributes"aria-hidden="true"></span> По Цене возрастания</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+
+                        <div class="product_grid row grid" id="result">
+
+
+                            <!--samo-->
+                        </div>
+                        <!--Navigation -->
+
                     </div>
                 </div>
             </div>

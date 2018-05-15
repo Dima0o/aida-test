@@ -105,11 +105,22 @@ $Prod = new Prod;
 "name":"<?= $Prod->prod('name') ?>",
 "categori":"<?= $Prod->prod('categori') ?>",
 "col":[<?= $Prod->col($Prod->prod('uid')) ?>],
-"price":"<?= $Prod->price($Prod->prod('uid')) ?>",
+"price":"<?= $Prod->price($Prod->prod('uid'))/10 ?>",
 "category": [<?= $Prod->category($Prod->prod('categori')) ?>],
 "body": "<?= $Prod->prod('name') ?>",
 "properties":[<?= $Prod->prod($Prod->prod('uid')) ?>],
 "img":"<?=$Prod->img($Prod->prod('name'))?>",
-"var_test":"<?=$_SESSION['errors']?>"}]
+"var_test":"<?=$_SESSION['errors']?>",
+"option": [
+    {"name":"Атрибут 1","value":1},
+    {"name":"Атрибут 2","value":2},
+    {"name":"Атрибут 3","value":3},
+    {"name":"Атрибут 4","value":4},
+    {"name":"Атрибут 5","value":5},
+    {"name":"Атрибут 6","value":6},
+    {"name":"Атрибут 7","value":7},
+    {"name":"Атрибут 8","value":8},
+    {"name":"Атрибут 9","value":9}]
+}]
 
 <?// работа с поиском изображения ?>

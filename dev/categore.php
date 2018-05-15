@@ -118,17 +118,7 @@ function data($id)
     return $row;
 }
 
-function categori_uid($id)
-{
-    if(isset($id)){
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`categori` where `id`='" . $id . "'") or die(mysql_error());
-            while ($data = mysql_fetch_array($qr_result)) {
-                return $data['uid'];
-            }
-    }else{
-        return '1';
-    }
-}
+
 
 function img($name)
 {
@@ -230,10 +220,10 @@ function data_out(){
 //работа с полечение  даных
 function all2()
 {
-    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`") or die(mysql_error());
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0,15") or die(mysql_error());
 
     while ($data = mysql_fetch_array($qr_result)) {
-        $mass[]=array("id"=>$data['id'],"name"=>$data['name'],"price"=>$data['id'],"uid"=>$data['uid'],"categori"=>category($data['categori']),"price"=>price2($data['uid'],$_COOKIE['main-shop']),"img"=>img($data['name']),"tipe"=>$data['quantity']);
+        $mass[]=array("id"=>$data['id'],"name"=>$data['name'],"price"=>$data['id'],"uid"=>$data['uid'],"categori"=>category($data['categori']),"price"=>price2($data['uid'],$_COOKIE['main-shop']),"img"=>img2(),"tipe"=>$data['quantity']);
     };
     //return mysql_fetch_array($qr_result);
     return $mass;
@@ -242,9 +232,9 @@ function all2()
 function prod_cat($id)
 {
     $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`") or die(mysql_error());
-
+    //img($data['name']);
     while ($data = mysql_fetch_array($qr_result)) {
-        $mass[]=array("id"=>$data['id'],"name"=>$data['name'],"price"=>$data['id'],"uid"=>$data['uid'],"categori"=>category($data['categori']),"price"=>price2($data['uid'],$_COOKIE['main-shop']),"img"=>img($data['name']),"tipe"=>$data['quantity']);
+        $mass[]=array("id"=>$data['id'],"name"=>$data['name'],"price"=>$data['id'],"uid"=>$data['uid'],"categori"=>category($data['categori']),"price"=>price2($data['uid'],$_COOKIE['main-shop']),"img"=>img2(),"tipe"=>$data['quantity']);
     };
     //return mysql_fetch_array($qr_result);
     return $mass;
@@ -254,7 +244,7 @@ function category($id){
     return $id;
 }
 //отработка   картинки  с обрезания
-function igm2(){
+function img2(){
     /*$pieces = explode(" ", $name);
     foreach ($pieces as $key => $val) {
         if ($val != 'Распродажа' and $val != '40%' and $val != '0,5л' and $val != 'Водка' and $val != 'ориг.40% 0,1л ') {
@@ -310,6 +300,10 @@ function categori_uid($id){
 /**
  * работа в  категории
  */
+
+//https://themehunt.com/html-templates/ecommerce
+//http://themesground.com/hexino/demo-page/1.htm
+//новая кат
 function data_cat($id){
     $qr_result = mysql_query("select * from `k99969kp_1c`.`prod`  WHERE `categori`='".$id."'") or die(mysql_error());
     $i = 1;

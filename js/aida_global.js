@@ -78,10 +78,14 @@ function Global_categori() {
     $.getJSON("../dev/category_global.php", function (data) {
         var items = [];
         $.each(data, function (key, val) {
-            items.push('<li><a href="catalog.php?id=2">' + val + '<i class="fas fa-chevron-down"></i></a></li>');
+            //items.push('<li><a href="catalog.php?id='+val.id+'">' + val.name + '<i class="fas fa-chevron-down"></i></a></li>');
         });
         //console.log(data);
-        $('.cat_menu').html(items);
+      //  $('.cat_menu').html(items);
+        $.each(data, function (key, val) {
+            items.push('<a href="catalog.php?id='+val.id+'" class="list-group-item list-group-item-action">' + val.name + ' </a>');
+        });
+        $('#catetoru').html(items);
     });
 
     /*   $.ajax({
@@ -385,11 +389,22 @@ function Page_bild(prod){
             $('.image_selected').html('<img src="images/new_'+ Math.floor((Math.random() * 10) + 1) + '.jpg" alt="">');
             $('.product_category').text(data.category[0].name);
             $('.product_name').text(data.name);
-            $('.product_text').text(data.body);
+            $('.text-prod').text(data.body);
             $('.product_rating').html(data.col[0].col);
             $('.product_price').text(data.price +' руб.');
             $('.image_selected').html('<img src="'+data.img +'" alt="">');
             console.log(data.col[0].name);
+           // $('.product_name').text(data.option);
+        });
+        //свойства товара неорганиченны толкьо  в  api все что вернет рисует
+        $.each(data1[0].option,function(index,data){
+            $('.text-option').append(/*'<div class="col-sm-5 col-xs-6 tital " >'+data.name+':</div><div class="col-sm-7">'+data.value+'</div>\n' +
+                '  <div class="clearfix"></div>\n' +
+                '<div class="bot-border"></div>'*/
+
+
+            '<span> <b>'+data.name+':</b>'+data.value+'</span> <br>'
+            );
         });
     });
 };//проверка кнопки в корзине есть или нету
@@ -429,4 +444,12 @@ function Shop_listing() {
             });
         }});
 }
+
+
+//https://bootsnipp.com/snippets/featured/ecommerce-product-detail
+
+
+//https://bootsnipp.com/snippets/orOGB
+
+//card //card   https://bootsnipp.com/snippets/O5mM8
 Shop_listing();

@@ -291,3 +291,9 @@ git commit -m "оработка нового  возврата  в катего�
 git add .
 git commit -m "оработка нового  возврата  в категории с 4 пунктами  из джейсона с сортировкой"
  git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+git commit -m "Переписываю категории они готовы картинки быстрее сделать"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
+git add .
+"
+ git push --repo https://Dima0o:ZiKhAcK12@github.com/Dima0o/aida-test.git 
