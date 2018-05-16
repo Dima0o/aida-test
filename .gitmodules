@@ -1,0 +1,5 @@
+[submodule "aida-test"]
+	url = https://github.com/Dima0o/aida-v2
+[submodule "aida-v2"]
+	path = aida-v2
+	url = aida-v2
