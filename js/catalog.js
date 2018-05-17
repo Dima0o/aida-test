@@ -165,7 +165,35 @@ function product_category(data) {
 
 //то что падает в корзину не важно что
 function  Product_add(type,id) {
-    console.log(type +id);
+    if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
+        var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
+        var items = Number($(this).parents(".product_item").attr("data-id"));
+    }
+
+    if (type == 1) {
+       // $(this).parents(".babay").children(".col").children(".quantity").val(0);
+        alert('красить');
+    }
+    console.log()
+    $.ajax({
+        method: "POST",
+        url: "dev/card.php",
+        data: {item: items, kol: cols, status: $(this).attr('data-add')},
+        dataType: 'json'
+    }).done(function (data) {
+        Card_work(data);
+    });
+    if (type == 1) {
+        $(this).removeAttr('style');
+        $(this).attr('data-add', 0);
+        col = 0;
+    } else {
+        $(this).attr('data-add', 1);
+        $(this).css("background", "#ef7f1b");
+    }
+
+    //дргуая логика  связанная с алертами 
+
 }
 
 
