@@ -27,18 +27,18 @@ $(document).on('click', '.href_sort1', function () {
         var items = [];
         $.each(data['data'], function (key, val) {
             items.push('<div class="product_item is_new " data-category="post-transition">\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
-                '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id=' + val.id + '" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
-                '\t\t\t\t\t\t\t\t</div>\n' +
-                '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
-                '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
-                '\t\t\t\t\t\t\t\t</ul>\n' +
-                '\t\t\t\t\t\t\t</div>');
+   '\t\t\t\t\t\t\t\t<div class="product_border"></div>\n' +
+   '\t\t\t\t\t\t\t\t<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 182px;height: 182px;" src="' + val.img + '" alt=""></div>\n' +
+   '\t\t\t\t\t\t\t\t<div class="product_content">\n' +
+   '\t\t\t\t\t\t\t\t\t<div class="product_price" >' + val.price + ' руб.</div>\n' +
+   '\t\t\t\t\t\t\t\t\t<div class="product_name name"><div><a href="product.php?id=' + val.id + '" tabindex="0">' + val.name.substr(0, 20) + '</a></div></div>\n' +
+   '\t\t\t\t\t\t\t\t</div>\n' +
+   '\t\t\t\t\t\t\t\t<div class="product_fav" data-add="0" data-price="' + val.price + '"  data-id="' + val.id + '"><i class="fas fa-heart"></i></div>\n' +
+   '\t\t\t\t\t\t\t\t<ul class="product_marks">\n' +
+   '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
+   '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n' +
+   '\t\t\t\t\t\t\t\t</ul>\n' +
+   '\t\t\t\t\t\t\t</div>');
         });
         $('#result').html(items);
         $('#products_found').text(data['data'].length);
@@ -66,7 +66,8 @@ function showHotels() {
         alert("Data Saved: " + msg);
     });
 }
-function Catalog_bild(ids) {
+function Catalog_bild() {
+    var ids=1;
     $.ajax({
         method: "POST",
         url: "dev/categore.php",
@@ -81,24 +82,114 @@ function product_category(data) {
     $.each(data['data'], function (key, val) {
         if (val.tipe == 1) {
             var tupe = '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
+   '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
         } else if (val.tipe == 2) {
             var tupe = '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
-                '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
+   '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
         } else {
             var tupe = '';
         }
         var buttonBuy = '<button type="button" data-add="1" class="btn btn-sm btn-outline-warning">Купить</button>';
-        $('#result').append('<div class="card" style="width: 18rem;">\n' +
-            '  <img class="card-img-top" src=".../100px180/" alt="Card image cap">\n' +
-            '  <div class="card-body">\n' +
-            '    <h5 class="card-title">Card title</h5>\n' +
-            '    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>\n' +
-            '    <a href="#" class="btn btn-primary">Go somewhere</a>\n' +
-            '  </div>\n' +
-            '</div>');
+
+        var Whishlist = $('<button/>', {
+            text: '<i class="icon-heart"></i>',
+            //title:'Whishlist',
+            class: 'btn',
+            click: function() {
+                alert($(this).attr('data-system-id'));
+            },
+            'data-system-id': 100,
+            //'data-toggle':,
+            'data-system-id': 100,
+            'data-toggle':'tooltip'
+
+        });
+
+       /* $('<div>', {
+            class: 'grid-item',
+            append: $('<div>').add(
+                .add($('<div>',{class:'product-badge text-danger',text:'50% Off'}))
+                .add( $('<a>',{class:'product-thumb'}.add($('<img>'){src:'img/shop/products/01.jpg',alt:val.name})))
+                .add($('<h3>',{class:'product-title'}.add($('<a>'){href:'#',text:val.name})))
+                .add($('<h4>',{class:'product-price',text:val.price+' руб.'}))
+                /*append: $('<div>'),{class:'product-buttons',html:' <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="" data-original-title="Whishlist"><i class="icon-heart"></i></button>\n' +
+                '                    <button class="btn btn-outline-primary btn-sm" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>'}
+            }        }))
+            .appendTo('#catalog');
+            */
+
+        var product_badge = $('<div>',{class:'product-badge text-danger',text:'50% Off'});
+        var product_thumb =  $('<a>',{class:'product-thumb' ,html:$('<img>',{src:'img/shop/products/01.jpg',alt:val.name})});
+        var product_title = $('<h3>',{class:'product-title', html:$('<a>',{href:'#',text:val.name})});
+        var product_price = $('<h4>',{class:'product-price',text:val.price+' руб.'})
+        var product_buttons = '<button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="" data-original-title="Whishlist"><i class="icon-heart"></i></button>' +
+            '<button class="btn btn-outline-primary btn-sm" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>';
+
+        /*$('<div>', {
+            class: 'grid-item',
+            html: product_badge+product_thumb+product_title+product_price+product_buttons
+        }).appendTo('#catalog');});*/
+       $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,product_buttons).addClass('product-card')).addClass('grid-item'));
+
     });
-    $('#products_found').text(data['data'].length);
+           // class: 'grid-item',.appendTo('#catalog');});
+          //  append: product_badge+product_thumb+product_title+product_price+product_buttons
+            //  })
+        var elementJq = $('<div/>', {
+            title: 24,
+            text: 24,
+            class: 'item',
+            click: function() {
+                alert($(this).attr('data-system-id'));
+            },
+            // если jQuery не находит метода с таким названием
+            // то вставляет атрибут
+            'data-system-id': 100,
+            'hh_hh_hh': true,
+        });
+  //  console.log(elementJq);});
+
+    /*/**/
+        //var grid_item=
+        //$('#wrapper').append(grid_item);
+      /*  $('<input>', {
+            type: 'text',
+            name: 'newTextField',
+            title: 'Вводи в меня! Вводи в меня полностью!',
+            css: {
+                position: 'relative',
+                top: '50px'
+            },
+            val: 50,
+        }).appendTo('#wrapper');
+*/
+      //  $('#wrapper').append(elementJq).append(elementClassic);
+     /*   $('#catalog').append('<div class="grid-item">\n' +
+            '<div class="product-card">\n' +
+            '  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>\n' +
+            '  <h3 class="product-title"><a href="shop-single.html">'+val.name.slice(0,-3)+'</a></h3>\n' +
+            '  <h4 class="product-price">\n' +
+                val.price+
+            '  </h4>\n' +
+            '  <div class="product-buttons">\n' +
+              Whishlist+
+            '    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="'+val.name+'" data-toast-message="В корзине">В корзину</button>\n' +
+            '  </div>\n' +
+            '</div>\n' +
+            ' </div>');
+
+            <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
+            <div class="product-badge text-danger">50% Off</div>
+            <a class="product-thumb"><img src="img/shop/products/01.jpg" alt="EVA Запарка банная Кладовая природы 20г Б21/212"></a>
+                <h3 class="product-title"><a href="#">EVA Запарка банная Кладовая природы 20г Б21/212</a></h3>
+            <h4 class="product-price">404 руб.</h4>
+                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="" data-original-title="Whishlist">            <i class="icon-heart"></i></button>
+                <button class="btn btn-outline-primary btn-sm" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+            </div>
+    });*/
+  //  console.log(Whishlist);
+  //  $('#catalog').css('height','');
+  //  $('#products_found').text(data['data'].length);
 
 }
 
@@ -112,20 +203,20 @@ function Categori_ui(id) {
         success: function (data) {
             var items = [];
             $('.shop_sidebar').prepend('<div class="sidebar_section">\n' +
-                '                            <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
-                '                            <ul class="sidebar_categories" id="sidebar_categories">\n' +
-                '\n' +
-                '                            </ul>\n' +
-                '                        </div>');
+   '  <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
+   '  <ul class="sidebar_categories" id="sidebar_categories">\n' +
+   '\n' +
+   '  </ul>\n' +
+   '           </div>');
             //console.log(data['data']);
             //$.each(data, function (key, val) {
             $.each(data['data'], function (key, val) {
-                //   val random=random.m
-                var status = '';
-                if (val.id == id) {
-                    status = 'style="color: #ef7f1b;"';
-                }
-                items.push('<li><a href="?id=' + val.id + '" ' + status + '>' + val.name + '</a></li>');
+   //   val random=random.m
+   var status = '';
+   if (val.id == id) {
+       status = 'style="color: #ef7f1b;"';
+   }
+   items.push('<li><a href="?id=' + val.id + '" ' + status + '>' + val.name + '</a></li>');
             });
             //});
             $('#sidebar_categories').html(items);
@@ -259,3 +350,4 @@ $(document).on('click', '.href_sort', function () {
     });
 });
 
+//https://www.dns-shop.ru/my-feedback-tickets/ticket/view/?guid=fd00dc13-1a91-4090-9093-6e20d65c3d52
