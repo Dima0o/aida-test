@@ -120,78 +120,54 @@ function product_category(data) {
 
         var product_badge = $('<div>',{class:'product-badge text-danger',text:'50% Off'});
         var product_thumb =  $('<a>',{class:'product-thumb' ,html:$('<img>',{src:'img/shop/products/01.jpg',alt:val.name})});
-        var product_title = $('<h3>',{class:'product-title', html:$('<a>',{href:'#',text:val.name})});
+        var product_title = $('<h3>',{class:'product-title', html:$('<a>',{href:'#',text:val.name.substring(0, 20)})});
         var product_price = $('<h4>',{class:'product-price',text:val.price+' руб.'})
-        var product_buttons = '<button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="" data-original-title="Whishlist"><i class="icon-heart"></i></button>' +
-            '<button class="btn btn-outline-primary btn-sm" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>';
-
-        /*$('<div>', {
-            class: 'grid-item',
-            html: product_badge+product_thumb+product_title+product_price+product_buttons
-        }).appendTo('#catalog');});*/
-       $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,product_buttons).addClass('product-card')).addClass('grid-item'));
-
-    });
-           // class: 'grid-item',.appendTo('#catalog');});
-          //  append: product_badge+product_thumb+product_title+product_price+product_buttons
-            //  })
-        var elementJq = $('<div/>', {
-            title: 24,
-            text: 24,
-            class: 'item',
+         //лайк
+        var Whishlist = $('<button>', {
+            html: '<i class="icon-heart"></i>',
+            //title:'Whishlist',
+            class: 'btn btn-outline-secondary btn-sm btn-wishlist',
             click: function() {
                 alert($(this).attr('data-system-id'));
             },
-            // если jQuery не находит метода с таким названием
-            // то вставляет атрибут
-            'data-system-id': 100,
-            'hh_hh_hh': true,
+
+            'data-toast':'1',
+            'data-toast-type':'success',
+            'data-toast-position':'topRight',
+            'data-toast-icon':'icon-circle-check',
+            'data-toast-title':'Product',
+            'data-toast-message':'successfuly added to cart!',
+            'data-toggle':'tooltip'
         });
-  //  console.log(elementJq);});
-
-    /*/**/
-        //var grid_item=
-        //$('#wrapper').append(grid_item);
-      /*  $('<input>', {
-            type: 'text',
-            name: 'newTextField',
-            title: 'Вводи в меня! Вводи в меня полностью!',
-            css: {
-                position: 'relative',
-                top: '50px'
+        //кашелка
+        var Product = $('<button>', {
+            html: '<i class="icon-card"></i>В корзину',
+            class: 'btn btn-outline-primary btn-sm',
+            click: function() {
+                Product_add($(this).attr('data-add'),$(this).attr('data-id'))
             },
-            val: 50,
-        }).appendTo('#wrapper');
-*/
-      //  $('#wrapper').append(elementJq).append(elementClassic);
-     /*   $('#catalog').append('<div class="grid-item">\n' +
-            '<div class="product-card">\n' +
-            '  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>\n' +
-            '  <h3 class="product-title"><a href="shop-single.html">'+val.name.slice(0,-3)+'</a></h3>\n' +
-            '  <h4 class="product-price">\n' +
-                val.price+
-            '  </h4>\n' +
-            '  <div class="product-buttons">\n' +
-              Whishlist+
-            '    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="'+val.name+'" data-toast-message="В корзине">В корзину</button>\n' +
-            '  </div>\n' +
-            '</div>\n' +
-            ' </div>');
-
-            <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
-            <div class="product-badge text-danger">50% Off</div>
-            <a class="product-thumb"><img src="img/shop/products/01.jpg" alt="EVA Запарка банная Кладовая природы 20г Б21/212"></a>
-                <h3 class="product-title"><a href="#">EVA Запарка банная Кладовая природы 20г Б21/212</a></h3>
-            <h4 class="product-price">404 руб.</h4>
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="" data-original-title="Whishlist">            <i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-    });*/
-  //  console.log(Whishlist);
-  //  $('#catalog').css('height','');
-  //  $('#products_found').text(data['data'].length);
-
+            'data-id':val.id,
+            'data-add':0,
+            'data-toast':1,
+            'data-toast-type':'success',
+            'data-toast-position':'topRight',
+            'data-toast-icon':'icon-circle-check',
+            'data-toast-title':'Product',
+            'data-toast-message':'successfuly added to cart!',
+            'data-toggle':'tooltip'
+        });
+        $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,Whishlist,Product).addClass('product-card')).addClass('grid-item'));
+    });
+    $('.shop-col').text('1 - '+data['data'].length+' товаров');
+ console.log($('.shop-sorting').last());
 }
+
+
+//то что падает в корзину не важно что
+function  Product_add(type,id) {
+    console.log(type +id);
+}
+
 
 //http://aida.k99969kp.beget.tech/dev/category.php
 function Categori_ui(id) {
@@ -205,7 +181,6 @@ function Categori_ui(id) {
             $('.shop_sidebar').prepend('<div class="sidebar_section">\n' +
    '  <div class="sidebar_title" data-titel="categori">Категория</div>\n' +
    '  <ul class="sidebar_categories" id="sidebar_categories">\n' +
-   '\n' +
    '  </ul>\n' +
    '           </div>');
             //console.log(data['data']);
@@ -229,7 +204,7 @@ function Categori_ui(id) {
     });
 
 }
-
+// добавление  в корзину старая версия
 $(document).on('click', '.btn-outline-warning', function () {
     if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
         var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
@@ -257,7 +232,7 @@ $(document).on('click', '.btn-outline-warning', function () {
         $(this).css("background", "#ef7f1b");
     }
 });
-
+// конец  добавленеи в корзину
 
 $(document).on('click', '.incr-btn-minus', function () {
     if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
