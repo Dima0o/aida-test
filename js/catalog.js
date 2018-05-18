@@ -73,14 +73,14 @@ function Catalog_bild() {
         url: "dev/categore.php",
         dataType: 'json',
         data: {id: ids},
-    }).done(function (data) {
+    }).ajaxSuccess(function (data) {
         product_category(data);
     });
 }
 function product_category(data) {
     var items = [];
     $.each(data['data'], function (key, val) {
-        if (val.tipe == 1) {
+     /*   if (val.tipe == 1) {
             var tupe = '\t\t\t\t\t\t\t\t\t<li class="product_mark product_discount">-25%</li>\n' +
    '\t\t\t\t\t\t\t\t\t<li class="product_mark product_new">new</li>\n';
         } else if (val.tipe == 2) {
@@ -90,8 +90,8 @@ function product_category(data) {
             var tupe = '';
         }
         var buttonBuy = '<button type="button" data-add="1" class="btn btn-sm btn-outline-warning">Купить</button>';
-
-        var Whishlist = $('<button/>', {
+*/
+     /*   var Whishlist = $('<button/>', {
             text: '<i class="icon-heart"></i>',
             //title:'Whishlist',
             class: 'btn',
@@ -103,8 +103,7 @@ function product_category(data) {
             'data-system-id': 100,
             'data-toggle':'tooltip'
 
-        });
-
+        });*/
        /* $('<div>', {
             class: 'grid-item',
             append: $('<div>').add(
@@ -117,7 +116,6 @@ function product_category(data) {
             }        }))
             .appendTo('#catalog');
             */
-
         var product_badge = $('<div>',{class:'product-badge text-danger',text:'50% Off'});
         var product_thumb =  $('<a>',{class:'product-thumb' ,html:$('<img>',{src:'img/shop/products/01.jpg',alt:val.name})});
         var product_title = $('<h3>',{class:'product-title', html:$('<a>',{href:'#',text:val.name.substring(0, 20)})});
@@ -144,28 +142,75 @@ function product_category(data) {
             html: '<i class="icon-card"></i>В корзину',
             class: 'btn btn-outline-primary btn-sm',
             click: function() {
-                Product_add($(this).attr('data-add'),$(this).attr('data-id'))
+                Product_add($(this).attr('data-add'),$(this).attr('data-id'),$(this),1);
+            //    alert( $(this).attr('data-add'));
             },
+            role:'alert',
             'data-id':val.id,
             'data-add':0,
-            'data-toast':1,
-            'data-toast-type':'success',
+            'data-toast':3,
+            'data-toast-type':'danger',
             'data-toast-position':'topRight',
             'data-toast-icon':'icon-circle-check',
-            'data-toast-title':'Product',
-            'data-toast-message':'successfuly added to cart!',
+            'data-toast-title':val.name,
+            'data-toast-message':'добавлен в корзину',
             'data-toggle':'tooltip'
         });
         $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,Whishlist,Product).addClass('product-card')).addClass('grid-item'));
     });
     $('.shop-col').text('1 - '+data['data'].length+' товаров');
- console.log($('.shop-sorting').last());
+ //console.log($('.shop-sorting').last());
 }
 
 
 //то что падает в корзину не важно что
-function  Product_add(type,id) {
-    console.log(type +id);
+function  Product_add(type,id,elelm,cols) {
+    //if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
+      //  var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
+       // var items = Number($(this).parents(".product_item").attr("data-id"));
+    //alert($("#card").hasClass("count"));
+    alert($('#count').html());
+    $.ajax({
+        method: "POST",
+        url: "dev/card.php",
+        data: {item: id, kol: cols, status: elelm.attr('data-add')},
+        dataType: 'json'
+    }).done(function (data) {
+      //  console.log(data);
+        Card_work(data);
+    });
+    if (type == 1) {
+        elelm.removeAttr('style');
+        elelm.attr('data-add', 0);
+
+        elelm.removeAttr('style');
+        //elelm.attr('data-add', 0);
+
+        //elelm.attr('data-toast',1);
+        //elelm.attr('data-toast-type','success');
+        //  elelm.attr('data-toast-position':'topRight',
+        //     elelm.attr('data-toast-icon':'icon-circle-check');
+        //elelm.attr('data-toast-title':val.name,
+        elelm.attr('data-toast-message','добавлен в корзину');
+
+    } else {
+        $(".page-title").alert('as');
+        elelm.attr('data-add', 1);
+        //    elelm.attr('data-toggle':'tooltip'
+       // elelm.attr('data-toast',2);
+       // elelm.attr('data-toast-type','danger');
+        //elelm.attr('data-toast-position':'topRight'
+        //   elelm.attr('data-toast-icon':'icon-circle-check');
+        //elelm.attr('data-toast-title':val.name,
+       // elelm.attr('data-toast-message','исчесло из корзины');
+        //    elelm.attr('data-toggle':'tooltip'
+    }
+    //дргуая логика  связанная с алертами 
+        //  работа с алертом
+    //стили кнопки
+    //запись в корзину
+    //рендеринг корзины
+    //разработка  ерор алертов
 }
 
 
@@ -210,18 +255,23 @@ $(document).on('click', '.btn-outline-warning', function () {
         var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
         var items = Number($(this).parents(".product_item").attr("data-id"));
     }
-
+    alert($("#card").hasClass("count"));
     if ($(this).attr('data-add') == 1) {
         $(this).parents(".babay").children(".col").children(".quantity").val(0);
     }
-    console.log()
+    console.log();
     $.ajax({
         method: "POST",
         url: "dev/card.php",
         data: {item: items, kol: cols, status: $(this).attr('data-add')},
         dataType: 'json'
     }).done(function (data) {
+        alert($("#card").hasClass("count"));
+        $("#card").hasClass("count").text(data.item.length);
+        $("#card").hasClass("subtotal").text(data.item.length+' руб.');
+        $('#cadr_col_shop').html(data.item.length);
         Card_work(data);
+
     });
     if ($(this).attr('data-add') == 1) {
         $(this).removeAttr('style');
@@ -326,3 +376,9 @@ $(document).on('click', '.href_sort', function () {
 });
 
 //https://www.dns-shop.ru/my-feedback-tickets/ticket/view/?guid=fd00dc13-1a91-4090-9093-6e20d65c3d52
+//https://itchief.ru/lessons/javascript/ работа с   уроками
+
+//https://bootstrapstudio.io/ верстка онлаин чтобы было
+
+//https://webdesign-master.ru/blog/jquery/
+// https://wp-lessons.com/pereklyuchatel-spisok-setka-s-pomoshhyu-jquery-switch-list-grid-view-using-jquery   кривая  обычный  экстренный костыль

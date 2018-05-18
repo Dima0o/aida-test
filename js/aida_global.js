@@ -30,8 +30,17 @@ function GlobalPage(power) {
 
     function Menu(data) {
         // работа с новым меню
-
-        $.getJSON("../dev/menu.json", function (data) {
+        $.ajax({
+            method: "POST",
+            url: "dev/menu.json",
+            dataType: 'json',
+            data: {id: ids},
+        }).ajaxSuccess(function (data) {
+            $.each(data, function (key, val) {
+                items.push('<li><a href="' + val.url + '">' + val.name + '<i class="fas fa-chevron-down"></i></a></li>');
+            });$('.main_nav_dropdown').html(items);
+        });
+     /*   $.getJSON("../dev/menu.json", function (data) {
             var items = [];
             $.each(data, function (key, val) {
                 items.push('<li><a href="' + val.url + '">' + val.name + '<i class="fas fa-chevron-down"></i></a></li>');
@@ -39,7 +48,7 @@ function GlobalPage(power) {
             //console.log(data);
             //  $('.cat_menu').html(items);
             $('.main_nav_dropdown').html(items);
-        });
+        });*/
 //alert('items');
         /* var items = [];
              $.each(data, function (key, val) {
@@ -179,8 +188,8 @@ function CardShops() {
         var array = ["one", "two"];
         // $.cookie('cookie_name', array);
     }*/
-    alert($.cookie("cadr_col_shop"));
-    console.log($.cookie('cadr_col_shop'));
+    //alert($.cookie("cadr_col_shop"));
+   // console.log($.cookie('cadr_col_shop'));
 // получить значение существующих кукисов можно так:
 // если запрашиваемых кукисов не существует, то эта функция вернет null
 // а так можно удалить кукисы
@@ -284,82 +293,7 @@ if (!navigator.cookieEnabled) {
     alert('Включите cookie для комфортной работы с этим сайтом');
 }
 
-/*
-рендеринг корзины при старте  глобальный
- +через куки
- -через сессии
- -через обьекты
-*/
 
-    /*  var js_obj = $.cookie('cadr_list').split(',');
-    js_obj = js_obj.filter(function(e){return e});
-    js_obj = js_obj.filter(function(x) {
-        return x !== undefined && x !== null && x !== "null";
-    });
-    $.cookie('cadr_list', js_obj.join(','));
-    var y = $.cookie('cadr_list').split(',');
-    console.log(y);
-    js_obj=[];
-    $.each(y,function(index,value){
-
-            js_obj.push(Number($(this).attr("data-id")));
-
-
-        console.log(value+'*-/'+$(this).attr('data-id'));
-    });
-    console.log(js_obj);
-    //var js_obj = $.cookie('cadr_list').split(','),temp = [];
-    js_obj = js_obj.filter(function(e){return e});
-    js_obj = js_obj.filter(function(x) {
-        return x !== undefined && x !== null && x !== "null";
-    });
-    js_obj1=[];
-    $.each(js_obj,function(index,value){
-        js_obj1.push(Number(value.toString()));
-    });
-    js_obj=js_obj1;
-    for(let i of js_obj)
-        i && temp.push(i); // copy each non-empty value to the 'temp' array
-
-    js_obj = temp;
-    delete temp;
-    $.cookie('cadr_list', js_obj.join(','));
-    if($(this).attr('data-add')==1){
-
-        //console.log(y);
-
-        var number=$.cookie('cadr_price') - $(this).attr('data-price');
-        //alert($.cookie('cadr_price') +'-'+$(this).attr('data-price')+'='+ number);
-        if($.cookie('cadr_price')!=0){
-            $.cookie('cadr_price',$.cookie('cadr_price') - $(this).attr('data-price'));
-        };
-        $(this).removeAttr( 'style' );
-        //$(this).css("background", getRandomColor());
-        $(this).attr("data-add",0);
-    }else{
-
-        $(this).css("background", getRandomColor());
-        $(this).attr("data-add",1);
-        $.cookie('cadr_price',$.cookie('cadr_price') + $(this).attr('data-price'));
-    }*/
-
-  /*
-  * 28.04.2018
-  * */
-
-  //работа  корзиной через запись  с ключем сессии
-   // $('#cadr_col_shop').html(1551);
-    //$('.cart_price').attr("data-price", $.cookie('cart_price'));
-    //$('.cart_price').text($.cookie('cadr_price')+' руб.')
-    //Card_Bild();
-
- /*
- работа с футером и шапкой
- +/- шапка
-  - футер чистить
-  -футер заполнить
-  - доп пункты
-  */
  //https://themeforest.net/item/isomorphic-react-redux-admin-dashboard/20262330
  function PageBild() {
     // $('.top_bar_contact_item').remove();
@@ -367,13 +301,18 @@ if (!navigator.cookieEnabled) {
      $('#head-naw').prepend('<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>8 (8634) 68-30-27</div>');
 
  }
- function Card_work(y) {
 
+ //отрисовка корзины   работает на массиве из dev/card.php через токен
+ function Card_work(y) {
      $.each(y,function(index,data){
-         $('#cadr_col_shop').html(data.item.length);
-         $('.cart_price').attr("data-price", data.sum);
-         $('.cart_price').text(data.sum+' руб.');
+         $('#count').html(data.item.length);
+         $('#subtotal').text(data.sum+' руб.');
+         //работа с  элементами массива в  кторые входит немного данных
+         //работа с выпадающим списокм товаров для  корзины
+
      });
+    // alert($.cookie('token'));
+     console.log(y);
  }
  //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
 function Page_bild(prod){
@@ -420,7 +359,7 @@ function Page_bild(prod){
 //<a id="main-shop" href="#">Петровская 14<i class="fas fa-chevron-down"></i></a>
 //<ul id="list-shop"
 function Shop_listing() {
-    return $.ajax({
+  /*  return $.ajax({
         url: 'dev/shop_list.json',
         type: 'GET',
         dataType: 'json',
@@ -442,7 +381,7 @@ function Shop_listing() {
                 });
                 $('#list-shop').append(elementLi);
             });
-        }});
+        }});*/
 }
 
 
@@ -453,3 +392,5 @@ function Shop_listing() {
 
 //card //card   https://bootsnipp.com/snippets/O5mM8
 Shop_listing();
+//глобальный вызов постройки карзины
+Card_Bild();
