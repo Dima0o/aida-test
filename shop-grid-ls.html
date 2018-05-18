@@ -558,15 +558,11 @@
     <script src="js/catalog.js"></script>
     <script src="js/aida_global.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118308905-1" defer></script>
-    <script src="js/jquery.row-grid.min.js"></script>
-    <script src="js/modernizr.min.js"></script>
-    <script type="text/javascript" src="js/vendor.min.js" defer></script>
-    <script src="https://npmcdn.com/minigrid@3.0.1/dist/minigrid.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4.2.1/dist/masonry.pkgd.min.js"></script>
     <script>
         Catalog_bild();
         Menu();
-        (function(){
+        /*(function(){
             var grid;
             function init() {
                 grid = new Minigrid({
@@ -584,14 +580,23 @@
 
             document.addEventListener('DOMContentLoaded', init);
             window.addEventListener('resize', update);
-        })();
+        })();*/
+      /*  $('.isotope-grid').masonry({
+            // options...
+            //marginLeft:12,
+
+            itemSelector: '.isotope-grid',
+            columnWidth: 250,
+            gutter: 50,
+        });*/
 
     </script>
 
-  <!--  <script type="text/javascript" src="js/scripts.min.js" defer></script>-->
+<script type="text/javascript" src="js/scripts.min.js" defer></script>
 
     <!-- Customizer scripts-->
-
+    <script src="js/vendor.min.js"></script>
+    <script src="js/scripts.min.js"></script>
 
   </body>
 </html>

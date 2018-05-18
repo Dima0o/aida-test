@@ -7,8 +7,8 @@ include_once('core.php');
 mb_internal_encoding("UTF-8");
 require '../rb-mysql.php';
 
-function token_on($id){
-    if(isset($_COOKIE['token']) or isset($_SESSION['token'])){
+function token_on(){
+    if(isset($_COOKIE['token']) or isset($_SESSION['tokens'])){
 
        // $date=date("Y-m-d H:i:s");
         //$qwery =mysql_query("INSERT INTO `k99969kp_1c`.`token` (`id`, `token`, `data`)
@@ -23,7 +23,7 @@ function token_on($id){
 
 
     }else{
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$id."'") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$_COOKIE['token']."'") or die(mysql_error());
         while ($data = mysql_fetch_array($qr_result)) {
             $_SESSION['token'] = $data['token'];
         };
@@ -37,23 +37,23 @@ function token_on($id){
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
         //$_COOKIE['PHPSESSID']= $token;
-        setcookie("token",$token,time()+(60*60*24*30));
-        $_COOKIE['token']=$token;
-        $_SESSION['token']=$token;
+        setcookie("TestCookie",$token);
+        //$_COOKIE['token']=$token;
+        $_SESSION['tokens']=$token;
     };
 }
 
 function out_card(){
     $summ=0;
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])) {
-        $qr_result = mysql_query("select `id`,`prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=0 and `token`='" . $_SESSION['token'] . "'") or die(mysql_error());
+        $qr_result = mysql_query("select `id`,`prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=1 and `token`='" . $_SESSION['tokens']. "'") or die(mysql_error());
         $data = array(); // в этот массив запишем то, что выберем из базы
         while ($row = mysql_fetch_array($qr_result)) {// оформим каждую строку результата
             // как ассоциативный массив
             $data[] = $row;
             $summ=$summ+ price($row['prod'])*$row['kol'];
         }
-         echo '[{"item":'.json_encode((super_unique($data,'prod'))).',"sum":'.$summ.',"token":"'.$_SESSION['token'].'"}]';
+         echo '[{"item":'.json_encode((super_unique($data,'prod'))).',"sum":'.$summ.',"tokens":"'.$_SESSION['tokens'].'","token":"'.$_COOKIE['TestCookie'].'"}]';
         setcookie("cadr_col_shop",count($data));
         $_COOKIE['cadr_col_shop']=count($data);
         setcookie("cart_count",count($data));
@@ -105,7 +105,7 @@ function price($id)
 }
 // авторизация через токен
 
-token_on($_COOKIE['token']);
+token_on();
 //запись данных в корзину
 
 add_card();
@@ -119,3 +119,5 @@ $cat->token = $_COOKIE['token'];
 
 $cat->data = date("Y-m-d H:i:s");
 R::store( $cat );*/
+
+//корзина по новому  с возравтом для работы с всплывающей корзиной}

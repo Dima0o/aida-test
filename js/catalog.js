@@ -73,7 +73,7 @@ function Catalog_bild() {
         url: "dev/categore.php",
         dataType: 'json',
         data: {id: ids},
-    }).ajaxSuccess(function (data) {
+    }).done(function (data) {
         product_category(data);
     });
 }
@@ -158,7 +158,8 @@ function product_category(data) {
         });
         $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,Whishlist,Product).addClass('product-card')).addClass('grid-item'));
     });
-    $('.shop-col').text('1 - '+data['data'].length+' товаров');
+    $(this).css("background", "#ef7f1b");
+    $('#catalog').css('height','auto');
  //console.log($('.shop-sorting').last());
 }
 

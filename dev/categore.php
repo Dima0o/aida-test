@@ -220,7 +220,7 @@ function data_out(){
 //работа с полечение  даных
 function all2()
 {
-    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0,15") or die(mysql_error());
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` LIMIT 0,20") or die(mysql_error());
 
     while ($data = mysql_fetch_array($qr_result)) {
         $mass[]=array("id"=>$data['id'],"name"=>$data['name'],"price"=>$data['id'],"uid"=>$data['uid'],"categori"=>category($data['categori']),"price"=>price2($data['uid'],$_COOKIE['main-shop']),"img"=>img2(),"tipe"=>$data['quantity']);
