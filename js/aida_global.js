@@ -312,7 +312,7 @@ if (!navigator.cookieEnabled) {
 
      });
     // alert($.cookie('token'));
-     console.log(y);
+//     console.log(y);
  }
  //https://obninsksite.ru/blog/php-scripts/lesson-redbeanphp
 function Page_bild(prod){

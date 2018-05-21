@@ -126,9 +126,10 @@ function product_category(data) {
             //title:'Whishlist',
             class: 'btn btn-outline-secondary btn-sm btn-wishlist',
             click: function() {
-                alert($(this).attr('data-system-id'));
-            },
 
+            },
+            'data-id':val.id,
+            'data-add':0,
             'data-toast':'1',
             'data-toast-type':'success',
             'data-toast-position':'topRight',
@@ -156,7 +157,7 @@ function product_category(data) {
             'data-toast-message':'добавлен в корзину',
             'data-toggle':'tooltip'
         });
-        $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,Whishlist,Product).addClass('product-card')).addClass('grid-item'));
+        $('#catalog').append($('<div>').append($('<div>').append(product_badge,product_thumb,product_title,product_price,Whishlist,Product).addClass('product-card')).addClass('grid-item col-md-4'));
     });
     $(this).css("background", "#ef7f1b");
     $('#catalog').css('height','auto');
@@ -311,28 +312,6 @@ $(document).on('click', '.product_fav', function () {
     setLocation($(this).attr('data-id'));
 });
 
-/**
- заменить иконки
- разнести скрипты по файлам чтобы меньше путатся
- подчистить коменты
- страницу сделать корзину
- страница товара подправить
- сделать иконки другие
-
- */
-
-//работа с полноценной сортировкой
-/*
-*
-######## изменение (редактирование) Url без перезагрузки
-
-Набор методов JS позволяющих легко манипульровать GET параметрами в адресной строке без перезагрузки страницы.
-
-$.urlVar('page') - вернёт значение GET параметра page или если такого не существует - undefined
-$.urlVar('page',value) - устаноавливает значение GET параметра page= value
-$.delUrlVal('page') - удаляет GET параметр page из url
-$.getUrlVars() - возвращает имена(идексы) всех GET параметров
-*/
 function setLocation(curLoc){
     try {
         history.pushState(null, null, curLoc);
@@ -375,6 +354,25 @@ $(document).on('click', '.href_sort', function () {
         product_category(data);
     });
 });
+
+//каталог товаров с вложенностью
+function categoru_list() {
+    //$('#widget-categories').remove();
+    $.ajax({
+        method: "POST",
+        url: "dev/category.php",
+        //data: {},
+        dataType: 'json'
+    }).done(function (data) {
+
+        $.each(data, function (key, val1) {
+            $.each(val1['item'], function (key, val) {
+                $('#widget-categories').append('<li class="has-children"><a href="#">'+val.name+'</a><span></span></li>');
+                $('#widget-categories-2').append('<li class="has-children"><a href="#">'+val.name+'</a><span></span></li>');
+            });
+        });
+    });
+}
 
 //https://www.dns-shop.ru/my-feedback-tickets/ticket/view/?guid=fd00dc13-1a91-4090-9093-6e20d65c3d52
 //https://itchief.ru/lessons/javascript/ работа с   уроками
