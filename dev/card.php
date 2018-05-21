@@ -18,10 +18,6 @@ function token_on(){
 //echo '[{"PHPSESSID":"e748ee24c0b0d53aace7bbcdde6920ac","cadr_list":"","cadr_price":"0","token":"ff63494649e895555fc608afcebc5f8b"}]';
 
    //   echo '['.json_encode($_COOKIE).']';
-
-
-
-
     }else{
         $qr_result = mysql_query("select * from `k99969kp_1c`.`token` WHERE `token`='".$_COOKIE['token']."'") or die(mysql_error());
         while ($data = mysql_fetch_array($qr_result)) {
@@ -42,15 +38,22 @@ function token_on(){
         $_SESSION['tokens']=$token;
     };
 }
-
 function out_card(){
     $summ=0;
     if(isset($_COOKIE['token']) or isset($_SESSION['token'])) {
-        $qr_result = mysql_query("select `id`,`prod`,`kol` from `k99969kp_1c`.`shop` WHERE `status`!=1 and `token`='" . $_SESSION['tokens']. "'") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`shop`, `k99969kp_1c`.`prod` WHERE `status`!=1 and `token`='" . $_SESSION['tokens']. "'") or die(mysql_error());
         $data = array(); // в этот массив запишем то, что выберем из базы
         while ($row = mysql_fetch_array($qr_result)) {// оформим каждую строку результата
             // как ассоциативный массив
             $data[] = $row;
+            $prod=R::find('shop',"prod=?",array($row['prod']));
+            foreach ($prod as $value){
+                $value->id;
+                $cat = R::load('shop', $value->id);
+                $cat->status = 2;
+                R::store($cat);
+            }var_dump($prod);
+        }
             $summ=$summ+ price($row['prod'])*$row['kol'];
         }
          echo '[{"item":'.json_encode((super_unique($data,'prod'))).',"sum":'.$summ.',"tokens":"'.$_SESSION['tokens'].'","token":"'.$_COOKIE['TestCookie'].'"}]';
@@ -86,7 +89,16 @@ function add_card(){
         $cat->data = date("Y-m-d H:i:s");
         R::store( $cat );
         //запись в вессию
+    }/*
+    if(isset($_POST['item']) and $_POST['status']==0){
+         $prod=R::find('shop',"prod=?",array($_POST['item']));
+    foreach ($prod as $value){
+        $value->id;
+        $cat = R::load('shop', $value->id);
+        $cat->status = 2;
+        R::store($cat);
     }
+    }*/
 }
 function join_card(){
 
@@ -108,7 +120,7 @@ function price($id)
 token_on();
 //запись данных в корзину
 
-add_card();
+
 out_card();
 /*
 R::setup('mysql:host=localhost;dbname=k99969kp_1c', 'k99969kp_1c', '123456');

@@ -14,7 +14,7 @@ function global_categori()
             "id" => $data['id'],
             "name" => $data['name'],
             "text" => $data['text'],
-            "autor" => $data['patent'],
+            "autor" => $data['autor'],
             "img" => $data['img'],
             "data" => $data['data']
         );

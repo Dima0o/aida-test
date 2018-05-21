@@ -198,7 +198,7 @@ function Product_add(type, id, elelm, cols) {
     //  var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
     // var items = Number($(this).parents(".product_item").attr("data-id"));
     //alert($("#card").hasClass("count"));
-    alert($('#count').html());
+   // alert($('#count').html());
     $.ajax({
         method: "POST",
         url: "dev/card.php",
@@ -227,7 +227,7 @@ function Product_add(type, id, elelm, cols) {
         elelm.attr('data-toast-message', 'добавлен в корзину');
 
     } else {
-        $(".page-title").alert('as');
+     //   $(".page-title").alert('as');
         elelm.attr('data-add', 1);
         //    elelm.attr('data-toggle':'tooltip'
         // elelm.attr('data-toast',2);
