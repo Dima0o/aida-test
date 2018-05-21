@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118308905-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-118308905-1');
@@ -27,6 +31,7 @@
 
 </head>
 <!-- Body-->
+
 <body>
 <!-- Topbar-->
 <div class="topbar">
@@ -127,11 +132,11 @@
             <div class="column">
                 <ul id="breadcrumbs" class="breadcrumbs">
                     <!--
-                        <li><a href="index.html">Home</a>
-                        </li>
-                        <li class="separator">&nbsp;</li>
-                        <li>About Us</li>
-                    -->
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="separator">&nbsp;</li>
+                    <li>About Us</li>
+                -->
                 </ul>
             </div>
         </div>
@@ -233,54 +238,37 @@
 <!-- Customizer scripts-->
 <!--  -->
 <script>
-    Shop_bild() ;
-    function Shop_bild() {
+    Blog_list();
+
+    function Blog_list() {
         return $.ajax({
-            url: 'https://api.hh.ru/vacancies?employer_id=1199053',
+            url: 'dev/blog.php',
             type: 'GET',
             dataType: 'json',
-            success: function (data) {
-                console.log(data);
-                $.each(data['items'], function (key, val) {
-                      $('#blog_page').append('<div class="row align-items-center padding-top-2x padding-bottom-2x">\n' +
-                          '          <div class="col-md-5"><img class="d-block w-270 m-auto" src="https://hhcdn.ru/employer-logo-original/505539.jpg" alt="Online Shopping"></div>\n' +
-                          '          <div class="col-md-7 text-md-left text-center">\n' +
-                          '            <div class="mt-30 hidden-md-up"></div>' +
-                          '            <h2>'+val.name+'.</h2>' +
-                          '            <p><b style="text-indent: 1.5em">Обязанности:</b> '+val.snippet.responsibility+'</br>' +
-                    '<b style="text-indent: 1.5em">Требования:</b> '+ val.snippet.requirement+'</br>' +
-                     price(val.salary.from,val.salary.to)+
-                            addres(val.address)+
-                     '<a href="'+val.apply_alternate_url+'" class="btn btn-secondary float-right btn-sm">Откликнутся</a>\n' +
-                    '</p>' +
-                    '</div></div><hr>');
-                      //  console.log(val.address.city);
+            success: function(data) {
+                $.each(data, function(key, val1) {
+                        $.each(val1['item'], function(key, val) {
+                    $('#blog_page').append('<div class="row align-items-center padding-top-2x padding-bottom-2x">\n' +
+                        '          <div class="col-md-5"><img class="d-block w-270 m-auto" src="'+val.img+'" alt="Online Shopping"></div>\n' +
+                        '          <div class="col-md-7 text-md-left text-center">\n' +
+                        '            <div class="mt-30 hidden-md-up"></div>' +
+                        '            <h2>' + val.name + '.</h2>' +
+                        '            <p>'+val.text+'</p>' +
+                        '<a class="text-medium text-decoration-none" href="blog-page.php?id=' + val.id + '">Подробнее&nbsp;<i class="icon-arrow-right"></i></a>'+
+                        //'<a href="blog-page.php?id=' + val.id + '" class="btn btn-secondary float-right btn-sm">Подробнее</a>\n' +
 
-                });
+                        '</div></div><hr>');
+                         console.log(val.img);
+                    //  console.log(val.address.city);
+
+                });  });
             },
-            error: function () {
+            error: function() {
                 alert('Выполненно с ошибками или категория пустая getIssues_id');
             }
         });
     }
-    function addres(data) {
-        if (data != null) {
-         return '<b style="text-indent: 1.5em">Адрес:</b> ' + data.city + ', ' + data.street + ', ' + data.building + '</br>';
-        }else{
-            return '';
-        }
-
-    }
-    function price(down,up) {
-        let text='<b style="text-indent: 1.5em">Зарплата</b>';
-        if(down !=null){
-            text=text+'<b style="text-indent: 1.5em"> от:</b>'+down;
-        }
-        if(up!=null){
-            text=text+'<b style="text-indent: 1.5em"> до:</b> '+up+' руб.<br>';
-        }
-        return text+'<br>';
-    }
 </script>
 </body>
+
 </html>
