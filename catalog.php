@@ -448,6 +448,6 @@
 </script>
     <script type="text/javascript" src="js/scripts.min.js" defer></script>
     <script src="js/vendor.min.js" defer></script>
-    <script src="js/scripts.min.js" defer></script>
+   <!-- <script src="js/scripts.min.js" defer></script>-->
 </body>
 </html>

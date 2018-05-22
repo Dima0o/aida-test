@@ -310,13 +310,11 @@ if (!navigator.cookieEnabled) {
          //работа с  элементами массива в  кторые входит немного данных
          $('#card-list').html('');
          $.each(data['item'], function(key, val) {
-                $('#card-list').append('<div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/01.jpg" alt="'+val.name+'"></a>\n' +
+                $('#card-list').append('<div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="'+val.img+'" alt="'+val.name+'"></a>\n' +
                 '                  <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">'+val.name+'</a><span class="dropdown-product-details">'+val.kol+' x ₽'+val.prise+'</span></div>\n' +
                 '                </div>');
-
          });
          //работа с выпадающим списокм товаров для  корзины
-
      });
     // alert($.cookie('token'));
 //     console.log(y);

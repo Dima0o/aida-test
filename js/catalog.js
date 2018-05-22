@@ -168,21 +168,21 @@ function product_category(data) {
         //кашелка
         var Product = $('<button>', {
             html: '<i class="icon-card"></i>В корзину',
-            class: 'btn btn-outline-primary btn-sm',
+            class: 'btn btn-outline-warning btn-sm',
             click: function() {
                 Product_add($(this).attr('data-add'), $(this).attr('data-id'), $(this), 1);
                 //    alert( $(this).attr('data-add'));
             },
-            role: 'alert',
+         //   role: 'alert',
             'data-id': val.id,
             'data-add': 0,
-            'data-toast': 3,
-            'data-toast-type': 'danger',
-            'data-toast-position': 'topRight',
-            'data-toast-icon': 'icon-circle-check',
-            'data-toast-title': val.name,
-            'data-toast-message': 'добавлен в корзину',
-            'data-toggle': 'tooltip'
+           // 'data-toast': 3,
+           // 'data-toast-type': 'danger',
+           // 'data-toast-position': 'topRight',
+           // 'data-toast-icon': 'icon-circle-check',
+           // 'data-toast-title': val.name,
+           // 'data-toast-message': 'добавлен в корзину',
+           // 'data-toggle': 'tooltip'
         });
         $('#catalog').append($('<div>').append($('<div>').append(product_badge, product_thumb, product_title, product_price, Whishlist, Product).addClass('product-card')).addClass('grid-item col-md-4'));
     });
@@ -212,6 +212,15 @@ function Product_add(type, id, elelm, cols) {
         //  console.log(data);
         Card_work(data);
     });
+
+        if (elelm.hasClass('btn-outline-warning')) {
+            elelm.removeClass('btn-outline-warning').addClass('btn-success');
+        }
+        else if(elelm.hasClass('btn-success')) {
+            elelm.removeClass('btn-success').addClass('btn-outline-warning');
+        }
+
+
     if (type == 1) {
         elelm.removeAttr('style');
         elelm.attr('data-add', 0);
@@ -282,8 +291,8 @@ function Categori_ui(id) {
     });
 
 }
-// добавление  в корзину старая версия
-$(document).on('click', '.btn-outline-warning', function() {
+// добавление  в корзину старая версия/*
+/*$(document).on('click', '.btn-outline-warning11', function() {
     if (Number($(this).parents(".babay").children(".col").children(".quantity").val()) > 0) {
         var cols = Number($(this).parents(".babay").children(".col").children(".quantity").val());
         var items = Number($(this).parents(".product_item").attr("data-id"));
@@ -304,9 +313,9 @@ $(document).on('click', '.btn-outline-warning', function() {
         dataType: 'json'
     }).done(function(data) {
         alert($("#card").hasClass("count"));
-        $("#card").hasClass("count").text(data.item.length);
-        $("#card").hasClass("subtotal").text(data.item.length + ' руб.');
-        $('#cadr_col_shop').html(data.item.length);
+        $("#card").hasClass("count").text(data[0].item.length);
+        $("#card").hasClass("subtotal").text(data[0].item.length + ' руб.');
+        $('#cadr_col_shop').html(data[0].item.length);
         Card_work(data);
 
     });
@@ -319,6 +328,9 @@ $(document).on('click', '.btn-outline-warning', function() {
         $(this).css("background", "#ef7f1b");
     }
 });
+
+
+*/
 // конец  добавленеи в корзину
 
 $(document).on('click', '.incr-btn-minus', function() {
