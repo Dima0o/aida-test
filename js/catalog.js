@@ -125,10 +125,15 @@ function product_category(data) {
              }        }))
              .appendTo('#catalog');
              */
-        var product_badge = $('<div>', {
-            class: 'product-badge text-danger',
-            text: '50% Off'
-        });
+
+        if(val.event!=null){
+            var product_badge = $('<div>', {
+                class: val.event.class,
+                text: val.event.name
+            });
+        }
+        else{ product_badge=''; }
+
         var product_thumb = $('<a>', {
             class: 'product-thumb',
             html: $('<img>', {
@@ -167,7 +172,7 @@ function product_category(data) {
         });
         //кашелка
         var Product = $('<button>', {
-            html: '<i class="icon-card"></i>В корзину',
+            html: '<i class="icon-bag"></i>В корзину',
             class: 'btn btn-outline-warning btn-sm',
             click: function() {
                 Product_add($(this).attr('data-add'), $(this).attr('data-id'), $(this), 1);
@@ -215,9 +220,11 @@ function Product_add(type, id, elelm, cols) {
 
         if (elelm.hasClass('btn-outline-warning')) {
             elelm.removeClass('btn-outline-warning').addClass('btn-success');
+            elelm.html('<i class="icon-bag"></i> В корзине');
         }
         else if(elelm.hasClass('btn-success')) {
             elelm.removeClass('btn-success').addClass('btn-outline-warning');
+            elelm.html('<i class="icon-bag"></i> В корзину');
         }
 
 
@@ -225,7 +232,7 @@ function Product_add(type, id, elelm, cols) {
         elelm.removeAttr('style');
         elelm.attr('data-add', 0);
 
-        elelm.removeAttr('style');
+     //  elelm.removeAttr('style');
         //elelm.attr('data-add', 0);
 
         //elelm.attr('data-toast',1);
