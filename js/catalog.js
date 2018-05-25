@@ -403,6 +403,7 @@ $(document).on('click', '.href_sort', function() {
     $.ajax({
         method: "POST",
         url: "dev/categore.php",
+        cache: false,
         data: {
             name: 1,
             sort: $(this).attr("data-sort")
@@ -421,14 +422,21 @@ function categoru_list() {
     $.ajax({
         method: "POST",
         url: "dev/category.php",
+        cache: false,
         //data: {},
         dataType: 'json'
     }).done(function(data) {
 
         $.each(data, function(key, val1) {
             $.each(val1['item'], function(key, val) {
+                // работа с перезагрузкой  категории  и передавать туда категорию для формирования  даты
+                 //переделать компонет для  события клик
+                //работа с активным типом  через юрл в ответе
                 $('#widget-categories').append('<li class="has-children"><a href="#">' + val.name + '</a><span></span></li>');
+
                 $('#widget-categories-2').append('<li class="has-children"><a href="#">' + val.name + '</a><span></span></li>');
+
+
             });
         });
     });
