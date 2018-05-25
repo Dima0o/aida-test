@@ -172,15 +172,16 @@ function product_category(data) {
         });
         //кашелка
         var Product = $('<button>', {
-            html: '<i class="icon-bag"></i>В корзину',
-            class: 'btn btn-outline-warning btn-sm',
+            html: val.status.html,
+
             click: function() {
                 Product_add($(this).attr('data-add'), $(this).attr('data-id'), $(this), 1);
-                //    alert( $(this).attr('data-add'));
             },
          //   role: 'alert',
+        //  class: 'btn btn-outline-warning btn-sm',
             'data-id': val.id,
-            'data-add': 0,
+            class:val.status.class,
+            'data-add': val.status.add,
            // 'data-toast': 3,
            // 'data-toast-type': 'danger',
            // 'data-toast-position': 'topRight',
