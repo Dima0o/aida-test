@@ -432,9 +432,112 @@ function categoru_list() {
                 // работа с перезагрузкой  категории  и передавать туда категорию для формирования  даты
                  //переделать компонет для  события клик
                 //работа с активным типом  через юрл в ответе
-                $('#widget-categories').append('<li class="has-children"><a href="#">' + val.name + '</a><span></span></li>');
+                lincs=$('<a>',{
+                    href:'#',
+                    text:val.name,
+                    click: function() {
+                        alert($(this).attr('data-id'));
+                    },
+                    'data-id':val.url
+                });
+                var Product = $('<a>', {
+                   // html:'#',
 
-                $('#widget-categories-2').append('<li class="has-children"><a href="#">' + val.name + '</a><span></span></li>');
+                    click: function() {
+                        Product_add($(this).attr('data-add'), $(this).attr('data-id'), $(this), 1);
+                    },
+                    //   role: 'alert',
+                    //  class: 'btn btn-outline-warning btn-sm',
+                    'data-id': val.id,
+                  //  class:val.status.class,
+                    'data-add': val.id
+                    // 'data-toast': 3,
+                    // 'data-toast-type': 'danger',
+                    // 'data-toast-position': 'topRight',
+                    // 'data-toast-icon': 'icon-circle-check',
+                    // 'data-toast-title': val.name,
+                    // 'data-toast-message': 'добавлен в корзину',
+                    // 'data-toggle': 'tooltip'
+                });
+
+               /* $('<a>', {
+                    text: 'Я контейнер-ссылка',
+                    href: 'http://google.com',
+                    target: "_blank",
+                    css: {
+                        color: 'green',
+                        backgroundColor: 'black',
+                        display: 'block',
+                        position: 'relative',
+                        padding: '10px',
+                    },
+                    width: 200,
+                    height: 100,
+                    offset: {
+                        top: 20,
+                        left: 120,
+                    },
+                    on: {
+                        click: function(event){
+                            alert('На меня кликнули');
+                        },
+                        mouseover: function(event){
+                            alert("На меня навели мышку");
+                            $(this).off('mouseover');
+                        }
+                    },
+                    append: $('<br>')
+                        .add($('<span>',
+                            {
+                                text: 'Я вставленный html',
+                                css: { fontWeight: 'bold'}
+                            }))
+                        .add($('<br>'))
+                        .add($('<span>', {
+                            html: '<strong>Мой html задан в параметрах</strong>',
+                        })),
+                })
+                    .appendTo('#wrapper');*/
+
+              //  $('#widget-categories').append(catalogitem);
+//'<li class="has-children"><a href="#">' + val.name + '</a><span></span></li>'
+               // $('#widget-categories-2').append($('<li>').addClass('has-children expanded').append(Product,'<span></span>'));
+/*
+                $('<li>', {
+                    text: 'Я контейнер-ссылка',
+                    href: 'http://google.com',
+                    target: "_blank",
+                    class:'has-children expanded',
+                    on: {
+                        click: function(event){
+                            alert('На меня кликнули');
+                        },
+                        mouseover: function(event){
+                            alert("На меня навели мышку");
+                            $(this).off('mouseover');
+                        }
+                    },
+                    append: $('<a>')
+
+                        //.add($('<br>'))
+                        //.add($('<span>', {
+                            html: '<strong>Мой html задан в параметрах</strong>',
+                        })),
+                })
+                    .append('#widget-categories-2');
+
+
+*/
+
+
+
+
+                //console.log(catalogitem);$('#catalog').append($('<div>').append($('<div>').append(product_badge, product_thumb, product_title, product_price, Whishlist, Product).addClass('product-card')).addClass('grid-item col-md-4'));
+               // $('#widget-categories').append($('<li>').addClass('has-children expanded').append(Product,'<span></span>'));
+console.log(lincs);
+                //$('#widget-categories').append(catalogitem);
+        $('#widget-categories-2').append($('<li>').addClass('has-children expanded').append($('<a>').text(val.name),'<span></span>'));
+                //$('#catalog').append($('<div>').append());
 
 
             });
