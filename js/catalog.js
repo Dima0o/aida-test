@@ -205,12 +205,15 @@ function Product_add(type, id, elelm, cols) {
     // var items = Number($(this).parents(".product_item").attr("data-id"));
     //alert($("#card").hasClass("count"));
    // alert($('#count').html());
+   // var test = $.cookie('token');
     $.ajax({
         method: "POST",
         url: "dev/card.php",
         data: {
             item: id,
             kol: cols,
+            //token: test,
+           // token: $.cookie('testName'),
             status: elelm.attr('data-add')
         },
         dataType: 'json'
@@ -534,7 +537,6 @@ function categoru_list() {
 
                 //console.log(catalogitem);$('#catalog').append($('<div>').append($('<div>').append(product_badge, product_thumb, product_title, product_price, Whishlist, Product).addClass('product-card')).addClass('grid-item col-md-4'));
                // $('#widget-categories').append($('<li>').addClass('has-children expanded').append(Product,'<span></span>'));
-console.log(lincs);
                 //$('#widget-categories').append(catalogitem);
         $('#widget-categories-2').append($('<li>').addClass('has-children expanded').append($('<a>').text(val.name),'<span></span>'));
                 //$('#catalog').append($('<div>').append());

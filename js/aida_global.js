@@ -13,7 +13,6 @@ function GlobalPage(power) {
         });
         //$(id).html(items);
         $('.page_menu_nav').html(items);
-
     }
 
     this.Menu = [];
@@ -235,37 +234,35 @@ function RenderCard(count, summa) {
  -через сессии
  -через обьекты
  */
+function getRandom()
+{
+    return Math.random();
+}
 
 function Card_Bild() {
-    // alert("Card_Bild");
-    //var js_obj = $.cookie('cadr_list').split(',');
-    //alert($.cookie('cadr_list'));
+    $.cookie('cookie_name', 'cookie_value', {
+        expires: 7,
 
-    // discard the variable
-    //  alert(js_obj);
-    // console.log(js_obj);
-    /* js_obj = $.cookie('cadr_list').split(',')
-     if( $.cookie('cadr_list')!=null &&$.cookie('cadr_list')!="null"){
-         $('#cadr_col_shop').html(js_obj.length);
-         $('.cart_price').attr("data-price", $.cookie('cart_price'));
-         $('.cart_price').text($.cookie('cadr_price')+' руб.');
-     }*/
-    /**/
+        domain: 'aida.k99969kp.beget.tech',
+        secure: true
+    });
+    if( $.cookie('testName')==null ){
+     $.cookie("testName",255615321535156);
+
+    }
+  //  alert($.cookie('cookie_name'));
     $.ajax({
         method: "POST",
         url: "dev/card.php",
         data: {
             item: $(this).attr('data-id'),
+            token:$.cookie('token'),
             col: $(this).attr('data-id')
         },
         dataType: 'json'
     }).done(function(data) {
         Card_work(data);
-        //CardShop();
     });
-    //   console.log($.cookie('cadr_price')+'++'+$.cookie('cadr_list'));
-
-
 }
 
 function Card_Clear() {
@@ -311,13 +308,13 @@ function PageBild() {
 
 //глобальная работа с корзиной
 function Product_cancel(type, id, elelm, cols) {
-
     $.ajax({
         method: "POST",
         url: "dev/card.php",
         data: {
             item: id,
             kol: cols,
+            token:$.cookie('token'),
             status: elelm.attr('data-add')
         },
         dataType: 'json'
@@ -327,11 +324,11 @@ function Product_cancel(type, id, elelm, cols) {
     });
 }
 
-
-
 //отрисовка корзины   работает на массиве из dev/card.php через токен
 function Card_work(y) {
     $.each(y, function(index, data) {
+       // $.cookie('token',data.token);
+        //$.cookie('testName',data.token);
         $('#count').html(data.item.length);
         $('#subtotal').text(data.sum + ' руб.');
         //работа с  элементами массива в  кторые входит немного данных
@@ -454,6 +451,6 @@ function Shop_listing() {
 //https://bootsnipp.com/snippets/orOGB
 
 //card //card   https://bootsnipp.com/snippets/O5mM8
-Shop_listing();
+//Shop_listing();
 //глобальный вызов постройки карзины
 Card_Bild();

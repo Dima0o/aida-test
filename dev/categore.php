@@ -302,7 +302,7 @@ function prod_cat($id)
 }
 //проверка в корзине
 function status($id){
-    $qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`shop` WHERE `k99969kp_1c`.`shop`.`status`=0 and `k99969kp_1c`.`shop`.`token`='" . $_SESSION['tokens']. "' and `k99969kp_1c`.`shop`.`prod`=".$id) or die(mysql_error());
+    $qr_result = mysql_query("SELECT * FROM `k99969kp_1c`.`shop` WHERE `k99969kp_1c`.`shop`.`status`=0 and `k99969kp_1c`.`shop`.`token`='" . $_COOKIE['PHPSESSID']. "' and `k99969kp_1c`.`shop`.`prod`=".$id) or die(mysql_error());
     if (mysql_num_rows($qr_result) > 0) {
         return array(
             "html"=>"<i class=\"icon-bag\"></i>В корзине",
@@ -422,7 +422,7 @@ function data_cat($id)
     return $row;
 }
 ?>
-{
+{"token":"<?=$_COOKIE['PHPSESSID']?>",
 "titel":"<?= $_POST['sort'] ?>",
 "col":"<?= prod_col($_POST['id']) ?>",
 "data":<?= data_out(); ?>, "cat":"<?
