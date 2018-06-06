@@ -168,7 +168,7 @@
                 </div>
                 <div id="cart" class="cart">
                     <a href="cart.html"></a><i class="icon-bag"></i><span id="count" class="count">3</span><span
-                        id="subtotal"   class="subtotal">$289.68</span>
+                        id="subtotal"   class="subtotal">Рублеей 00</span>
                     <div class="toolbar-dropdown" id="card-list">
                         <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/01.jpg" alt="Product"></a>
                             <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a><span class="dropdown-product-details">1 x $43.90</span></div>
@@ -217,7 +217,7 @@
             <!-- Products-->
             <div class="col-xl-9 col-lg-8 order-lg-2">
                 <!-- Shop Toolbar-->
-                <div class="shop-toolbar padding-bottom-1x mb-2">
+                <div  id="nav-bars" class="shop-toolbar padding-bottom-1x mb-2">
                     <div class="column">
                         <div class="shop-sorting">
                             <label for="sorting">Sort by:</label>
@@ -431,23 +431,24 @@
 <div class="site-backdrop"></div>
 <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="http://code.jquery.com/ui/1.11.0-beta.1/jquery-ui.js" integrity="sha256-q5raG0xmu2guatVMnFCPiZAbKKY5ZX0Wq0Uvar+qN78=" crossorigin="anonymous"></script>
 <script src="js/global.js"></script>
 <script src="js/catalog.js"></script>
 <script src="js/aida_global.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script src="https://unpkg.com/masonry-layout@4.2.1/dist/masonry.pkgd.min.js"></script>
 <script>
     categoru_list();
     Catalog_bild();
     Menu();
+    Card_Bild();
+    
 
 //поиск  и  глобальный кнонстуркор функци и классов
 </script>
-    <script type="text/javascript" src="js/scripts.min.js" defer></script>
+
     <script src="js/vendor.min.js" defer></script>
-   <!-- <script src="js/scripts.min.js" defer></script>-->
+    <script src="js/scripts.min.js" defer></script>
+    <!--<script type="text/javascript" src="js/scripts.min.js" defer></script>
+    -->
 </body>
 </html>

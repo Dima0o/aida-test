@@ -219,7 +219,7 @@ function data_out()
 {
     //json_encode
     if (isset($_GET['id']) or prod_col($_GET['id']) > 0 or $_GET['id'] != null) {
-         return json_encode( all2() );
+        return json_encode( all2() );
         //echo '<pre>';
         //var_dump(all2());
         //echo '</pre>';
@@ -247,8 +247,7 @@ function all2()
             "status" => status($data['id']),
             "event" => event_prod($data['uid'])
         );
-    }
-    ;
+    };
     //return mysql_fetch_array($qr_result);
     return $mass;
 }
@@ -258,7 +257,7 @@ function event_prod($id)
 {
 
     $qr_result = mysql_query("select * from `k99969kp_1c`.`eventslist` WHERE `guid`='" . $id . "' LIMIT 0,1") or die(mysql_error());
-   // echo $id . '//' . count(mysql_fetch_array($qr_result)) . '**<br>';
+    // echo $id . '//' . count(mysql_fetch_array($qr_result)) . '**<br>';
     if (count(mysql_fetch_array($qr_result)) > 0) {
         while ($data = mysql_fetch_array($qr_result)) {
             //  echo "name: ".$data[ 'name' ];
@@ -306,7 +305,7 @@ function status($id){
         return array(
             "html"=>"<i class=\"icon-bag\"></i>В корзине",
             "class" => "btn btn-success btn-sm",
-            "add" => mysql_num_rows($qr_result) 
+            "add" => mysql_num_rows($qr_result)
         );
     } else {
         return array(
@@ -421,25 +420,90 @@ function data_cat($id)
     return $row;
 }
 
-
-
-
-
+function titel($id){
+    if(isset($_GET['id'])){
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`categori` where `id`='" . $id . "'") or die(mysql_error());
+        while ($data = mysql_fetch_array($qr_result)) {
+            return $data['name'];
+        }
+    }else{
+        return "Категория";
+    }
+}
 
 // новый возврат товаров для работы с  параметрами вхождения
 // штрих код  артикул название  атритубы потом
 // категория  название категории код категории
 
+function data_category($id){
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` where `categori`='$id'") or die(mysql_error());
+    while ($data = mysql_fetch_array($qr_result)) {
+        $mass[] = array(
+            "id" => $data['id'],
+            "name" => $data['name'],
+            "price" => $data['id'],
+            "uid" => $data['uid'],
+            "categori" => category($data['categori']),
+            "price" => price2($data['uid'], $_COOKIE['main-shop']),
+            "img" => img2(),
+            //"tipe" => $data[ 'quantity' ]
+            //работа с типом товара для поиска его массива
+            "status" => status($data['id']),
+            "event" => event_prod($data['uid'])
+        );
+    };
+    //return mysql_fetch_array($qr_result);
+    return $mass;
+}
+
+function data_in(){
+    if(isset($_GET['id'])){
+        return   json_encode(data_prod($_GET['id']));
+    }else{
+        //  data_out();
+        return '[]';
+    }
+}
+function col_category(){
+    /*if(isset($_GET['id'])){
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` where `categori`='" . categori_uid($_GET['id']). "'") or die(mysql_error());
+        //$qr_result = mysql_query("select * from `k99969kp_1c`.`categori` where `id`='" . categori_uid($_GET['id']) . "'") or die(mysql_error());
+        return mysql_num_rows($qr_result);
+    }else{
+        return 50;
+    }
+    */
+    return 200;
+}
+function data_prod($id){
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` where `id`='$id'") or die(mysql_error());
+    while ($data = mysql_fetch_array($qr_result)) {
+        $mass[] = array(
+            "id" => $data['id'],
+            "name" => $data['name'],
+            "price" => $data['id'],
+            "uid" => $data['uid'],
+            "categori" => category($data['categori']),
+            "price" => price2($data['uid'], $_COOKIE['main-shop']),
+            "img" => img2(),
+            //"tipe" => $data[ 'quantity' ]
+            //работа с типом товара для поиска его массива
+            "status" => status($data['id']),
+            "event" => event_prod($data['uid'])
+        );
+    };
+    //return mysql_fetch_array($qr_result);
+    return $mass;
+}
 
 ?>
-{"token":"<?=$_COOKIE['PHPSESSID']?>",
-"titel":"<?= $_POST['sort'] ?>",
-
-"data":<?= data_out(); ?>, "cat":"<?
-if (isset($_POST['id'])) {
-    echo categori_uid($_POST['id']);
-} else {
-    echo 'else';
+{
+"token":"<?=$_COOKIE['PHPSESSID']?>",
+"titel":"<?= titel($_GET['id']) ?>",
+"filter":[],
+"action":[],
+"data":<?= data_in(); ?>,
+"cat":"<?if (isset($_POST['id'])) {    echo categori_uid($_POST['id']);} else {    echo 'else';};?>",
+"code":<?=col_category()?>
 }
-;
-?>"}
+

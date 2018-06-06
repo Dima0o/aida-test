@@ -62,7 +62,7 @@ $i++;
 
 function global_categori()
 {
-    $qr_result = mysql_query("select * from `k99969kp_1c`.`categori`  ORDER BY `categori`.`id` ASC ") or die(mysql_error());
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`categori`  ORDER BY `categori`.`name` ASC ") or die(mysql_error());
     while ($data = mysql_fetch_array($qr_result))
     {
         $mass[] = array(
@@ -71,12 +71,21 @@ function global_categori()
             "code" => $data['code'],
             "patent" => $data['patent'],
             "uid" => $data['uid'],
+            "col" => col_category($data['uid']),
             "rang" => $data['rang']
         );
     };
     // return mysql_fetch_array($qr_result);
     return $mass;
 }
+function col_category($id){
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` where `categori`='".$id."'") or die(mysql_error());
+   // while ($data = mysql_fetch_array($qr_result))
+
+        return mysql_num_rows($qr_result);
+}
+
+
 echo '[{"item":' . json_encode(global_categori()) . '}]'; //var_dump(global_categori());
 
 ?>

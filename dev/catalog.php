@@ -33,10 +33,10 @@ class Prod
         };
         return $row;
     }
-    function categori_id()
+    function id_cat($id)
     {
         mb_internal_encoding("UTF-8");
-        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` WHERE `prod`.`prod`=".$_GET['id']."LIMIT 0, 50") or die(mysql_error());
+        $qr_result = mysql_query("select * from `k99969kp_1c`.`prod` WHERE `prod`.`categori`='".$id."'") or die(mysql_error());
         $i = 1;
         $row='';
         while ($data = mysql_fetch_array($qr_result)) {
@@ -62,16 +62,28 @@ class Prod
         };
         return $row;
     }
+
 }
+
+function id_categ($id){
+    //
+    $qr_result = mysql_query("select * from `k99969kp_1c`.`categori` where `id`=$id") or die(mysql_error());
+    while ($data = mysql_fetch_array($qr_result))
+    {
+        return $data['uid'];
+    };
+}
+
 $Prod = new Prod;
 ?>
 
 {
 "titel":"Каталог товаров",
 "url":"#",
+"date":<?=json_encode(var_dump($_GET))?>,
 "data":[<?
-if (isset($_GET['id'])) {
-    //echo 'adasdad';
+
+if (isset($_GET['id'])==false) {
     echo $Prod->categori_id();
 }else {
     echo $Prod->all();} ?>]

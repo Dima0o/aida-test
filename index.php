@@ -4,7 +4,10 @@
  * User: diman0o
  * Date: 16.05.18
  * Time: 12:24
- */?>
+ */
+
+header('Location: /blog.php');
+?>
 
 <html lang="en"><head>
     <meta charset="utf-8">
